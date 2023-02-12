@@ -1,0 +1,10 @@
+@import url("../../styles/colors.css");
+.home-explore {
+    border: 1px solid red;
+}
+
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    padding: 10px;
+}

@@ -1,0 +1,84 @@
+@import url("../../styles/colors.css");
+.card-container {
+    margin: 0 0 70px 70px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-heading {
+    position: absolute;
+    z-index: 10;
+    top: -23px;
+    margin-left: 75px;
+    text-transform: uppercase;
+    font-size: 2.3rem;
+    color: var(--white);
+    pointer-events: none;
+}
+
+.card-image-container {
+    border-radius: 20px;
+    width: 340px;
+    height: 500px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--brown);
+}
+
+.card-images {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    filter: brightness(45%);
+    position: absolute;
+    top: 6px;
+    transition: all 1s;
+    z-index: 10;
+}
+
+.card-images:hover {
+    transform: translateY(10px);
+    position: absolute;
+    top: 70px;
+    left: 0;
+}
+
+.card-plus {
+    position: absolute;
+    z-index: 100;
+    left: 155px;
+    font-size: 5rem;
+    pointer-events: none;
+}
+
+.card-image:nth-child(2n + 1) > .card-image-container {
+    background-color: var(--blue);
+}
+
+.card-image:nth-child(3n + 2) > .card-image-container {
+    margin-top: -150px;
+}
+
+.card-image:nth-child(3n) > .card-image-container {
+    margin-top: -350px;
+}
+.card-image:nth-child(3n) > .card-heading {
+    top: -190px;
+}
+
+.card-image:nth-child(3n) > .card-image-container {
+    background-color: var(--yellow);
+}
+.card-image:nth-child(3n) > .card-plus {
+    top: -63px;
+}
+.card-image:nth-child(3n + 2) > .card-heading {
+    top: -95px;
+}
+.card-image:nth-child(3n + 2) > .card-plus {
+    top: 20px;
+}
