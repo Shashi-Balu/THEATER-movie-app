@@ -22,7 +22,7 @@ const MovieCard = (props) => {
                     <p className="movie-card-rating">{props.rating}/10</p>
                 </div>
                 <h4 className="movie-card-title">
-                    {props.title.length >= 25 ? `${props.title.slice(0, 25)}...` : props.title}
+                    {props.title.length >= 25 ? `${props.title.slice(0, 20)}...` : props.title}
                 </h4>
             </div>
         </>

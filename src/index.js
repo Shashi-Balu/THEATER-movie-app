@@ -3,17 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { MovieContextProvider } from "./components/MovieProviders/MovieProviders";
-// import { GenreContext, GenreContextProviders } from "./services/GenreProviders";
+import { GenreContext, GenreContextProviders } from "./services/GenreProviders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        {/* <GenreContextProviders> */}
-        <MovieContextProvider>
-            <App />
-        </MovieContextProvider>
-
-        {/* </GenreContextProviders> */}
+        <GenreContextProviders>
+            <MovieContextProvider>
+                <App />
+            </MovieContextProvider>
+        </GenreContextProviders>
     </React.StrictMode>
 );
 

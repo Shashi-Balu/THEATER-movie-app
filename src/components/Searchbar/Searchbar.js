@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import "./Searchbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Movie from "../Movie/Movie";
+import Tvshow from "../Tvshow/Tvshow";
 
-function Searchbar(props) {
+const Searchbar = (props) => {
     let [type, setType] = useState("trending");
-    let [isMovieTab, setIsMovieTab] = useState("/movies");
     const changeType = (event) => {
         setType(event.target.value);
         console.log(event.target.value);
@@ -73,11 +73,8 @@ function Searchbar(props) {
                     Popular
                 </label>
             </div>
-            <div>
-                <Movie type={type} />
-            </div>
         </>
     );
-}
+};
 
 export default Searchbar;

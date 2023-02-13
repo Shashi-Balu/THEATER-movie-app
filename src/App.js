@@ -4,6 +4,7 @@ import Genres from "./pages/Genres/Genres";
 import Tvshows from "./pages/Tvshows/Tvshows";
 import Movies from "./pages/Movies/Movies";
 import Home from "./pages/Home/Home";
+import { GenreContextProviders } from "./services/GenreProviders";
 
 function App() {
     return (

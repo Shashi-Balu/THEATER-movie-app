@@ -1,0 +1,38 @@
+@import url("../../styles/colors.css");
+
+.genres-container {
+    /* margin-left: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.genres-heading {
+    font-size: 2.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+}
+
+.genres-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    font-size: 2rem;
+}
+.genre-elements {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--gold);
+    padding: 8px;
+    margin: 20px 40px;
+    transition: all 1s;
+}
+
+.genre-elements:hover {
+    color: var(--black);
+    cursor: pointer;
+    background-color: var(--gold);
+    transform: translateY(-3px);
+}

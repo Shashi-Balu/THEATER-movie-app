@@ -1,8 +1,7 @@
 @import url("../../styles/colors.css");
 
 .searchbar {
-    width: 95%;
-    margin-left: 0px;
+    width: 70%;
     background-color: var(--black);
     border: none;
     padding: 8px;
@@ -17,6 +16,7 @@
     border: 0.5px solid var(--gold);
     display: flex;
     margin-top: 30px;
+    margin-left: 13px;
 }
 
 .search-icon {

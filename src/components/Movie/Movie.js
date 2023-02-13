@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MovieContext } from "../MovieProviders/MovieProviders";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Movie.css";
+import Searchbar from "../Searchbar/Searchbar";
 
 function Movie({ type }) {
     const {
@@ -16,6 +17,7 @@ function Movie({ type }) {
     } = useContext(MovieContext);
     return (
         <>
+            <Searchbar />
             <div>
                 {(() => {
                     switch (type) {
