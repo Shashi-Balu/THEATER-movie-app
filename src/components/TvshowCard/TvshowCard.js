@@ -4,10 +4,10 @@ import "./TvshowCard.css";
 
 const TvshowCard = (props) => {
     return (
-        <div>
+        <>
             <div className="tvshow-card-container">
                 <div className="tvshow-card-image-container">
-                    <img src={props.imgUrl} alt={props.name} className="tvshow-card-image" />
+                    <img src={props.imgUrl} alt={props.title} className="tvshow-card-image" />
                 </div>
 
                 <div className="tvshow-card-rating-data">
@@ -18,7 +18,7 @@ const TvshowCard = (props) => {
                     {props.title.length >= 25 ? `${props.title.slice(0, 20)}...` : props.title}
                 </h4>
             </div>
-        </div>
+        </>
     );
 };
 

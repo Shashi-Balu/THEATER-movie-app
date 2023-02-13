@@ -21,9 +21,11 @@
 
 .movie-card-container:nth-child(2n + 1) {
     background-color: var(--yellow);
+    border: 1px solid var(--yellow);
 }
 .movie-card-container:nth-child(2n) {
     background-color: var(--blue);
+    border: 1px solid var(--blue);
 }
 
 .movie-card-rating-data {
