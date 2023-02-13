@@ -6,3 +6,12 @@ body {
     color: var(--white);
     font-weight: 100;
 }
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 2px;
+}
+::-webkit-scrollbar {
+    width: 0.8px;
+    height: 1px;
+}
