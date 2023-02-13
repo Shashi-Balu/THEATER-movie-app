@@ -2,23 +2,31 @@ import React, { useState, useContext } from "react";
 import { TvshowContext } from "../TvshowProviders/TvshowProviders";
 import TvshowCard from "../TvshowCard/TvshowCard";
 import Searchbar from "../Searchbar/Searchbar";
+import "./Tvshow.css";
 
 function Tvshow() {
     const [displayType, setDisplayType] = useState("");
     const {
         trendingTvshows,
-        upcomingTvshows,
+        airingTodayTvshows,
         popularTvshows,
         topRatedTvshows,
         trendingTvshowsImages,
-        upcomingTvshowsImages,
+        airingTodayTvshowsImages,
         popularTvshowsImages,
         topRatedTvshowsImages,
     } = useContext(TvshowContext);
 
     return (
         <>
-            <Searchbar category="TV SHOWS" getType={setDisplayType} />
+            <Searchbar
+                category="TV SHOWS"
+                getType={setDisplayType}
+                trending="trending"
+                upcoming="airing today"
+                topRated="top rated"
+                popular="popular"
+            />
 
             <div>
                 {(() => {
@@ -26,12 +34,12 @@ function Tvshow() {
                         case "upcoming":
                             return (
                                 <div className="tvshow-container">
-                                    {upcomingTvshows.map((tv, index) => (
+                                    {airingTodayTvshows?.map((tv, index) => (
                                         <TvshowCard
                                             key={index}
                                             title={tv.name}
                                             rating={tv.vote_average.toFixed(1)}
-                                            imgUrl={upcomingTvshowsImages[index]}
+                                            imgUrl={airingTodayTvshowsImages[index]}
                                         />
                                     ))}
                                 </div>

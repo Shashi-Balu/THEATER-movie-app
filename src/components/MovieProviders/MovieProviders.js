@@ -51,7 +51,7 @@ export const MovieContextProvider = ({ children }) => {
     const popularMoviesImages = popularMovies.map(
         (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
     );
-    const topRatedImages = topRatedMovies.map(
+    const topRatedMoviesImages = topRatedMovies.map(
         (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
     );
     const latestMoviesImages = latestMovies.map(
@@ -81,7 +81,7 @@ export const MovieContextProvider = ({ children }) => {
                 trendingMoviesImages,
                 upcomingMoviesImages,
                 popularMoviesImages,
-                topRatedImages,
+                topRatedMoviesImages,
                 tvshowsImages,
             }}
         >

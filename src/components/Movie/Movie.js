@@ -20,11 +20,18 @@ function Movie() {
         trendingMoviesImages,
         upcomingMoviesImages,
         popularMoviesImages,
-        topRatedMovieImages,
+        topRatedMoviesImages,
     } = useContext(MovieContext);
     return (
         <>
-            <Searchbar category="MOVIES" getType={setDisplayType} />
+            <Searchbar
+                category="MOVIES"
+                getType={setDisplayType}
+                trending="trending"
+                upcoming="upcoming"
+                topRated="top rated"
+                popular="popular"
+            />
 
             <div>
                 {(() => {
@@ -50,7 +57,7 @@ function Movie() {
                                             key={index}
                                             title={movie.title}
                                             rating={movie.vote_average.toFixed(1)}
-                                            imgUrl={topRatedMovieImages[index]}
+                                            imgUrl={topRatedMoviesImages[index]}
                                         />
                                     ))}
                                 </div>

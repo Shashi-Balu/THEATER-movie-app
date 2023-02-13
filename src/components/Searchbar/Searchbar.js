@@ -12,13 +12,14 @@ const Searchbar = (props) => {
     };
 
     props.getType(type);
+    // props.getTvType(type);
 
     return (
         <>
             <div className="searchbar-container">
                 <SearchIcon className="search-icon" />
-                {/* <input className="searchbar" placeholder={`SEARCH ${props.category}`} /> */}
-                <input className="searchbar" placeholder="" />
+                <input className="searchbar" placeholder={`SEARCH ${props.category}`} />
+                {/* <input className="searchbar" placeholder="" /> */}
             </div>
             <div className="type-categories">
                 <input
@@ -32,7 +33,7 @@ const Searchbar = (props) => {
                     className="type-radio"
                 />
                 <label className="type-label" for="trending">
-                    Trending
+                    {props.trending}
                 </label>
 
                 <input
@@ -46,7 +47,7 @@ const Searchbar = (props) => {
                     className="type-radio"
                 />
                 <label className="type-label" for="upcoming">
-                    Upcoming
+                    {props.upcoming}
                 </label>
 
                 <input
@@ -60,7 +61,7 @@ const Searchbar = (props) => {
                     className="type-radio"
                 />
                 <label className="type-label" for="top-rated">
-                    Top Rated
+                    {props.topRated}
                 </label>
 
                 <input
@@ -74,7 +75,7 @@ const Searchbar = (props) => {
                     className="type-radio"
                 />
                 <label className="type-label" for="popular">
-                    Popular
+                    {props.popular}
                 </label>
             </div>
         </>

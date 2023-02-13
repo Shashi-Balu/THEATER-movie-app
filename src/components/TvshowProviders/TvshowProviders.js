@@ -3,12 +3,11 @@ import { url } from "../../services/apis/movieUrl";
 
 export const TvshowContext = createContext();
 
-const TvshowProviders = () => {
+const TvshowProviders = ({ children }) => {
     const [trendingTvshows, setTrendingTvshows] = useState([]);
-    const [upcomingTvshows, setUpcomingTvshows] = useState([]);
+    const [airingTodayTvshows, setAiringTodayTvshows] = useState([]);
     const [popularTvshows, setPopularTvshows] = useState([]);
     const [topRatedTvshows, setTopRatedTvshows] = useState([]);
-    const [latestMovies, setLatestMovies] = useState([]);
     const [tvshows, setTvshows] = useState([]);
 
     async function callTvshowsApi() {
@@ -18,11 +17,11 @@ const TvshowProviders = () => {
         const trendingTvshowsApiData = trendingTvshowsApi.results;
         setTrendingTvshows(trendingTvshowsApiData);
 
-        const upcomingTvshowsApi = await (
-            await fetch(`${url}/tv/upcoming?api_key=${process.env.REACT_APP_API_KEY}`)
+        const airingTodayTvshowsApi = await (
+            await fetch(`${url}/tv/airing_today?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
-        const upcomingTvshowsApiData = upcomingTvshowsApi.results;
-        setUpcomingTvshows(upcomingTvshowsApiData);
+        const airingTodayTvshowsApiData = airingTodayTvshowsApi.results;
+        setAiringTodayTvshows(airingTodayTvshowsApiData);
 
         const popularTvshowsApi = await (
             await fetch(`${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=3`)
@@ -46,7 +45,7 @@ const TvshowProviders = () => {
     const trendingTvshowsImages = trendingTvshows.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
     );
-    const upcomingTvshowsImages = upcomingTvshows.map(
+    const airingTodayTvshowsImages = airingTodayTvshows?.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
     );
     const popularTvshowsImages = popularTvshows.map(
@@ -55,9 +54,6 @@ const TvshowProviders = () => {
     const topRatedTvshowsImages = topRatedTvshows.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
     );
-    // const latesttvsImages = latesttvs.map(
-    //     (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
-    // );
     const tvshowsImages = tvshows.map((tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`);
 
     useEffect(() => {
@@ -65,13 +61,12 @@ const TvshowProviders = () => {
     }, []);
     return (
         <div>
-            <TvshowContext.Provider>
-                value =
-                {{
+            <TvshowContext.Provider
+                value={{
                     trendingTvshows,
                     setTrendingTvshows,
-                    upcomingTvshows,
-                    setUpcomingTvshows,
+                    airingTodayTvshows,
+                    setAiringTodayTvshows,
                     popularTvshows,
                     setPopularTvshows,
                     topRatedTvshows,
@@ -79,11 +74,13 @@ const TvshowProviders = () => {
                     tvshows,
                     setTvshows,
                     trendingTvshowsImages,
-                    upcomingTvshowsImages,
+                    airingTodayTvshowsImages,
                     popularTvshowsImages,
                     topRatedTvshowsImages,
                     tvshowsImages,
                 }}
+            >
+                {children}
             </TvshowContext.Provider>
         </div>
     );

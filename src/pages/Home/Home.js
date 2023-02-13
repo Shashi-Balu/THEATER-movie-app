@@ -35,7 +35,7 @@ function Home() {
                 <div className="home-cards">
                     <Card img={trendingMoviesImages[0]} title="trending" className="card-image" />
                     <Card img={upcomingMoviesImages[0]} title="upcoming" className="card-image" />
-                    <Card img={topRatedImages[0]} title="top rated" className="card-image" />
+                    <Card img={topRatedMoviesImages[0]} title="top rated" className="card-image" />
                     <Card img={popularMoviesImages[0]} title="popular" className="card-image" />
                     <Card img={tvshowsImages[0]} title="tv shows" className="card-image" />
                 </div>

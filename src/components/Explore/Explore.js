@@ -28,8 +28,8 @@ function Explore() {
             </div>
             <div className="explore-cards">
                 <Card img={trendingMoviesImages[0]} title="trending" />
-                <Card img={upcomingMoviesImages[0]} title="upcoming" />
-                <Card img={topRatedTvshowsImages[0]} title="top rated" />
+                {/* <Card img={upcomingMoviesImages[0]} title="upcoming" />s */}
+                {/* <Card img={topRatedMoviesImages[0]} title="top rated" /> */}
                 <Card img={popularMoviesImages[0]} title="popular" />
                 <Card img={tvshowsImages[0]} title="tv shows" />
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
+import "./TvshowCard.css";
 
 const TvshowCard = (props) => {
     return (
@@ -14,7 +15,7 @@ const TvshowCard = (props) => {
                     <p className="tvshow-card-rating">{props.rating}/10</p>
                 </div>
                 <h4 className="tvshow-card-title">
-                    {props.name.length >= 25 ? `${props.name.slice(0, 20)}...` : props.name}
+                    {props.title.length >= 25 ? `${props.title.slice(0, 20)}...` : props.title}
                 </h4>
             </div>
         </div>

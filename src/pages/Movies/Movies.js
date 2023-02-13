@@ -9,7 +9,6 @@ function Movies() {
         <>
             <Navbar />
             <Movie />
-            <Tvshow />
         </>
     );
 }

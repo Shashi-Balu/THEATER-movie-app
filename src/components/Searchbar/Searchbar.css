@@ -45,6 +45,7 @@
 .type-label {
     font-size: 1.6rem;
     margin-left: 13%;
+    text-transform: uppercase;
 }
 
 .type-categories {
