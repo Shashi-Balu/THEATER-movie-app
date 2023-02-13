@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import "./Searchbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Movie from "../Movie/Movie";
@@ -10,11 +10,15 @@ const Searchbar = (props) => {
         setType(event.target.value);
         console.log(event.target.value);
     };
+
+    props.setType(type);
+
     return (
         <>
             <div className="searchbar-container">
                 <SearchIcon className="search-icon" />
-                <input className="searchbar" placeholder={`SEARCH ${props.category}`} />
+                {/* <input className="searchbar" placeholder={`SEARCH ${props.category}`} /> */}
+                <input className="searchbar" placeholder="" />
             </div>
             <div className="type-categories">
                 <input

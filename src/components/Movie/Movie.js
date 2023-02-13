@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MovieContext } from "../MovieProviders/MovieProviders";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Movie.css";
 import Searchbar from "../Searchbar/Searchbar";
 
-function Movie({ type }) {
+function Movie() {
+    const [displayType, setDisplayType] = useState("");
+
+    // const getData = (receiveType) => {
+    //     setDisplayType(receiveType);
+    // };
+    // console.log(displayType);
+
     const {
         trendingMovies,
         upcomingMovies,
@@ -17,10 +24,11 @@ function Movie({ type }) {
     } = useContext(MovieContext);
     return (
         <>
-            <Searchbar />
+            <Searchbar category="MOVIES" setType={setDisplayType} />
+
             <div>
                 {(() => {
-                    switch (type) {
+                    switch (displayType) {
                         case "upcoming":
                             return (
                                 <div className="movies-container">
