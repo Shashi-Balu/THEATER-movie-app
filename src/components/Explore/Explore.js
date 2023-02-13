@@ -13,7 +13,7 @@ function Explore() {
         upcomingMoviesImages,
         topRatedMoviesImages,
         popularMoviesImages,
-        topRatedImages,
+        topRatedTvshowsImages,
         trendingMoviesImages,
         setTrendingMovies,
         setUpcomingMovies,
@@ -29,7 +29,7 @@ function Explore() {
             <div className="explore-cards">
                 <Card img={trendingMoviesImages[0]} title="trending" />
                 <Card img={upcomingMoviesImages[0]} title="upcoming" />
-                <Card img={topRatedImages[0]} title="top rated" />
+                <Card img={topRatedTvshowsImages[0]} title="top rated" />
                 <Card img={popularMoviesImages[0]} title="popular" />
                 <Card img={tvshowsImages[0]} title="tv shows" />
             </div>

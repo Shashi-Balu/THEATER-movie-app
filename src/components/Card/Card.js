@@ -11,7 +11,7 @@ function Card(props) {
         trendingMoviesImages,
         upcomingMoviesImages,
         popularMoviesImages,
-        topRatedImages,
+        topRatedMovieImages,
         setTrendingMovies,
         setUpcomingMovies,
         setPopularMovies,

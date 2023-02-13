@@ -11,7 +11,7 @@ const Searchbar = (props) => {
         console.log(event.target.value);
     };
 
-    props.setType(type);
+    props.getType(type);
 
     return (
         <>

@@ -3,13 +3,6 @@ import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./MovieCard.css";
 
 const MovieCard = (props) => {
-    // let movieTitle = "";
-    // if (props.title.length === 25) {
-    //     movieTitle = `${props.title.slice(0, 25)}...`;
-    // } else {
-    //     movieTitle = props.title.length;
-    // }
-    // console.log(movieTitle);
     return (
         <>
             <div className="movie-card-container">
