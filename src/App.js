@@ -5,6 +5,7 @@ import Tvshows from "./pages/Tvshows/Tvshows";
 import Movies from "./pages/Movies/Movies";
 import Home from "./pages/Home/Home";
 import { GenreContextProviders } from "./services/GenreProviders";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path={"/genres"} element={<Genres />} />
                 </Routes>
             </BrowserRouter>
+            <Footer />
         </div>
     );
 }

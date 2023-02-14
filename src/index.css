@@ -1,5 +1,12 @@
 @import url("./styles/colors.css");
 @import url("https://fonts.googleapis.com/css2?family=Buenard&family=Cinzel&family=Cormorant+Garamond:wght@300&display=swap");
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: "Cormorant Garamond", cursive;
     background-color: var(--black);

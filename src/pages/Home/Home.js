@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import { MovieContext } from "../../components/MovieProviders/MovieProviders";
 import "./Home.css";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
     const {
