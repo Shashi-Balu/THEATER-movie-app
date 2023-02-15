@@ -5,17 +5,20 @@ import App from "./App";
 import { MovieContextProvider } from "./components/MovieProviders/MovieProviders";
 import { GenreContext, GenreContextProviders } from "./services/GenreProviders";
 import TvshowProviders from "./components/TvshowProviders/TvshowProviders";
+import { TypeContextProviders } from "./services/TypeProviders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <GenreContextProviders>
-            <MovieContextProvider>
-                <TvshowProviders>
-                    <App />
-                </TvshowProviders>
-            </MovieContextProvider>
-        </GenreContextProviders>
+        <TypeContextProviders>
+            <GenreContextProviders>
+                <MovieContextProvider>
+                    <TvshowProviders>
+                        <App />
+                    </TvshowProviders>
+                </MovieContextProvider>
+            </GenreContextProviders>
+        </TypeContextProviders>
     </React.StrictMode>
 );
 

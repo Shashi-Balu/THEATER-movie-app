@@ -20,12 +20,9 @@ function Footer() {
                     </p>
                 </div>
                 <div className="footer-right">
-                    <div>
-                        <GitHubIcon />
-                    </div>
-                    <div>
-                        <LinkedInIcon />
-                    </div>
+                    <GitHubIcon className="footer-icon" />
+
+                    <LinkedInIcon className="footer-icon" />
                 </div>
             </div>
         </>

@@ -1,10 +1,12 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import "./Searchbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Movie from "../Movie/Movie";
 import Tvshow from "../Tvshow/Tvshow";
+import { TypeContext } from "../../services/TypeProviders";
 
 const Searchbar = (props) => {
+    const { typeTrending, typeUpcoming, typeTopRated, typePopular } = useContext(TypeContext);
     let [type, setType] = useState("trending");
     const changeType = (event) => {
         setType(event.target.value);
@@ -14,6 +16,8 @@ const Searchbar = (props) => {
     props.getType(type);
     // props.getTvType(type);
 
+    const trendingSection = () => {};
+
     return (
         <>
             <div className="searchbar-container">
@@ -21,60 +25,68 @@ const Searchbar = (props) => {
                 <input className="searchbar" placeholder={`SEARCH ${props.category}`} />
                 {/* <input className="searchbar" placeholder="" /> */}
             </div>
+            {/* <div>
+                <p style={{ backgroundColor: "red" }} onClick={trendingSection}>
+                    {props.trending}
+                </p>
+                <p>{props.upcoming}</p>
+                <p>{props.topRated}</p>
+                <p>{props.popular}</p>
+            </div> */}
             <div className="type-categories">
                 <input
                     type="radio"
-                    label="trending"
+                    label={typeTrending}
                     name="movie"
-                    id="trending"
-                    value="trending"
+                    id={typeTrending}
+                    value={typeTrending}
                     onChange={changeType}
-                    checked={type === "trending"}
+                    checked={type === { typeTrending }}
                     className="type-radio"
                 />
-                <label className="type-label" for="trending">
+                <label className="type-label" for={typeTrending}>
                     {props.trending}
                 </label>
 
                 <input
                     type="radio"
-                    label="upcoming"
+                    label={typeUpcoming}
                     name="movie"
-                    id="upcoming"
-                    value="upcoming"
+                    id={typeUpcoming}
+                    value={typeUpcoming}
                     onChange={changeType}
-                    checked={type === "upcoming"}
+                    checked={type === { typeUpcoming }}
                     className="type-radio"
                 />
-                <label className="type-label" for="upcoming">
+                <label className="type-label" for={typeUpcoming}>
                     {props.upcoming}
                 </label>
 
                 <input
                     type="radio"
-                    label="top-rated"
+                    label={typeTopRated}
                     name="movie"
-                    id="top-rated"
-                    value="top-rated"
+                    id={typeTopRated}
+                    value={typeTopRated}
                     onChange={changeType}
-                    checked={type === "top-rated"}
+                    checked={type === { typeTopRated }}
                     className="type-radio"
                 />
-                <label className="type-label" for="top-rated">
+                <label className="type-label" for={typeTopRated}>
                     {props.topRated}
                 </label>
 
                 <input
                     type="radio"
-                    label="popular"
+                    label={typePopular}
                     name="movie"
-                    id="popular"
-                    value="popular"
+                    id={typePopular}
+                    value={typePopular}
                     onChange={changeType}
-                    checked={type === "popular"}
+                    checked={type === { typePopular }}
                     className="type-radio"
                 />
-                <label className="type-label" for="popular">
+                <label className="type-label" for={typePopular}>
                     {props.popular}
                 </label>
             </div>

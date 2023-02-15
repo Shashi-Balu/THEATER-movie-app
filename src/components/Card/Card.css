@@ -36,6 +36,8 @@
     filter: brightness(45%);
     position: absolute;
     top: 6px;
+    object-fit: cover;
+    background-position: 50% 50%;
     transition: all 1s;
     z-index: 10;
 }

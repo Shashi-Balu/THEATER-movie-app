@@ -28,7 +28,7 @@
 }
 .developer-name,
 .footer-right {
-    padding-right: 120px;
+    padding-right: 80px;
     color: var(--gold);
 }
 
@@ -37,8 +37,15 @@
     margin-top: 13px;
 }
 
-.footer-right:first-child {
-    padding-left: 15px;
-    margin-left: 10px;
-    color: red;
+.footer-icon {
+    margin-left: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+    transform: scale(1.2);
+}
+
+.footer-icon:hover {
+    /* color: var(--black); */
+    transition: all 0.5s;
+    transform: scale(1.3);
 }
