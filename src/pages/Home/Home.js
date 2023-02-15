@@ -6,35 +6,46 @@ import Card from "../../components/Card/Card";
 import { MovieContext } from "../../components/MovieProviders/MovieProviders";
 import "./Home.css";
 import Footer from "../../components/Footer/Footer";
+import { TypeContext } from "../../services/TypeProviders";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+    const {
+        typeTrending,
+        typeUpcoming,
+        typeTopRated,
+        typePopular,
+        type,
+        setType,
+        activeComponentStyles,
+    } = useContext(TypeContext);
     const navigate = useNavigate();
 
     const trendingSection = () => {
         navigate("/movies");
         window.scroll(0, 0);
-        console.log("trending");
+        setType(typeTrending);
     };
     const upcomingSection = () => {
         navigate("/movies");
+        setType(typeUpcoming);
         window.scroll(0, 0);
-        console.log("trending");
+        console.log("upcoming");
     };
     const topRatedSection = () => {
         navigate("/movies");
+        setType(typeTopRated);
         window.scroll(0, 0);
-        console.log("trending");
     };
     const popularSection = () => {
         navigate("/movies");
+        setType(typePopular);
         window.scroll(0, 0);
-        console.log("trending");
     };
     const tvshowsSection = () => {
-        navigate("/movies");
+        navigate("/tv-shows");
+        setType(typeTrending);
         window.scroll(0, 0);
-        console.log("trending");
     };
     const {
         trendingMovies,
@@ -55,27 +66,42 @@ function Home() {
     return (
         <>
             <div className="home-topbar">
-                <Navbar className="home-navbar" />
                 <Carousel className="home-navbar" />
             </div>
             <div>
                 <Explore className="home-explore"></Explore>
-                {/* <Card /> */}
                 <div className="home-cards">
-                    <Card
-                        img={trendingMoviesImages[0]}
-                        title="trending"
-                        className="card-image"
-                        onClick={() => trendingSection()}
-                    />
+                    <div onClick={() => trendingSection()}>
+                        <Card
+                            img={trendingMoviesImages[0]}
+                            title="trending"
+                            className="card-image"
+                        />
+                    </div>
 
-                    <Card img={upcomingMoviesImages[0]} title="upcoming" className="card-image" />
+                    <div onClick={upcomingSection}>
+                        <Card
+                            img={upcomingMoviesImages[0]}
+                            title="upcoming"
+                            className="card-image"
+                        />
+                    </div>
 
-                    <Card img={topRatedMoviesImages[0]} title="top rated" className="card-image" />
+                    <div onClick={topRatedSection}>
+                        <Card
+                            img={topRatedMoviesImages[0]}
+                            title="top rated"
+                            className="card-image"
+                        />
+                    </div>
 
-                    <Card img={popularMoviesImages[0]} title="popular" className="card-image" />
+                    <div onClick={popularSection}>
+                        <Card img={popularMoviesImages[0]} title="popular" className="card-image" />
+                    </div>
 
-                    <Card img={tvshowsImages[0]} title="tv shows" className="card-image" />
+                    <div onClick={tvshowsSection}>
+                        <Card img={tvshowsImages[0]} title="tv shows" className="card-image" />
+                    </div>
                 </div>
             </div>
         </>

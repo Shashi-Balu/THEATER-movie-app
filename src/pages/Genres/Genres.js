@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import { GenreContext } from "../../services/GenreProviders";
 import "./Genres.css";
 
@@ -10,7 +9,6 @@ function Genres() {
     console.log(tvGenreData);
     return (
         <>
-            <Navbar />
             <div className="genres-container">
                 <div className="genres-movies">
                     <h3 className="genres-heading">movies</h3>

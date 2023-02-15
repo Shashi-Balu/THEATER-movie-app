@@ -6,8 +6,9 @@ import Tvshow from "../Tvshow/Tvshow";
 import { TypeContext } from "../../services/TypeProviders";
 
 const Searchbar = (props) => {
-    const { typeTrending, typeUpcoming, typeTopRated, typePopular } = useContext(TypeContext);
-    let [type, setType] = useState("trending");
+    const { typeTrending, typeUpcoming, typeTopRated, typePopular, type, setType } =
+        useContext(TypeContext);
+    // let [type, setType] = useState("trending");
     const changeType = (event) => {
         setType(event.target.value);
         console.log(event.target.value);
@@ -23,16 +24,8 @@ const Searchbar = (props) => {
             <div className="searchbar-container">
                 <SearchIcon className="search-icon" />
                 <input className="searchbar" placeholder={`SEARCH ${props.category}`} />
-                {/* <input className="searchbar" placeholder="" /> */}
             </div>
-            {/* <div>
-                <p style={{ backgroundColor: "red" }} onClick={trendingSection}>
-                    {props.trending}
-                </p>
-                <p>{props.upcoming}</p>
-                <p>{props.topRated}</p>
-                <p>{props.popular}</p>
-            </div> */}
+
             <div className="type-categories">
                 <input
                     type="radio"
@@ -44,6 +37,7 @@ const Searchbar = (props) => {
                     checked={type === { typeTrending }}
                     className="type-radio"
                 />
+
                 <label className="type-label" for={typeTrending}>
                     {props.trending}
                 </label>

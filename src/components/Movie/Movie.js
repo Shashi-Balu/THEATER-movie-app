@@ -7,11 +7,6 @@ import Searchbar from "../Searchbar/Searchbar";
 function Movie() {
     const [displayType, setDisplayType] = useState("");
 
-    // const getData = (receiveType) => {
-    //     setDisplayType(receiveType);
-    // };
-    // console.log(displayType);
-
     const {
         trendingMovies,
         upcomingMovies,
