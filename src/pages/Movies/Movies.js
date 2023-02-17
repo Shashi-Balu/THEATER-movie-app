@@ -66,7 +66,7 @@ function Movies() {
                                         <AppPagination
                                             setPage={setUpcomingPage}
                                             page={upcomingPage}
-                                            pageNumber={totalUpcomingPages}
+                                            pageNumbers={totalUpcomingPages}
                                         />
                                     </div>
                                 </>
@@ -91,7 +91,7 @@ function Movies() {
                                         <AppPagination
                                             setPage={setTopRatedPage}
                                             page={topRatedPage}
-                                            pageNumber={totalTopRatedPages}
+                                            pageNumbers={totalTopRatedPages}
                                         />
                                     </div>
                                 </>
@@ -114,7 +114,7 @@ function Movies() {
                                         <AppPagination
                                             setPage={setPopularPage}
                                             page={popularPage}
-                                            pageNumber={totalPopularPages}
+                                            pageNumbers={totalPopularPages}
                                         />
                                     </div>
                                 </>
@@ -139,7 +139,7 @@ function Movies() {
                                         <AppPagination
                                             setPage={setTrendingPage}
                                             page={trendingPage}
-                                            pageNumber={totalTrendingPages}
+                                            pageNumbers={totalTrendingPages}
                                         />
                                     </div>
                                 </>

@@ -10,3 +10,6 @@
 .app-pagination-container > ul > li > button:hover {
     border: 1px solid var(--gold);
 }
+.app-pagination-container > ul > li > button:active {
+    border: 1px solid var(--gold);
+}

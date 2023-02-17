@@ -2,8 +2,8 @@ import React from "react";
 import { Pagination } from "@mui/material";
 import "./AppPagination.css";
 
-const AppPagination = ({ pageNumber = 10, setPage }) => {
-    const handleChange = (page) => {
+const AppPagination = ({ pageNumbers = 10, setPage }) => {
+    const handleChange = (page = 1) => {
         setPage(page);
         // window.scroll(0, 0);
     };
@@ -14,8 +14,7 @@ const AppPagination = ({ pageNumber = 10, setPage }) => {
                 boundaryCount={2}
                 className="app-pagination-container"
                 onChange={(event) => handleChange(event.target.textContent)}
-                variant="outline"
-                count={pageNumber}
+                count={pageNumbers}
             />
         </>
     );

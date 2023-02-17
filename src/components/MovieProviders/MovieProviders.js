@@ -4,7 +4,7 @@ import { url } from "../../services/apis/movieUrl";
 export const MovieContext = createContext();
 export const MovieContextProvider = ({ children }) => {
     const [trendingPage, setTrendingPage] = useState(1);
-    const [upcomingPage, setUpcomingPage] = useState(1);
+    let [upcomingPage, setUpcomingPage] = useState(1);
     const [topRatedPage, setTopRatedPage] = useState(1);
     const [popularPage, setPopularPage] = useState(1);
     const [numberOfPages, setNumberOfPages] = useState(10);
