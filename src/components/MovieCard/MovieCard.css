@@ -10,13 +10,14 @@
 }
 
 .movie-card-image {
-    /* margin-top: 50px; */
     position: absolute;
     height: 280px;
-    width: 420px;
+    width: 100%;
     bottom: 0;
-    border-radius: 20px;
-    transition: all 2.6s;
+    border-radius: 0 0 20px 20px;
+    /* transition: all 0.5s ease-in-out; */
+    margin: 0 auto;
+    transition: transform 0.5s ease;
 }
 
 .movie-card-container:nth-child(2n + 1) {
@@ -51,15 +52,15 @@
 }
 
 .movie-card-title {
-    top: -30px;
-    left: 10px;
+    top: -33px;
+    left: 25px;
     position: absolute;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 500;
-    text-shadow: 8px 8px 10px rgba(12, 11, 8, 0.89);
+    text-shadow: 4px 4px 8px rgba(12, 11, 8, 0.89);
 }
 
 .movie-card-image:hover {
     transform: scale(1.1);
-    border-radius: 70px;
+    /* background-position: 50% 50%; */
 }

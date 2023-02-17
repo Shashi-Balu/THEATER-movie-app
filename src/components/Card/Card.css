@@ -20,7 +20,7 @@
 }
 
 .card-image-container {
-    border-radius: 20px;
+    border-radius: 22px;
     width: 340px;
     height: 500px;
     display: block;
@@ -35,7 +35,7 @@
     height: 100%;
     filter: brightness(45%);
     position: absolute;
-    top: 6px;
+    top: 0px;
     object-fit: cover;
     background-position: 50% 50%;
     transition: all 1s;
@@ -45,7 +45,7 @@
 .card-images:hover {
     transform: translateY(10px);
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
 }
 

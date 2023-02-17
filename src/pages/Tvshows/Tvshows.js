@@ -3,6 +3,7 @@ import { TvshowContext } from "../../components/TvshowProviders/TvshowProviders"
 import TvshowCard from "../../components/TvshowCard/TvshowCard";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import "./Tvshows.css";
+import AppPagination from "../../components/AppPagination/AppPagination";
 
 function Tvshows() {
     const [displayType, setDisplayType] = useState("");
@@ -88,6 +89,7 @@ function Tvshows() {
                     }
                 })()}
             </div>
+            <AppPagination />
         </>
     );
 }
