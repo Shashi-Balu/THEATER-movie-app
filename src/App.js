@@ -7,12 +7,20 @@ import Home from "./pages/Home/Home";
 import { GenreContextProviders } from "./services/GenreProviders";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
+import { useContext } from "react";
+import { MovieContext } from "./components/MovieProviders/MovieProviders";
+import Movie from "./components/Movie/Movie";
+import MovieCard from "./components/MovieCard/MovieCard";
 
 function App() {
+    const { movieIdApp, setMovieIdApp } = useContext(MovieContext);
+
+    console.log(movieIdApp);
     return (
         <div className="App">
             <BrowserRouter>
                 <Navbar />
+
                 <Routes>
                     <Route path={"/"} element={<Home />} />
                     <Route path={"/movies"} element={<Movies />} />
@@ -20,6 +28,7 @@ function App() {
                     <Route path={"/genres"} element={<Genres />} />
                 </Routes>
             </BrowserRouter>
+
             <Footer />
         </div>
     );

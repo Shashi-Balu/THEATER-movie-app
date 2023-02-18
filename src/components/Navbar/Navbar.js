@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/THEATER.svg";
 import NightlightRoundTwoToneIcon from "@mui/icons-material/NightlightRoundTwoTone";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -13,20 +13,20 @@ function Navbar() {
                         <img className="nav-logo-image" src={logo} alt="LOGO" />
                     </div>
                     <div className="nav-menu">
-                        <Link to="/" className="navbar-nav navbar-nav-link">
+                        <NavLink to="/" className="navbar-nav navbar-nav-link">
                             <nav className="navbar-nav">HOME</nav>
-                        </Link>
-                        <Link to="/movies" className="navbar-nav navbar-nav-link">
+                        </NavLink>
+                        <NavLink to="/movies" className="navbar-nav navbar-nav-link">
                             <nav className="navbar-nav">MOVIES</nav>
-                        </Link>
+                        </NavLink>
 
-                        <Link to="/tv-shows" className="navbar-nav navbar-nav-link">
+                        <NavLink to="/tv-shows" className="navbar-nav navbar-nav-link">
                             <nav className="navbar-nav">TV SHOWS</nav>
-                        </Link>
+                        </NavLink>
 
-                        <Link to="/genres" className="navbar-nav navbar-nav-link">
+                        <NavLink to="/genres" className="navbar-nav navbar-nav-link">
                             <nav className="navbar-nav">GENRES</nav>
-                        </Link>
+                        </NavLink>
                     </div>
 
                     <div className="navbar-mode">

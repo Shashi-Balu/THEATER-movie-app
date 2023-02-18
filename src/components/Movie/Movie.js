@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MovieContext } from "../MovieProviders/MovieProviders";
 
-const Movie = () => {
-    return <div>Movie</div>;
+const Movie = (props) => {
+    return <div>{props.movieId} hi</div>;
 };
 
 export default Movie;

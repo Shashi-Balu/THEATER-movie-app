@@ -8,6 +8,19 @@ import AppPagination from "../../components/AppPagination/AppPagination";
 function Tvshows() {
     const [displayType, setDisplayType] = useState("");
     const {
+        trendingPage,
+        setTrendingPage,
+        upcomingPage,
+        setUpcomingPage,
+        topRatedPage,
+        setTopRatedPage,
+        popularPage,
+        setPopularPage,
+        numberOfPages,
+        totalTrendingPages,
+        totalPopularPages,
+        totalTopRatedPages,
+        totalUpcomingPages,
         trendingTvshows,
         airingTodayTvshows,
         popularTvshows,
@@ -17,7 +30,7 @@ function Tvshows() {
         popularTvshowsImages,
         topRatedTvshowsImages,
     } = useContext(TvshowContext);
-
+    // console.log(trendingTvshows);
     return (
         <>
             <Searchbar
@@ -34,62 +47,101 @@ function Tvshows() {
                     switch (displayType) {
                         case "upcoming":
                             return (
-                                <div className="tvshow-container">
-                                    {airingTodayTvshows?.map((tv, index) => (
-                                        <TvshowCard
-                                            key={index}
-                                            title={tv.name}
-                                            rating={tv.vote_average.toFixed(1)}
-                                            imgUrl={airingTodayTvshowsImages[index]}
+                                <>
+                                    <div className="tvshow-container">
+                                        {airingTodayTvshows?.map((tv, index) => (
+                                            <TvshowCard
+                                                key={index}
+                                                title={tv.name}
+                                                rating={tv.vote_average.toFixed(1)}
+                                                imgUrl={airingTodayTvshowsImages[index]}
+                                                tvId={tv.id}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="">
+                                        <AppPagination
+                                            setPage={setUpcomingPage}
+                                            page={upcomingPage}
+                                            pageNumbers={totalUpcomingPages}
                                         />
-                                    ))}
-                                </div>
+                                    </div>
+                                </>
                             );
                         case "top-rated":
                             return (
-                                <div className="tvshow-container">
-                                    {topRatedTvshows.map((tv, index) => (
-                                        <TvshowCard
-                                            key={index}
-                                            title={tv.name}
-                                            rating={tv.vote_average.toFixed(1)}
-                                            imgUrl={topRatedTvshowsImages[index]}
+                                <>
+                                    <div className="tvshow-container">
+                                        {topRatedTvshows.map((tv, index) => (
+                                            <TvshowCard
+                                                key={index}
+                                                title={tv.name}
+                                                rating={tv.vote_average.toFixed(1)}
+                                                imgUrl={topRatedTvshowsImages[index]}
+                                                tvId={tv.id}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="">
+                                        <AppPagination
+                                            setPage={setTopRatedPage}
+                                            page={topRatedPage}
+                                            pageNumbers={totalTopRatedPages}
                                         />
-                                    ))}
-                                </div>
+                                    </div>
+                                </>
                             );
                         case "popular":
                             return (
-                                <div className="tvshow-container">
-                                    {popularTvshows.map((tv, index) => (
-                                        <TvshowCard
-                                            key={index}
-                                            title={tv.name}
-                                            rating={tv.vote_average.toFixed(1)}
-                                            imgUrl={popularTvshowsImages[index]}
+                                <>
+                                    <div className="tvshow-container">
+                                        {popularTvshows.map((tv, index) => (
+                                            <TvshowCard
+                                                key={index}
+                                                title={tv.name}
+                                                rating={tv.vote_average.toFixed(1)}
+                                                imgUrl={popularTvshowsImages[index]}
+                                                tvId={tv.id}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="">
+                                        <AppPagination
+                                            setPage={setPopularPage}
+                                            page={popularPage}
+                                            pageNumbers={totalPopularPages}
                                         />
-                                    ))}
-                                </div>
+                                    </div>
+                                </>
                             );
 
                         case "trending":
                         default:
                             return (
-                                <div className="tvshow-container">
-                                    {trendingTvshows.map((tv, index) => (
-                                        <TvshowCard
-                                            key={index}
-                                            title={tv.name}
-                                            rating={tv.vote_average.toFixed(1)}
-                                            imgUrl={trendingTvshowsImages[index]}
+                                <>
+                                    <div className="tvshow-container">
+                                        {trendingTvshows.map((tv, index) => (
+                                            <TvshowCard
+                                                key={index}
+                                                title={tv.name}
+                                                rating={tv.vote_average.toFixed(1)}
+                                                imgUrl={trendingTvshowsImages[index]}
+                                                tvId={tv.id}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="">
+                                        <AppPagination
+                                            setPage={setTrendingPage}
+                                            page={trendingPage}
+                                            pageNumbers={totalTrendingPages}
                                         />
-                                    ))}
-                                </div>
+                                    </div>
+                                </>
                             );
                     }
                 })()}
             </div>
-            <AppPagination />
         </>
     );
 }

@@ -1,11 +1,18 @@
 import React from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./TvshowCard.css";
+import { useNavigate } from "react-router-dom";
 
 const TvshowCard = (props) => {
+    const navigate = useNavigate();
+    const tvshowDetail = () => {
+        navigate(`tv/:${props.tvId}`);
+        console.log(props.tvId);
+        console.log(props.title);
+    };
     return (
         <>
-            <div className="tvshow-card-container">
+            <div className="tvshow-card-container" onClick={tvshowDetail}>
                 <div className="tvshow-card-image-container">
                     <img src={props.imgUrl} alt={props.title} className="tvshow-card-image" />
                 </div>

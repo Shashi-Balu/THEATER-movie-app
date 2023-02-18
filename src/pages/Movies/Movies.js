@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { MovieContext } from "../../components/MovieProviders/MovieProviders";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import "./Movies.css";
@@ -7,7 +7,6 @@ import AppPagination from "../../components/AppPagination/AppPagination";
 
 function Movies() {
     const [displayType, setDisplayType] = useState("");
-
     const {
         trendingPage,
         setTrendingPage,
@@ -32,7 +31,9 @@ function Movies() {
         totalTopRatedPages,
     } = useContext(MovieContext);
 
-    console.log(trendingMovies);
+    // upcomingMovies?.map((movie) => console.log(movie.id));
+
+    // console.log(trendingMovies);
     return (
         <>
             <Searchbar
@@ -61,7 +62,6 @@ function Movies() {
                                             />
                                         ))}
                                     </div>
-
                                     <div className="movies-pagination-container">
                                         <AppPagination
                                             setPage={setUpcomingPage}

@@ -4,7 +4,7 @@ import { url } from "../../services/apis/movieUrl";
 export const MovieContext = createContext();
 export const MovieContextProvider = ({ children }) => {
     const [trendingPage, setTrendingPage] = useState(1);
-    let [upcomingPage, setUpcomingPage] = useState(1);
+    const [upcomingPage, setUpcomingPage] = useState(1);
     const [topRatedPage, setTopRatedPage] = useState(1);
     const [popularPage, setPopularPage] = useState(1);
     const [numberOfPages, setNumberOfPages] = useState(10);
@@ -85,6 +85,15 @@ export const MovieContextProvider = ({ children }) => {
         (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
     );
 
+    const trendingMoviesData = trendingMovies?.map((movie) => `${movie.id}`);
+    const upcomingMoviesData = upcomingMovies?.map((movie) => `${movie.id}`);
+    const popularMoviesData = popularMovies?.map((movie) => `${movie.id}`);
+    const topRatedMoviesData = topRatedMovies?.map((movie) => `${movie.id}`);
+    const latestMoviesData = latestMovies?.map((movie) => `${movie.id}`);
+    const tvshowsData = tvshows?.map((movie) => `${movie.id}`);
+
+    console.log(trendingMoviesData);
+
     useEffect(() => {
         callMovieApi();
     }, [trendingPage, upcomingPage, topRatedPage, popularPage]);
@@ -121,6 +130,11 @@ export const MovieContextProvider = ({ children }) => {
                 popularMoviesImages,
                 topRatedMoviesImages,
                 tvshowsImages,
+                trendingMoviesData,
+                upcomingMoviesData,
+                popularMoviesData,
+                topRatedMoviesData,
+                tvshowsData,
             }}
         >
             {children}

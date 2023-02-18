@@ -6,10 +6,12 @@ import { MovieContextProvider } from "./components/MovieProviders/MovieProviders
 import { GenreContext, GenreContextProviders } from "./services/GenreProviders";
 import TvshowProviders from "./components/TvshowProviders/TvshowProviders";
 import { TypeContextProviders } from "./services/TypeProviders";
+import MovieCard from "./components/MovieCard/MovieCard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
+        {/* <MovieCard> */}
         <TypeContextProviders>
             <GenreContextProviders>
                 <MovieContextProvider>
@@ -19,6 +21,7 @@ root.render(
                 </MovieContextProvider>
             </GenreContextProviders>
         </TypeContextProviders>
+        {/* </MovieCard> */}
     </React.StrictMode>
 );
 
