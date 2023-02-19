@@ -7,6 +7,7 @@ import { GenreContext, GenreContextProviders } from "./services/GenreProviders";
 import TvshowProviders from "./components/TvshowProviders/TvshowProviders";
 import { TypeContextProviders } from "./services/TypeProviders";
 import MovieCard from "./components/MovieCard/MovieCard";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,32 +1,41 @@
 import React, { createContext, useContext, useState } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./MovieCard.css";
-import { useNavigate, Link, Outlet, BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+    useNavigate,
+    Link,
+    Outlet,
+    BrowserRouter,
+    Routes,
+    Route,
+    useParams,
+} from "react-router-dom";
 import Movie from "../Movie/Movie";
+import { MovieContext } from "../MovieProviders/MovieProviders";
 
 export const MovieIdContext = createContext();
-const MovieCard = (props, { children }) => {
-    const [movieIdApp, setMovieIdApp] = useState(438148);
-    const navigate = useNavigate();
-    const movieDetail = (movieId) => {
-        // let {movieUrl} = useParams();
 
-        navigate(`/movies/:${movieId}`);
-        setMovieIdApp(movieId);
+const MovieCard = (props, { children }) => {
+    const { movieIdApp, setMovieIdApp, title, setTitle } = useContext(MovieContext);
+
+    // const { id } = useParams();
+    // console.log(id);
+
+    const navigate = useNavigate();
+    const movieDetail = (movied, mtitle) => {
+        // navigate(`movie/:move`);
+        setMovieIdApp(movied);
+        setTitle(mtitle);
+        console.log(movied);
+        // console.log(props.title);
     };
     return (
         <>
             <div
                 className="movie-card-container"
                 onClick={() => {
-                    <Routes>
-                        <Route
-                            path={`/movies/:${props.movieId}`}
-                            element={<Movie movieId={props.movieId} />}
-                        />
-                        {console.log(props.movieId)}
-                    </Routes>;
-                    movieDetail(props.movieId);
+                    movieDetail(props.movieId, props.title);
+                    console.log(props.movieId);
                 }}
             >
                 <Link to={`/movies/:${props.movieId}`}>
@@ -43,11 +52,11 @@ const MovieCard = (props, { children }) => {
                         {props.title.length >= 25 ? `${props.title.slice(0, 18)}...` : props.title}
                     </h4>
                 </Link>
-                <Outlet />
+                {/* <Outlet /> */}
             </div>
 
             <>
-                <MovieIdContext.Provider value={{ movieIdApp, setMovieIdApp }}>
+                <MovieIdContext.Provider value={{ movieIdApp, setMovieIdApp, title, setTitle }}>
                     {children}
                 </MovieIdContext.Provider>
             </>

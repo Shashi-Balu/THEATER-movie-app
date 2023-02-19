@@ -16,7 +16,6 @@ function Tvshows() {
         setTopRatedPage,
         popularPage,
         setPopularPage,
-        numberOfPages,
         totalTrendingPages,
         totalPopularPages,
         totalTopRatedPages,
@@ -30,7 +29,6 @@ function Tvshows() {
         popularTvshowsImages,
         topRatedTvshowsImages,
     } = useContext(TvshowContext);
-    // console.log(trendingTvshows);
     return (
         <>
             <Searchbar

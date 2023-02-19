@@ -3,11 +3,12 @@ import { url } from "../../services/apis/movieUrl";
 
 export const TvshowContext = createContext();
 const TvshowProviders = ({ children }) => {
+    const [tvshowIdApp, setTvshowIdApp] = useState();
+    const [tvtitle, setTvtitle] = useState();
     const [trendingPage, setTrendingPage] = useState(1);
     const [upcomingPage, setUpcomingPage] = useState(1);
     const [topRatedPage, setTopRatedPage] = useState(1);
     const [popularPage, setPopularPage] = useState(1);
-    const [numberOfPages, setNumberOfPages] = useState(10);
     const [trendingTvshows, setTrendingTvshows] = useState([]);
     const [airingTodayTvshows, setAiringTodayTvshows] = useState([]);
     const [popularTvshows, setPopularTvshows] = useState([]);
@@ -86,6 +87,10 @@ const TvshowProviders = ({ children }) => {
         <div>
             <TvshowContext.Provider
                 value={{
+                    tvtitle,
+                    setTvtitle,
+                    tvshowIdApp,
+                    setTvshowIdApp,
                     totalTrendingPages,
                     totalUpcomingPages,
                     totalTopRatedPages,
@@ -98,8 +103,6 @@ const TvshowProviders = ({ children }) => {
                     setTopRatedPage,
                     popularPage,
                     setPopularPage,
-                    numberOfPages,
-                    setNumberOfPages,
                     trendingTvshows,
                     setTrendingTvshows,
                     airingTodayTvshows,

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GenreContext } from "../../services/GenreProviders";
 import "./Genres.css";
 
@@ -14,7 +15,11 @@ function Genres() {
                     <h3 className="genres-heading">movies</h3>
                     <p className="genres-data">
                         {movieGenreData.map((genre) => (
-                            <p className="genre-elements">{genre.name}</p>
+                            <p className="genre-elements">
+                                <Link to={"/movies/:id"}>
+                                    <p> {genre.name}</p>
+                                </Link>
+                            </p>
                         ))}
                     </p>
                 </div>

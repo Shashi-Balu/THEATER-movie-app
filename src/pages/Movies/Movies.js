@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { MovieContext } from "../../components/MovieProviders/MovieProviders";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import "./Movies.css";
@@ -16,7 +16,6 @@ function Movies() {
         setTopRatedPage,
         popularPage,
         setPopularPage,
-        numberOfPages,
         totalTrendingPages,
         totalPopularPages,
         totalUpcomingPages,
@@ -30,10 +29,6 @@ function Movies() {
         topRatedMoviesImages,
         totalTopRatedPages,
     } = useContext(MovieContext);
-
-    // upcomingMovies?.map((movie) => console.log(movie.id));
-
-    // console.log(trendingMovies);
     return (
         <>
             <Searchbar
