@@ -8,22 +8,20 @@ import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import { useContext } from "react";
 import { MovieContext } from "./components/MovieProviders/MovieProviders";
-import Movie from "./components/Movie/Movie";
+import MovieDetailContextProvider from "./components/MovieDetailProviders/MovieDetailProviders";
 import Tvshow from "./components/Tvshow/Tvshow";
 import { TvshowContext } from "./components/TvshowProviders/TvshowProviders";
-import MovieCard from "./components/MovieCard/MovieCard";
 import NotFound from "./pages/NotFound/NotFound";
+import MovieDetail from "./components/MovieDetail/MovieDetail";
 
 function App() {
-    const { movieIdApp, title } = useContext(MovieContext);
-    const { tvIdApp, tvtitle } = useContext(TvshowContext);
-    console.log(title);
-    console.log(tvtitle);
-    // const id = ;
+    const { movieIdApp } = useContext(MovieContext);
+    const { tvIdApp } = useContext(TvshowContext);
     return (
         <div className="App">
             <BrowserRouter>
                 <Navbar />
+
                 <Routes>
                     <Route path={"/"} element={<Home />} />
                     <Route path={"/movies"} element={<Movies />} />
@@ -31,12 +29,9 @@ function App() {
                     <Route path={"/genres"} element={<Genres />} />
                     <Route
                         path={`/movies/:movieid`}
-                        element={<Movie id={movieIdApp} title={title} />}
+                        element={<MovieDetailContextProvider id={movieIdApp} />}
                     />
-                    <Route
-                        path={`/tv-shows/:tvid`}
-                        element={<Tvshow id={tvIdApp} title={tvtitle} />}
-                    />
+                    <Route path={`/tv-shows/:tvid`} element={<Tvshow id={tvIdApp} />} />
                     <Route path={"*"} element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

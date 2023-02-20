@@ -3,16 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { MovieContextProvider } from "./components/MovieProviders/MovieProviders";
-import { GenreContext, GenreContextProviders } from "./services/GenreProviders";
+import { GenreContextProviders } from "./services/GenreProviders";
 import TvshowProviders from "./components/TvshowProviders/TvshowProviders";
 import { TypeContextProviders } from "./services/TypeProviders";
-import MovieCard from "./components/MovieCard/MovieCard";
-import { BrowserRouter } from "react-router-dom";
+import { MovieDetailContextProvider } from "./components/MovieDetailProviders/MovieDetailProviders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        {/* <MovieCard> */}
+        {/* <MovieDetailContextProvider> */}
         <TypeContextProviders>
             <GenreContextProviders>
                 <MovieContextProvider>
@@ -22,7 +21,7 @@ root.render(
                 </MovieContextProvider>
             </GenreContextProviders>
         </TypeContextProviders>
-        {/* </MovieCard> */}
+        {/* </MovieDetailContextProvider> */}
     </React.StrictMode>
 );
 

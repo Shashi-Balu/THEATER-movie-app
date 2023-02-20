@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import "./Searchbar.css";
 import SearchIcon from "@mui/icons-material/Search";
-import Movie from "../Movie/Movie";
+import Movie from "../MovieDetailProviders/MovieDetailProviders";
 import Tvshow from "../Tvshow/Tvshow";
 import { TypeContext } from "../../services/TypeProviders";
 

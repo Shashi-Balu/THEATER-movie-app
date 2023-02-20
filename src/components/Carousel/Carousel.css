@@ -27,7 +27,7 @@
     top: 120px;
     left: 80px;
     box-shadow: 0, 0, 0, 0;
-    color: #ebfae0;
+    color: #fff;
 }
 
 .carousel-title {
@@ -45,7 +45,7 @@
     display: flex;
     font-size: 2rem;
     font-weight: 400;
-    color: #abe6b8;
+    color: #fff;
     animation: slide 5.1s infinite ease-in-out;
     animation-direction: alternate;
     transition: all 1s;
