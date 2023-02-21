@@ -2,26 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { MovieContextProvider } from "./components/MovieProviders/MovieProviders";
-import { GenreContextProviders } from "./services/GenreProviders";
-import TvshowProviders from "./components/TvshowProviders/TvshowProviders";
-import { TypeContextProviders } from "./services/TypeProviders";
-import { MovieDetailContextProvider } from "./components/MovieDetailProviders/MovieDetailProviders";
+
+import { MovieContextProvider } from "./services/MovieContextProviders";
+import { GenreContextProviders } from "./services/GenreContextProviders";
+import TvshowContextProviders from "./services/TvshowContextProviders";
+import { TypeContextProviders } from "./services/TypeContextProviders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        {/* <MovieDetailContextProvider> */}
         <TypeContextProviders>
             <GenreContextProviders>
                 <MovieContextProvider>
-                    <TvshowProviders>
+                    <TvshowContextProviders>
                         <App />
-                    </TvshowProviders>
+                    </TvshowContextProviders>
                 </MovieContextProvider>
             </GenreContextProviders>
         </TypeContextProviders>
-        {/* </MovieDetailContextProvider> */}
     </React.StrictMode>
 );
 

@@ -3,6 +3,8 @@ import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./Item.css";
 const Item = (props) => {
     // const rating = props.rating.toFixed(1);
+
+    console.log(props.imgUrl);
     return (
         <>
             <div className="item-detail-container">
@@ -31,7 +33,6 @@ const Item = (props) => {
                     </div>
                 </div>
             </div>
-
             {/* <p className="carousel-genres">
                         {props.genres?.map((item) => {
                             props.genreData?.map((item2) => {

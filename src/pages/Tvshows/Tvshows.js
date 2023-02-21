@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import { TvshowContext } from "../../components/TvshowProviders/TvshowProviders";
-import TvshowCard from "../../components/TvshowCard/TvshowCard";
-import Searchbar from "../../components/Searchbar/Searchbar";
+import { TvshowContext } from "../../services/TvshowContextProviders";
+import TvshowCard from "../../components/TvshowsComponent/TvshowCard/TvshowCard";
+import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import "./Tvshows.css";
-import AppPagination from "../../components/AppPagination/AppPagination";
+import AppPagination from "../../components/sections/AppPagination/AppPagination";
 
 function Tvshows() {
     const [displayType, setDisplayType] = useState("");

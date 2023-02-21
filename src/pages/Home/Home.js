@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import Carousel from "../../components/Carousel/Carousel";
-import Explore from "../../components/Explore/Explore";
+import React from "react";
+import Carousel from "../../components/sections/Carousel/Carousel";
+import Explore from "../../components/sections/Explore/Explore";
 import "./Home.css";
 
 function Home() {

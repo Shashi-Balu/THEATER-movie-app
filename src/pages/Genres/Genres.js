@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { GenreContext } from "../../services/GenreProviders";
+import { GenreContext } from "../../services/GenreContextProviders";
 import "./Genres.css";
 
 function Genres() {

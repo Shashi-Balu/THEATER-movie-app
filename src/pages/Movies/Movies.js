@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { MovieContext } from "../../components/MovieProviders/MovieProviders";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import { MovieContext } from "../../services/MovieContextProviders";
+import MovieCard from "../../components/MoviesComponent/MovieCard/MovieCard";
 import "./Movies.css";
-import Searchbar from "../../components/Searchbar/Searchbar";
-import AppPagination from "../../components/AppPagination/AppPagination";
+import Searchbar from "../../components/sections/Searchbar/Searchbar";
+import AppPagination from "../../components/sections/AppPagination/AppPagination";
 
 function Movies() {
     const [displayType, setDisplayType] = useState("");
