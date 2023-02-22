@@ -1,5 +1,12 @@
 @import url("../../../styles/colors.css");
 
+.active {
+    border-bottom: 1px solid var(--gold);
+}
+.navbar-nav-link:hover {
+    border-bottom: 1px solid var(--gold);
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -37,14 +44,4 @@
 .navbar-container {
     position: relative;
     z-index: 10;
-}
-
-.navbar-nav-link {
-    font-family: "Buda", sans-serif;
-    border-bottom: 1px solid transparent;
-}
-.navbar-nav-link:hover,
-.navbar-nav-link:active,
-.navbar-nav-link:checked {
-    border-bottom: 1px solid var(--gold);
 }
