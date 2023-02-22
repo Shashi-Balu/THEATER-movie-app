@@ -39,10 +39,6 @@
 }
 
 .type-label {
-    border-bottom: 1px solid var(--gold);
-}
-
-.type-label {
     font-size: 1.6rem;
     margin-left: 13%;
     text-transform: uppercase;
@@ -50,4 +46,9 @@
 
 .type-categories {
     margin-top: 30px;
+}
+
+.type-label:hover,
+.type-radio:checked {
+    color: yellow;
 }

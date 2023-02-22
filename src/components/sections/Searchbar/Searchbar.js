@@ -19,6 +19,7 @@ const Searchbar = (props) => {
                 <SearchIcon className="search-icon" />
                 <input className="searchbar" placeholder={`SEARCH ${props.category}`} />
             </div>
+            {type}
 
             <div className="type-categories">
                 <input
@@ -32,7 +33,7 @@ const Searchbar = (props) => {
                     className="type-radio"
                 />
 
-                <label className="type-label" for={typeTrending}>
+                <label className="type-label" htmlFor={typeTrending}>
                     {props.trending}
                 </label>
 
@@ -46,7 +47,7 @@ const Searchbar = (props) => {
                     checked={type === { typeUpcoming }}
                     className="type-radio"
                 />
-                <label className="type-label" for={typeUpcoming}>
+                <label className="type-label" htmlFor={typeUpcoming}>
                     {props.upcoming}
                 </label>
 
@@ -60,7 +61,7 @@ const Searchbar = (props) => {
                     checked={type === { typeTopRated }}
                     className="type-radio"
                 />
-                <label className="type-label" for={typeTopRated}>
+                <label className="type-label" htmlFor={typeTopRated}>
                     {props.topRated}
                 </label>
 
@@ -74,7 +75,7 @@ const Searchbar = (props) => {
                     checked={type === { typePopular }}
                     className="type-radio"
                 />
-                <label className="type-label" for={typePopular}>
+                <label className="type-label" htmlFor={typePopular}>
                     {props.popular}
                 </label>
             </div>
