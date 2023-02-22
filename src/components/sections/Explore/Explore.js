@@ -3,6 +3,7 @@ import { MovieContext } from "../../../services/MovieContextProviders";
 import { TypeContext } from "../../../services/TypeContextProviders";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
+import "./Explore.css";
 import { TvshowContext } from "../../../services/TvshowContextProviders";
 
 function Explore() {
@@ -47,7 +48,7 @@ function Explore() {
     return (
         <>
             <div className="explore-container">
-                <p className="explore-title">Explore</p>
+                <p className="explore-title">explore</p>
             </div>
             <div className="explore-cards">
                 <div className="home-cards">

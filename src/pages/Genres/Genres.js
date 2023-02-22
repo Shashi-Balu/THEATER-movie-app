@@ -15,11 +15,9 @@ function Genres() {
                     <h3 className="genres-heading">movies</h3>
                     <p className="genres-data">
                         {movieGenreData.map((genre) => (
-                            <p className="genre-elements">
-                                <Link to={"/movies/:id"}>
-                                    <p> {genre.name}</p>
-                                </Link>
-                            </p>
+                            <Link className="genre-name" to={"/movies/:id"}>
+                                {genre.name}
+                            </Link>
                         ))}
                     </p>
                 </div>
@@ -28,7 +26,9 @@ function Genres() {
                     <h3 className="genres-heading">tvshow</h3>
                     <p className="genres-data">
                         {tvGenreData.map((genre) => (
-                            <p className="genre-elements">{genre.name}</p>
+                            <Link className="genre-name" to={"/tv-shows/:id"}>
+                                {genre.name}
+                            </Link>
                         ))}
                     </p>
                 </div>
