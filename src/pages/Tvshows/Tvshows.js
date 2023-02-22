@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { TvshowContext } from "../../services/TvshowContextProviders";
 import TvshowCard from "../../components/TvshowsComponent/TvshowCard/TvshowCard";
 import Searchbar from "../../components/sections/Searchbar/Searchbar";
-import "./Tvshows.css";
+import "../../styles/ItemPage.css";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 
 function Tvshows() {
@@ -46,7 +46,7 @@ function Tvshows() {
                         case "upcoming":
                             return (
                                 <>
-                                    <div className="tvshow-container">
+                                    <div className="item-container">
                                         {airingTodayTvshows?.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -69,7 +69,7 @@ function Tvshows() {
                         case "top-rated":
                             return (
                                 <>
-                                    <div className="tvshow-container">
+                                    <div className="item-container">
                                         {topRatedTvshows.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -92,7 +92,7 @@ function Tvshows() {
                         case "popular":
                             return (
                                 <>
-                                    <div className="tvshow-container">
+                                    <div className="item-container">
                                         {popularTvshows.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -117,7 +117,7 @@ function Tvshows() {
                         default:
                             return (
                                 <>
-                                    <div className="tvshow-container">
+                                    <div className="item-container">
                                         {trendingTvshows.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -128,7 +128,7 @@ function Tvshows() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setTrendingPage}
                                             page={trendingPage}

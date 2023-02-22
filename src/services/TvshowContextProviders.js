@@ -67,18 +67,18 @@ const TvshowContextProviders = ({ children }) => {
     }
 
     const trendingTvshowsImages = trendingTvshows.map(
-        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
     const airingTodayTvshowsImages = airingTodayTvshows?.map(
-        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
     const popularTvshowsImages = popularTvshows.map(
-        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
     const topRatedTvshowsImages = topRatedTvshows.map(
-        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
-    const tvshowsImages = tvshows.map((tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`);
+    const tvshowsImages = tvshows.map((tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`);
 
     useEffect(() => {
         callTvshowsApi();

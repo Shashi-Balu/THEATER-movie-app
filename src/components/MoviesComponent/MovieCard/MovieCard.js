@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
-import "./MovieCard.css";
+import "../../../styles/ItemCard.css";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../../../services/MovieContextProviders";
 
@@ -15,29 +15,31 @@ const MovieCard = (props) => {
     return (
         <>
             <div
-                className="movie-card-container"
+                className="item-card-container"
                 onClick={() => {
                     movieDetail(props.movieId, props.title);
                     console.log(props.movieId);
                 }}
             >
                 <Link to={`/movies/:${props.movieId}`}>
-                    <div className="movie-card-image-container">
-                        <img src={props.imgUrl} alt={props.title} className="movie-card-image" />
+                    <div className="item-card-image-container">
+                        <img src={props.imgUrl} alt={props.title} className="item-card-image" />
                     </div>
 
-                    <div className="movie-card-rating-data">
-                        <StarBorderSharpIcon className="movie-card-star" />
+                    <div className="item-card-text-container">
+                        <h4 className="item-card-title">{props.title}</h4>
 
-                        <p className="movie-card-rating">{props.rating}/10</p>
+                        <div className="item-card-rating-data">
+                            <StarBorderSharpIcon className="item-card-star" />
+
+                            <p className="item-card-rating">{props.rating}/10</p>
+                        </div>
                     </div>
-                    <h4 className="movie-card-title">
+                    {/* <h4 className="item-card-title">
                         {props.title.length >= 25 ? `${props.title.slice(0, 18)}...` : props.title}
-                    </h4>
+                    </h4> */}
                 </Link>
             </div>
-
-            <></>
         </>
     );
 };

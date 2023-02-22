@@ -58,16 +58,16 @@ export const MovieContextProvider = ({ children }) => {
     }
 
     const trendingMoviesImages = trendingMovies?.map(
-        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
     const upcomingMoviesImages = upcomingMovies?.map(
-        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
     const popularMoviesImages = popularMovies?.map(
-        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
     const topRatedMoviesImages = topRatedMovies?.map(
-        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
 
     useEffect(() => {

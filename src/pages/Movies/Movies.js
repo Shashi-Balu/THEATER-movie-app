@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { MovieContext } from "../../services/MovieContextProviders";
 import MovieCard from "../../components/MoviesComponent/MovieCard/MovieCard";
-import "./Movies.css";
+import "../../styles/ItemPage.css";
 import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 
@@ -46,7 +46,7 @@ function Movies() {
                         case "upcoming":
                             return (
                                 <>
-                                    <div className="movies-container">
+                                    <div className="item-container">
                                         {upcomingMovies?.map((movie, index) => (
                                             <MovieCard
                                                 key={index}
@@ -57,7 +57,7 @@ function Movies() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="movies-pagination-container">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setUpcomingPage}
                                             page={upcomingPage}
@@ -69,7 +69,7 @@ function Movies() {
                         case "top-rated":
                             return (
                                 <>
-                                    <div className="movies-container">
+                                    <div className="item-container">
                                         {topRatedMovies?.map((movie, index) => (
                                             <div>
                                                 <MovieCard
@@ -82,7 +82,7 @@ function Movies() {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="movies-pagination-container">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setTopRatedPage}
                                             page={topRatedPage}
@@ -94,7 +94,7 @@ function Movies() {
                         case "popular":
                             return (
                                 <>
-                                    <div className="movies-container">
+                                    <div className="item-container">
                                         {popularMovies?.map((movie, index) => (
                                             <MovieCard
                                                 key={index}
@@ -105,7 +105,7 @@ function Movies() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="movies-pagination-container">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setPopularPage}
                                             page={popularPage}
@@ -119,7 +119,7 @@ function Movies() {
                         default:
                             return (
                                 <>
-                                    <div className="movies-container">
+                                    <div className="item-container">
                                         {trendingMovies?.map((movie, index) => (
                                             <MovieCard
                                                 key={index}
@@ -130,7 +130,7 @@ function Movies() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="movies-pagination-container">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setTrendingPage}
                                             page={trendingPage}
