@@ -18,8 +18,8 @@ const MovieDetail = (props) => {
                 budget={props.movieBudget}
                 duration={props.movieDuration}
                 status={props.movieStatus}
-                movieVideos={props.movieVideos}
-                movieThumbnails={props.movieThumbnails}
+                videos={props.movieVideos}
+                thumbnails={props.movieThumbnails}
             />
         </>
     );

@@ -18,23 +18,27 @@ const ItemDetail = (props) => {
                         <div className="item-detail-data-heading">
                             <p>Release Date:</p>
                             <p>Available Language:</p>
-                            <p>Revenue:</p>
-                            <p> Duration:</p>
+                            {props.revenue ? <p>Revenue:</p> : ""}
+                            {props.duration ? <p> Duration:</p> : ""}
+
                             <p> Status:</p>
                             <p> Genres:</p>
+                            {props.tagline ? <p>Tagline:</p> : ""}
                         </div>
 
                         <div className="item-detail-data-content">
                             <p>{props.release_date}</p>
                             <p className="item-detail-language">{props.language}</p>
-                            <p>${props.revenue}</p>
-                            <p>{props.duration}mins</p>
+                            {props.revenue ? <p>${props.revenue}</p> : ""}
+                            {props.duration ? <p>{props.duration}mins</p> : ""}
+
                             <p>{props.status}</p>
                             {props.genres?.map((genre) => (
                                 <span className="item-detail-data-para-genres">
                                     {genre.name}&emsp;
                                 </span>
                             ))}
+                            {props.tagline ? <p>{props.tagline}</p> : ""}
                         </div>
                     </div>
                 </div>

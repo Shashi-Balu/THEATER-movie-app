@@ -102,19 +102,20 @@ const Item = (props) => {
                                         title={props.title}
                                         rating={props.rating}
                                         release_date={props.release_date}
+                                        tagline={props.tagline}
                                         genres={props.genres}
                                         description={props.description}
                                     />
                                 );
                             case "itemTypeVideos":
                                 return (
-                                    <ItemEmbedVideo movieVideos={props.movieVideos} />
+                                    <ItemEmbedVideo videos={props.videos} />
 
                                     // <iframe src={`https://www.youtube.com/watch?v=-${key.key}`}></iframe>
                                     // <p>{props.movieVideos?.map((key) => console.log(key.key))}</p>
                                 );
                             case "itemTypeThumbnails":
-                                return <ItemThumbnail movieThumbnails={props.movieThumbnails} />;
+                                return <ItemThumbnail thumbnails={props.thumbnails} />;
                         }
                     })()}
                 </>

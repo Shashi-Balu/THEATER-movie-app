@@ -25,9 +25,8 @@ const TvshowContextProviders = ({ children }) => {
                 `${url}/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}`
             )
         ).json();
-        const trendingTvshowsApiData = trendingTvshowsApi.results;
+        const trendingTvshowsApiData = trendingTvshowsApi?.results;
         setTrendingTvshows(trendingTvshowsApiData);
-        // console.log(trendingTvshowsApi);
         setTotalTrendingPages(trendingTvshowsApi?.total_pages);
 
         const airingTodayTvshowsApi = await (
@@ -35,7 +34,7 @@ const TvshowContextProviders = ({ children }) => {
                 `${url}/tv/airing_today?api_key=${process.env.REACT_APP_API_KEY}&page=${upcomingPage}`
             )
         ).json();
-        const airingTodayTvshowsApiData = airingTodayTvshowsApi.results;
+        const airingTodayTvshowsApiData = airingTodayTvshowsApi?.results;
         setAiringTodayTvshows(airingTodayTvshowsApiData);
         setTotalUpcomingPages(airingTodayTvshows?.total_pages);
 
@@ -44,7 +43,7 @@ const TvshowContextProviders = ({ children }) => {
                 `${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${popularPage}`
             )
         ).json();
-        const popularTvshowsApiData = popularTvshowsApi.results;
+        const popularTvshowsApiData = popularTvshowsApi?.results;
         setPopularTvshows(popularTvshowsApiData);
         setTotalTopRatedPages(popularTvshowsApi?.total_pages);
 
@@ -53,7 +52,7 @@ const TvshowContextProviders = ({ children }) => {
                 `${url}/tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${topRatedPage}`
             )
         ).json();
-        const topRatedTvshowsApiData = topRatedTvshowsApi.results;
+        const topRatedTvshowsApiData = topRatedTvshowsApi?.results;
         setTopRatedTvshows(topRatedTvshowsApiData);
         setTotalPopularPages(topRatedTvshowsApi?.total_pages);
 
@@ -62,11 +61,11 @@ const TvshowContextProviders = ({ children }) => {
                 `${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}`
             )
         ).json();
-        const tvshowsApiData = tvshowsApi.results;
+        const tvshowsApiData = tvshowsApi?.results;
         setTvshows(tvshowsApiData);
     }
 
-    const trendingTvshowsImages = trendingTvshows.map(
+    const trendingTvshowsImages = trendingTvshows?.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
     const airingTodayTvshowsImages = airingTodayTvshows?.map(
@@ -78,7 +77,7 @@ const TvshowContextProviders = ({ children }) => {
     const topRatedTvshowsImages = topRatedTvshows.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
-    const tvshowsImages = tvshows.map((tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`);
+    const tvshowsImages = tvshows?.map((tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`);
 
     useEffect(() => {
         callTvshowsApi();

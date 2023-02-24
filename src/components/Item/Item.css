@@ -64,11 +64,11 @@
     font-weight: 400;
     padding: 20px;
     color: var(--gold);
-
     border-bottom: 1px solid var(--gold);
 }
 
 .item-choose-label {
+    cursor: pointer;
     margin-left: 100px;
 }
 

@@ -14,6 +14,11 @@ const TvshowDetail = (props) => {
                 genres={props.tvshowGenres}
                 poster={props.tvshowPoster}
                 language={props.tvshowLanguage}
+                tagline={props.tvshowTagline}
+                duration={props.tvshowDuration}
+                status={props.tvshowStatus}
+                videos={props.tvshowVideos}
+                thumbnails={props.tvshowThumbnails}
             />
         </div>
     );

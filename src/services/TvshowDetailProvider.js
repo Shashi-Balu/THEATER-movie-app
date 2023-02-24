@@ -10,8 +10,11 @@ const TvshowDetailProvider = (props) => {
     const [tvshowDescription, setTvshowDescription] = useState();
     const [tvshowImgUrl, setTvshowImgUrl] = useState();
     const [tvshowPoster, setTvshowPoster] = useState();
-    // const [tvshowThumbnails, setTvshowThumbnails] = useState();
-    // const [tvshowVideos, setTvshowVideos] = useState();
+    const [tvshowRevenue, setTvshowRevenue] = useState();
+    const [tvshowTagline, setTvshowTagline] = useState();
+    const [tvshowStatus, setTvshowStatus] = useState();
+    const [tvshowThumbnails, setTvshowThumbnails] = useState();
+    const [tvshowVideos, setTvshowVideos] = useState();
     // const [tvshowCast, setTvshowCast] = useState();
     // const [tvshowSimilar, setTvshowSimilar] = useState();
     const [tvshowLanguage, setTvshowLanguage] = useState();
@@ -30,17 +33,32 @@ const TvshowDetailProvider = (props) => {
         setTvshowDescription(tvshowApi?.overview);
         setTvshowImgUrl(tvshowApi?.backdrop_path);
         setTvshowPoster(tvshowApi?.poster_path);
-        // setTvshowThumbnails(tvshowApi?.title);
-        // setTvshowVideos(tvshowApi?.title);
+        setTvshowRevenue(tvshowApi?.revenue);
+        setTvshowTagline(tvshowApi?.tagline);
+        setTvshowStatus(tvshowApi?.status);
         // setTvshowSimilar(tvshowApi?.title);
         setTvshowLanguage(tvshowApi?.original_language);
         setTvshowReleaseDate(tvshowApi?.first_air_date);
+    }
 
-        // console.log(tvshowImgUrl);
+    async function callTvshowVideoApi() {
+        const tvshowVideoApi = await (
+            await fetch(`${url}/tv/${props.id}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+        setTvshowVideos(tvshowVideoApi?.results);
+    }
+
+    async function callTvshowThumbnailApi() {
+        const tvshowThumbnailApi = await (
+            await fetch(`${url}/tv/${props.id}/images?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+        setTvshowThumbnails(tvshowThumbnailApi?.backdrops);
     }
 
     useEffect(() => {
         callTvshowApi();
+        callTvshowVideoApi();
+        callTvshowThumbnailApi();
     }, []);
     return (
         <>
@@ -54,6 +72,10 @@ const TvshowDetailProvider = (props) => {
                     tvshowPoster={tvshowPoster}
                     tvshowLanguage={tvshowLanguage}
                     tvshowReleaseDate={tvshowReleaseDate}
+                    tvshowTagline={tvshowTagline}
+                    tvshowStatus={tvshowStatus}
+                    tvshowVideos={tvshowVideos}
+                    tvshowThumbnails={tvshowThumbnails}
                 />
             </>
         </>
