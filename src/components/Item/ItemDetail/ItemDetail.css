@@ -1,5 +1,6 @@
 .item-detail-content-container {
     display: flex;
+    background-color: var(--dark-black);
 }
 
 .item-detail-poster-img {

@@ -12,7 +12,7 @@ const MovieDetailProvider = (props) => {
     const [moviePoster, setMoviePoster] = useState();
     const [movieThumbnails, setMovieThumbnails] = useState();
     const [movieVideos, setMovieVideos] = useState();
-    // const [movieCast, setMovieCast] = useState();
+    const [movieCast, setMovieCast] = useState();
     // const [movieSimilar, setMovieSimilar] = useState();
     const [movieLanguage, setMovieLanguage] = useState();
     const [movieReleaseDate, setMovieReleaseDate] = useState();
@@ -56,10 +56,22 @@ const MovieDetailProvider = (props) => {
         setMovieThumbnails(movieThumbnailApiData);
     }
 
+    async function callMovieCastApi() {
+        const movieCastApi = await (
+            await fetch(`${url}/movie/${props.id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+
+        console.log(movieCastApi);
+        const movieCastApiData = movieCastApi?.cast;
+        setMovieCast(movieCastApiData);
+        console.log(movieCastApiData);
+    }
+
     useEffect(() => {
         callMovieApi();
         callMovieVideoApi();
         callMovieThumbnailApi();
+        callMovieCastApi();
     }, []);
     return (
         <>
@@ -79,6 +91,7 @@ const MovieDetailProvider = (props) => {
                     movieStatus={movieStatus}
                     movieVideos={movieVideos}
                     movieThumbnails={movieThumbnails}
+                    movieCast={movieCast}
                 />
             </>
         </>

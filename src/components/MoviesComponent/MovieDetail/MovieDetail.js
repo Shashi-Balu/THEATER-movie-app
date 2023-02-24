@@ -20,6 +20,7 @@ const MovieDetail = (props) => {
                 status={props.movieStatus}
                 videos={props.movieVideos}
                 thumbnails={props.movieThumbnails}
+                cast={props.movieCast}
             />
         </>
     );

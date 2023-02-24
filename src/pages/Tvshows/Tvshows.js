@@ -46,7 +46,7 @@ function Tvshows() {
                         case "upcoming":
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {airingTodayTvshows?.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -69,7 +69,7 @@ function Tvshows() {
                         case "top-rated":
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {topRatedTvshows.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -92,7 +92,7 @@ function Tvshows() {
                         case "popular":
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {popularTvshows.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
@@ -117,7 +117,7 @@ function Tvshows() {
                         default:
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {trendingTvshows.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}

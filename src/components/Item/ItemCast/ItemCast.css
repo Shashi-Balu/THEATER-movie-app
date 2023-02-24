@@ -1,0 +1,24 @@
+@import url("../../../styles/colors.css");
+
+.item-cast-container {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.item-profile-img {
+    border: 1px solid var(--gold);
+    width: 250px;
+}
+
+.item-cast-img-container {
+    margin: 10px;
+}
+
+.item-cast-heading {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 2.3rem;
+    color: var(--gold);
+    font-weight: 400;
+}

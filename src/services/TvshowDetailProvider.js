@@ -15,7 +15,7 @@ const TvshowDetailProvider = (props) => {
     const [tvshowStatus, setTvshowStatus] = useState();
     const [tvshowThumbnails, setTvshowThumbnails] = useState();
     const [tvshowVideos, setTvshowVideos] = useState();
-    // const [tvshowCast, setTvshowCast] = useState();
+    const [tvshowCast, setTvshowCast] = useState();
     // const [tvshowSimilar, setTvshowSimilar] = useState();
     const [tvshowLanguage, setTvshowLanguage] = useState();
     const [tvshowReleaseDate, setTvshowReleaseDate] = useState();
@@ -55,10 +55,18 @@ const TvshowDetailProvider = (props) => {
         setTvshowThumbnails(tvshowThumbnailApi?.backdrops);
     }
 
+    async function callTvshowCastApi() {
+        const tvshowCastApi = await (
+            await fetch(`${url}/tv/${props.id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+        setTvshowCast(tvshowCastApi?.cast);
+    }
+
     useEffect(() => {
         callTvshowApi();
         callTvshowVideoApi();
         callTvshowThumbnailApi();
+        callTvshowCastApi();
     }, []);
     return (
         <>
@@ -76,6 +84,7 @@ const TvshowDetailProvider = (props) => {
                     tvshowStatus={tvshowStatus}
                     tvshowVideos={tvshowVideos}
                     tvshowThumbnails={tvshowThumbnails}
+                    tvshowCast={tvshowCast}
                 />
             </>
         </>

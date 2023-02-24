@@ -1,10 +1,10 @@
 @import url("../../../styles/colors.css");
 
 .item-thumbnail-container {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: var(--dark-black);
 }
 .item-thumbnail {
     width: 470px;

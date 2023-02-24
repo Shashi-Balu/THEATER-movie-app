@@ -3,6 +3,7 @@ import "../../Item/Item.css";
 import Item from "../../Item/Item";
 
 const TvshowDetail = (props) => {
+    console.log(props.cast);
     return (
         <div>
             <Item
@@ -19,6 +20,7 @@ const TvshowDetail = (props) => {
                 status={props.tvshowStatus}
                 videos={props.tvshowVideos}
                 thumbnails={props.tvshowThumbnails}
+                cast={props.tvshowCast}
             />
         </div>
     );

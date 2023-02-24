@@ -46,7 +46,7 @@ function Movies() {
                         case "upcoming":
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {upcomingMovies?.map((movie, index) => (
                                             <MovieCard
                                                 key={index}
@@ -69,7 +69,7 @@ function Movies() {
                         case "top-rated":
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {topRatedMovies?.map((movie, index) => (
                                             <div>
                                                 <MovieCard
@@ -94,7 +94,7 @@ function Movies() {
                         case "popular":
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {popularMovies?.map((movie, index) => (
                                             <MovieCard
                                                 key={index}
@@ -119,7 +119,7 @@ function Movies() {
                         default:
                             return (
                                 <>
-                                    <div className="item-container">
+                                    <div className="items-item-container">
                                         {trendingMovies?.map((movie, index) => (
                                             <MovieCard
                                                 key={index}

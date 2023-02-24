@@ -1,5 +1,9 @@
 @import url("../../styles/colors.css");
 
+.item-container {
+    border-bottom: 1px solid var(--gold);
+}
+
 .item-detail-data-container {
     position: absolute;
     z-index: 1;
