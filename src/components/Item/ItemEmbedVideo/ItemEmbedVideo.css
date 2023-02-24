@@ -1,0 +1,14 @@
+@import url("../../../styles/colors.css");
+.item-video-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.item-video {
+    width: 460px;
+    height: 300px;
+    margin: 20px;
+    border: 1px solid var(--gold);
+}

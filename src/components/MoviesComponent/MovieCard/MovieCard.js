@@ -10,7 +10,7 @@ const MovieCard = (props) => {
     const movieDetail = (movied, mtitle) => {
         setMovieIdApp(movied);
         setTitle(mtitle);
-        console.log(movied);
+        // console.log(movied);
     };
     return (
         <>

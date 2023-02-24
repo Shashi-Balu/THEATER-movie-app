@@ -42,7 +42,7 @@ function Carousel() {
         genreData?.map((item2) => {
             if (item === item2.id) {
                 return item2.name;
-                console.log(item2.name);
+                // console.log(item2.name);
             }
         });
     });

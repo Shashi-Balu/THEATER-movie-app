@@ -10,8 +10,8 @@ const MovieDetailProvider = (props) => {
     const [movieDescription, setMovieDescription] = useState();
     const [movieImgUrl, setMovieImgUrl] = useState();
     const [moviePoster, setMoviePoster] = useState();
-    // const [movieThumbnails, setMovieThumbnails] = useState();
-    // const [movieVideos, setMovieVideos] = useState();
+    const [movieThumbnails, setMovieThumbnails] = useState();
+    const [movieVideos, setMovieVideos] = useState();
     // const [movieCast, setMovieCast] = useState();
     // const [movieSimilar, setMovieSimilar] = useState();
     const [movieLanguage, setMovieLanguage] = useState();
@@ -19,6 +19,7 @@ const MovieDetailProvider = (props) => {
     const [movieRevenue, setMovieRevenue] = useState();
     const [movieBudget, setMovieBudget] = useState();
     const [movieDuration, setMovieDuration] = useState();
+    const [movieStatus, setMovieStatus] = useState();
     async function callMovieApi() {
         const movieApi = await (
             await fetch(`${url}/movie/${props.id}?api_key=${process.env.REACT_APP_API_KEY}`)
@@ -30,20 +31,35 @@ const MovieDetailProvider = (props) => {
         setMovieDescription(movieApi?.overview);
         setMovieImgUrl(movieApi?.backdrop_path);
         setMoviePoster(movieApi?.poster_path);
-        // setMovieThumbnails(movieApi?.title);
-        // setMovieVideos(movieApi?.title);
         // setMovieSimilar(movieApi?.title);
-        setMovieLanguage(movieApi?.spoken_language);
+        setMovieLanguage(movieApi?.original_language);
         setMovieReleaseDate(movieApi?.release_date);
         setMovieRevenue(movieApi?.revenue);
         setMovieBudget(movieApi?.budget);
         setMovieDuration(movieApi?.runtime);
+        setMovieStatus(movieApi?.status);
+    }
 
-        console.log(movieImgUrl);
+    async function callMovieVideoApi() {
+        const movieVideoApi = await (
+            await fetch(`${url}/movie/${props.id}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+        const movieVideoApiData = movieVideoApi?.results;
+        setMovieVideos(movieVideoApiData);
+    }
+
+    async function callMovieThumbnailApi() {
+        const movieThumbnailApi = await (
+            await fetch(`${url}/movie/${props.id}/images?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+        const movieThumbnailApiData = movieThumbnailApi?.backdrops;
+        setMovieThumbnails(movieThumbnailApiData);
     }
 
     useEffect(() => {
         callMovieApi();
+        callMovieVideoApi();
+        callMovieThumbnailApi();
     }, []);
     return (
         <>
@@ -60,6 +76,9 @@ const MovieDetailProvider = (props) => {
                     movieRevenue={movieRevenue}
                     movieBudget={movieBudget}
                     movieDuration={movieDuration}
+                    movieStatus={movieStatus}
+                    movieVideos={movieVideos}
+                    movieThumbnails={movieThumbnails}
                 />
             </>
         </>

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./Item.css";
+import ItemDetail from "./ItemDetail/ItemDetail";
+import ItemEmbedVideo from "./ItemEmbedVideo/ItemEmbedVideo";
+import ItemThumbnail from "./ItemThumbnail/ItemThumbnail";
 const Item = (props) => {
-    // const rating = props.rating.toFixed(1);
-
-    console.log(props.imgUrl);
+    const [itemType, setItemType] = useState("itemTypeDetail");
+    const [itemTypeDetail, setItemTypeDetail] = useState("itemTypeDetail");
+    const [itemTypeVideos, setItemTypeVideos] = useState("itemTypeVideos");
+    const [itemTypeThumbnails, setItemTypeThumbnails] = useState("itemTypeThumbnails");
+    const handleItemType = (event) => {
+        setItemType(event.target.value);
+        console.log(event.target.value);
+    };
     return (
         <>
             <div className="item-detail-container">
@@ -19,33 +27,98 @@ const Item = (props) => {
                         {props.rating !== 0 ? (
                             <div className="item-detail-rating-data">
                                 <StarBorderSharpIcon className="item-detail-star" />
-                                <p className="item-detail-rating">
-                                    {props.rating}
-                                    <span>/10</span>
-                                </p>
+                                <p className="item-detail-rating">{props.rating}/10</p>
                             </div>
                         ) : null}
                         <p className="item-detail-release-date">{props.release_date}</p>
-                        <p>{props.genreData}</p>
+                        <div className="item-detail-data-genres-container">
+                            {props.genres?.map((genre) => (
+                                <span className="item-detail-data-genres">{genre.name}&emsp;</span>
+                            ))}
+                        </div>
                     </div>
                     <div>
                         <p className="item-detail-description">{props.description}</p>
                     </div>
                 </div>
             </div>
-            {/* <p className="carousel-genres">
-                        {props.genres?.map((item) => {
-                            props.genreData?.map((item2) => {
-                                if (item === item2.id) {
-                                    <p>{item2.name}</p>;
-                                }
-                            });
-                        })}
-                    </p>
 
-                    <p className="carousel-description">{props.description}</p>
+            <>
+                <div className="item-choose-detail">
+                    <input
+                        type="radio"
+                        name="itemType"
+                        label={itemTypeDetail}
+                        id={itemTypeDetail}
+                        value={itemTypeDetail}
+                        onChange={handleItemType}
+                        className="item-type-radio"
+                    />
+                    <label
+                        className="item-choose-label item-choose-label-first"
+                        htmlFor={itemTypeDetail}
+                    >
+                        Details
+                    </label>
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        label={itemTypeVideos}
+                        id={itemTypeVideos}
+                        value={itemTypeVideos}
+                        onChange={handleItemType}
+                        className="item-type-radio"
+                    />
+                    <label className="item-choose-label" htmlFor={itemTypeVideos}>
+                        Videos
+                    </label>
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        label={itemTypeThumbnails}
+                        id={itemTypeThumbnails}
+                        value={itemTypeThumbnails}
+                        onChange={handleItemType}
+                        className="item-type-radio"
+                    />
+                    <label className="item-choose-label" htmlFor={itemTypeThumbnails}>
+                        Thumbnails
+                    </label>
                 </div>
-            </div> */}
+                <>
+                    {(() => {
+                        switch (itemType) {
+                            case "itemTypeDetail":
+                                return (
+                                    <ItemDetail
+                                        imgUrl={props.imgUrl}
+                                        poster={props.poster}
+                                        language={props.language}
+                                        revenue={props.revenue}
+                                        duration={props.duration}
+                                        status={props.status}
+                                        title={props.title}
+                                        rating={props.rating}
+                                        release_date={props.release_date}
+                                        genres={props.genres}
+                                        description={props.description}
+                                    />
+                                );
+                            case "itemTypeVideos":
+                                return (
+                                    <ItemEmbedVideo movieVideos={props.movieVideos} />
+
+                                    // <iframe src={`https://www.youtube.com/watch?v=-${key.key}`}></iframe>
+                                    // <p>{props.movieVideos?.map((key) => console.log(key.key))}</p>
+                                );
+                            case "itemTypeThumbnails":
+                                return <ItemThumbnail movieThumbnails={props.movieThumbnails} />;
+                        }
+                    })()}
+                </>
+            </>
         </>
     );
 };

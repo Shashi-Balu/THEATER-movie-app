@@ -8,7 +8,7 @@ const Searchbar = (props) => {
         useContext(TypeContext);
     const changeType = (event) => {
         setType(event.target.value);
-        console.log(event.target.value);
+        // console.log(event.target.value);
     };
 
     props.getType(type);

@@ -20,7 +20,7 @@ function Explore() {
         navigate("/movies");
         setType(typeUpcoming);
         window.scroll(0, 0);
-        console.log("upcoming");
+        // console.log("upcoming");
     };
     const topRatedSection = () => {
         navigate("/movies");

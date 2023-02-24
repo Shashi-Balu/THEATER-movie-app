@@ -3,7 +3,7 @@ import { url } from "./../services/apis/movieUrl";
 import TvshowDetail from "../components/TvshowsComponent/TvshowDetail/TvshowDetail";
 
 const TvshowDetailProvider = (props) => {
-    console.log(props.id);
+    // console.log(props.id);
     const [tvshowTitle, setTvshowTitle] = useState();
     const [tvshowRating, setTvshowRating] = useState();
     const [tvshowGenres, setTvshowGenres] = useState();
@@ -22,7 +22,7 @@ const TvshowDetailProvider = (props) => {
             await fetch(`${url}/tv/${props.id}?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
 
-        console.log(tvshowApi);
+        // console.log(tvshowApi);
 
         setTvshowTitle(tvshowApi?.name);
         setTvshowRating(tvshowApi?.vote_average.toFixed(1));
@@ -36,7 +36,7 @@ const TvshowDetailProvider = (props) => {
         setTvshowLanguage(tvshowApi?.original_language);
         setTvshowReleaseDate(tvshowApi?.first_air_date);
 
-        console.log(tvshowImgUrl);
+        // console.log(tvshowImgUrl);
     }
 
     useEffect(() => {

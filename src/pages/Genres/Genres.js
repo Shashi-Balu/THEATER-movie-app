@@ -6,8 +6,8 @@ import "./Genres.css";
 function Genres() {
     const { movieGenreData, tvGenreData } = useContext(GenreContext);
 
-    console.log(movieGenreData);
-    console.log(tvGenreData);
+    // console.log(movieGenreData);
+    // console.log(tvGenreData);
     return (
         <>
             <div className="genres-container">

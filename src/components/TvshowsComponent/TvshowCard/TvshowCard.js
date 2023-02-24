@@ -9,7 +9,7 @@ const TvshowCard = (props) => {
     const tvshowDetail = (movied, mtitle) => {
         setTvshowIdApp(movied);
         setTvtitle(mtitle);
-        console.log(movied);
+        // console.log(movied);
     };
     return (
         <>

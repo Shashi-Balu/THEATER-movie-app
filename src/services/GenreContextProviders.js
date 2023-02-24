@@ -14,7 +14,7 @@ export const GenreContextProviders = ({ children }) => {
 
         const movieGenreApiData = movieGenreApi.genres;
         setMovieGenreData(movieGenreApiData);
-        console.log(movieGenreData);
+        // console.log(movieGenreData);
     }
     async function callTvGenreApi() {
         const tvGenreApi = await (
@@ -23,7 +23,7 @@ export const GenreContextProviders = ({ children }) => {
 
         const tvGenreApiData = tvGenreApi.genres;
         setTvGenreData(tvGenreApiData);
-        console.log(tvGenreData);
+        // console.log(tvGenreData);
     }
 
     useEffect(() => {

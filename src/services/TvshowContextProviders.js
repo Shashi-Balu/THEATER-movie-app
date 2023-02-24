@@ -27,7 +27,7 @@ const TvshowContextProviders = ({ children }) => {
         ).json();
         const trendingTvshowsApiData = trendingTvshowsApi.results;
         setTrendingTvshows(trendingTvshowsApiData);
-        console.log(trendingTvshowsApi);
+        // console.log(trendingTvshowsApi);
         setTotalTrendingPages(trendingTvshowsApi?.total_pages);
 
         const airingTodayTvshowsApi = await (
