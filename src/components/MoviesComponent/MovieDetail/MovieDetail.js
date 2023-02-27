@@ -3,6 +3,7 @@ import Item from "../../Item/Item";
 import "../../Item/Item.css";
 
 const MovieDetail = (props) => {
+    console.log(props.similar);
     return (
         <>
             <Item
@@ -21,6 +22,7 @@ const MovieDetail = (props) => {
                 videos={props.movieVideos}
                 thumbnails={props.movieThumbnails}
                 cast={props.movieCast}
+                movieSimilar={props.movieSimilar}
             />
         </>
     );

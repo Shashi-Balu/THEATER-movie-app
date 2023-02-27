@@ -1,7 +1,7 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useParams } from "react-router-dom";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Genres from "./pages/Genres/Genres";
 import Tvshows from "./pages/Tvshows/Tvshows";
 import Movies from "./pages/Movies/Movies";
@@ -13,10 +13,21 @@ import MovieDetailProvider from "./services/MovieDetailProviders";
 import { TvshowContext } from "./services/TvshowContextProviders";
 import NotFound from "./pages/NotFound/NotFound";
 import TvshowDetailProvider from "./services/TvshowDetailProvider";
+import { GenreContextProviders } from "./services/GenreContextProviders";
+import GenreDetailProviders from "./services/GenreDetailProviders";
 
 function App() {
-    const { movieIdApp } = useContext(MovieContext);
-    const { tvshowIdApp } = useContext(TvshowContext);
+    const { movieIdApp, setMovieIdApp } = useContext(MovieContext);
+    const { tvshowIdApp, setTvshowIdApp } = useContext(TvshowContext);
+
+    // const navigate = useNavigate();
+
+    useEffect(() => {
+        setTvshowIdApp(tvshowIdApp);
+        console.log("refresh", tvshowIdApp);
+    });
+
+    console.log(tvshowIdApp);
     return (
         <div className="App">
             <BrowserRouter>
@@ -28,12 +39,17 @@ function App() {
                     <Route path={"/tv-shows"} element={<Tvshows />} />
                     <Route path={"/genres"} element={<Genres />} />
                     <Route
-                        path={`/movies/:movieid`}
+                        path={`/movies/:movieId`}
                         element={<MovieDetailProvider id={movieIdApp} />}
                     />
                     <Route
                         path={`/tv-shows/:tvid`}
                         element={<TvshowDetailProvider id={tvshowIdApp} />}
+                    />
+
+                    <Route
+                        path={`/genres/:genreid`}
+                        element={<GenreDetailProviders id={tvshowIdApp} />}
                     />
                     <Route path={"*"} element={<NotFound />} />
                 </Routes>

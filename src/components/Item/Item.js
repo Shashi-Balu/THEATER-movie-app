@@ -5,6 +5,8 @@ import ItemDetail from "./ItemDetail/ItemDetail";
 import ItemEmbedVideo from "./ItemEmbedVideo/ItemEmbedVideo";
 import ItemThumbnail from "./ItemThumbnail/ItemThumbnail";
 import ItemCast from "./ItemCast/ItemCast";
+import ItemSimilarItems from "./ItemSimilarItems/ItemSimilarItems";
+import TvshowCard from "../TvshowsComponent/TvshowCard/TvshowCard";
 const Item = (props) => {
     const [itemType, setItemType] = useState("itemTypeDetail");
     const [itemTypeDetail, setItemTypeDetail] = useState("itemTypeDetail");
@@ -14,6 +16,7 @@ const Item = (props) => {
         setItemType(event.target.value);
         console.log(event.target.value);
     };
+
     return (
         <>
             <div className="item-container">
@@ -128,6 +131,13 @@ const Item = (props) => {
                 <div className="item-cast">
                     <ItemCast cast={props.cast} />
                 </div>
+            </>
+
+            <>
+                <ItemSimilarItems
+                    tvshowSimilar={props.tvshowSimilar}
+                    movieSimilar={props.movieSimilar}
+                />
             </>
         </>
     );

@@ -3,21 +3,23 @@ import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "../../../styles/ItemCard.css";
 import { Link } from "react-router-dom";
 import { TvshowContext } from "../../../services/TvshowContextProviders";
+import { useParams } from "react-router-dom";
 
 const TvshowCard = (props) => {
-    const { tvshowIdApp, setTvshowIdApp, tvtitle, setTvtitle } = useContext(TvshowContext);
-    const tvshowDetail = (movied, mtitle) => {
+    const { tvshowIdApp, setTvshowIdApp } = useContext(TvshowContext);
+    let { tvId } = useParams();
+    console.log("ddfbd", tvId);
+
+    const tvshowDetail = (movied) => {
         setTvshowIdApp(movied);
-        setTvtitle(mtitle);
-        // console.log(movied);
     };
     return (
         <>
             <div
                 className="item-card-container"
                 onClick={() => {
-                    tvshowDetail(props.tvId, props.title);
-                    console.log(props.movieId);
+                    tvshowDetail(props.tvId);
+                    console.log(props.tvId);
                 }}
             >
                 <Link to={`/tv-shows/:${props.tvId}`}>
@@ -31,12 +33,6 @@ const TvshowCard = (props) => {
                             <StarBorderSharpIcon className="item-card-star" />
                             <p className="item-card-rating">{props.rating}/10</p>
                         </div>
-
-                        {/* <h4 className="item-card-title">
-                            {props.title.length >= 25
-                                ? `${props.title.slice(0, 18)}...`
-                                : props.title}
-                        </h4> */}
                     </div>
                 </Link>
             </div>

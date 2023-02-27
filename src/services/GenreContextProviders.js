@@ -23,7 +23,7 @@ export const GenreContextProviders = ({ children }) => {
 
         const tvGenreApiData = tvGenreApi.genres;
         setTvGenreData(tvGenreApiData);
-        // console.log(tvGenreData);
+        console.log(tvGenreData);
     }
 
     useEffect(() => {

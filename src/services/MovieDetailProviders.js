@@ -13,7 +13,7 @@ const MovieDetailProvider = (props) => {
     const [movieThumbnails, setMovieThumbnails] = useState();
     const [movieVideos, setMovieVideos] = useState();
     const [movieCast, setMovieCast] = useState();
-    // const [movieSimilar, setMovieSimilar] = useState();
+    const [movieSimilar, setMovieSimilar] = useState();
     const [movieLanguage, setMovieLanguage] = useState();
     const [movieReleaseDate, setMovieReleaseDate] = useState();
     const [movieRevenue, setMovieRevenue] = useState();
@@ -31,7 +31,6 @@ const MovieDetailProvider = (props) => {
         setMovieDescription(movieApi?.overview);
         setMovieImgUrl(movieApi?.backdrop_path);
         setMoviePoster(movieApi?.poster_path);
-        // setMovieSimilar(movieApi?.title);
         setMovieLanguage(movieApi?.original_language);
         setMovieReleaseDate(movieApi?.release_date);
         setMovieRevenue(movieApi?.revenue);
@@ -64,7 +63,16 @@ const MovieDetailProvider = (props) => {
         console.log(movieCastApi);
         const movieCastApiData = movieCastApi?.cast;
         setMovieCast(movieCastApiData);
-        console.log(movieCastApiData);
+    }
+
+    async function callMovieSimilarApi() {
+        const movieSimilarApi = await (
+            await fetch(`${url}/movie/${props.id}/similar?api_key=${process.env.REACT_APP_API_KEY}`)
+        ).json();
+        const movieSimilarApiData = movieSimilarApi?.results;
+        setMovieSimilar(movieSimilarApiData);
+
+        console.log({ movieSimilarApiData });
     }
 
     useEffect(() => {
@@ -72,6 +80,7 @@ const MovieDetailProvider = (props) => {
         callMovieVideoApi();
         callMovieThumbnailApi();
         callMovieCastApi();
+        callMovieSimilarApi();
     }, []);
     return (
         <>
@@ -92,6 +101,7 @@ const MovieDetailProvider = (props) => {
                     movieVideos={movieVideos}
                     movieThumbnails={movieThumbnails}
                     movieCast={movieCast}
+                    movieSimilar={movieSimilar}
                 />
             </>
         </>

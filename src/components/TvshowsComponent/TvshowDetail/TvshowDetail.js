@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../Item/Item.css";
 import Item from "../../Item/Item";
 
 const TvshowDetail = (props) => {
-    console.log(props.cast);
+    useEffect(() => {
+        props.setTvshowId(props.tvshowId);
+    }, []);
+    console.log(props.tvshowId);
     return (
         <div>
             <Item
+                id={props.tvshowId}
                 title={props.tvshowTitle}
                 imgUrl={props.tvshowImgUrl}
                 rating={props.tvshowRating}
@@ -21,6 +25,7 @@ const TvshowDetail = (props) => {
                 videos={props.tvshowVideos}
                 thumbnails={props.tvshowThumbnails}
                 cast={props.tvshowCast}
+                tvshowSimilar={props.tvshowSimilar}
             />
         </div>
     );

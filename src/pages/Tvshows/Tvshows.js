@@ -70,7 +70,7 @@ function Tvshows() {
                             return (
                                 <>
                                     <div className="items-item-container">
-                                        {topRatedTvshows.map((tv, index) => (
+                                        {topRatedTvshows?.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
                                                 title={tv.name}
@@ -93,11 +93,11 @@ function Tvshows() {
                             return (
                                 <>
                                     <div className="items-item-container">
-                                        {popularTvshows.map((tv, index) => (
+                                        {popularTvshows?.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
-                                                title={tv.name}
-                                                rating={tv.vote_average.toFixed(1)}
+                                                title={tv?.name}
+                                                rating={tv.vote_average?.toFixed(1)}
                                                 imgUrl={popularTvshowsImages[index]}
                                                 tvId={tv.id}
                                             />
@@ -118,7 +118,7 @@ function Tvshows() {
                             return (
                                 <>
                                     <div className="items-item-container">
-                                        {trendingTvshows.map((tv, index) => (
+                                        {trendingTvshows?.map((tv, index) => (
                                             <TvshowCard
                                                 key={index}
                                                 title={tv.name}

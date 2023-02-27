@@ -1,0 +1,12 @@
+.item-similar-heading {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 2.3rem;
+    color: var(--gold);
+    font-weight: 400;
+}
+
+.color {
+    color: wheat;
+    font-size: 1.6rem;
+}
