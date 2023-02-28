@@ -86,7 +86,7 @@ function Movies() {
                                         <AppPagination
                                             setPage={setTopRatedPage}
                                             page={topRatedPage}
-                                            pageNumbers={totalTopRatedPages}
+                                            pageNumbers={500}
                                         />
                                     </div>
                                 </>
@@ -109,7 +109,7 @@ function Movies() {
                                         <AppPagination
                                             setPage={setPopularPage}
                                             page={popularPage}
-                                            pageNumbers={totalPopularPages}
+                                            pageNumbers={500}
                                         />
                                     </div>
                                 </>

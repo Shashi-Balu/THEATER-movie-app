@@ -71,10 +71,10 @@ const TvshowContextProviders = ({ children }) => {
     const airingTodayTvshowsImages = airingTodayTvshows?.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
-    const popularTvshowsImages = popularTvshows.map(
+    const popularTvshowsImages = popularTvshows?.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
-    const topRatedTvshowsImages = topRatedTvshows.map(
+    const topRatedTvshowsImages = topRatedTvshows?.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`
     );
     const tvshowsImages = tvshows?.map((tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`);

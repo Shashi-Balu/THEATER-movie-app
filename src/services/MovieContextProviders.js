@@ -26,7 +26,6 @@ export const MovieContextProvider = ({ children }) => {
         ).json();
         const trendingMoviesApiData = trendingMoviesApi?.results;
         setTrendingMovies(trendingMoviesApiData);
-        console.log(trendingMoviesApi);
         setTotalTrendingPages(trendingMoviesApi?.total_pages);
 
         const upcomingMoviesApi = await (
@@ -45,7 +44,7 @@ export const MovieContextProvider = ({ children }) => {
         ).json();
         const popularMoviesApiData = popularMoviesApi?.results;
         setPopularMovies(popularMoviesApiData);
-        setTotalTopRatedPages(popularMoviesApi?.total_pages);
+        setTotalPopularPages(popularMoviesApi?.total_pages);
 
         const topRatedMoviesApi = await (
             await fetch(
@@ -54,7 +53,7 @@ export const MovieContextProvider = ({ children }) => {
         ).json();
         const topRatedMoviesApiData = topRatedMoviesApi?.results;
         setTopRatedMovies(topRatedMoviesApiData);
-        setTotalPopularPages(topRatedMoviesApi?.total_pages);
+        setTotalTopRatedPages(topRatedMoviesApi?.total_pages);
     }
 
     const trendingMoviesImages = trendingMovies?.map(

@@ -57,7 +57,7 @@ function Tvshows() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setUpcomingPage}
                                             page={upcomingPage}
@@ -80,7 +80,7 @@ function Tvshows() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setTopRatedPage}
                                             page={topRatedPage}
@@ -103,7 +103,7 @@ function Tvshows() {
                                             />
                                         ))}
                                     </div>
-                                    <div className="">
+                                    <div className="item-pagination-container">
                                         <AppPagination
                                             setPage={setPopularPage}
                                             page={popularPage}

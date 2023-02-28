@@ -5,7 +5,7 @@ import "./AppPagination.css";
 const AppPagination = ({ pageNumbers = 10, setPage }) => {
     const handleChange = (page = 1) => {
         setPage(page);
-
+        console.log({ page });
         // window.scroll(0, 0);
     };
     return (

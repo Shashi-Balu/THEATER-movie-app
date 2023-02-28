@@ -6,7 +6,7 @@ import { url } from "./apis/movieUrl";
 
 const GenreDetailProviders = (props) => {
     const [genrePage, setGenrePage] = useState(1);
-    const [totalGenrePages, setTotalGenrePages] = useState(10);
+    const [totalGenrePages, setTotalGenrePages] = useState(5);
     const [genreType, setGenreType] = useState();
     const [genreMovies, setGenreMovies] = useState();
     const [genreTvshows, setGenreTvshows] = useState();
@@ -22,6 +22,7 @@ const GenreDetailProviders = (props) => {
         console.log(movieGenreApi);
         const movieGenreApiData = movieGenreApi.results;
         setGenreMovies(movieGenreApiData);
+        setTotalGenrePages(movieGenreApi?.page);
     }
 
     async function callGenreTvshowsApi() {
@@ -34,6 +35,8 @@ const GenreDetailProviders = (props) => {
         setGenreType(type);
         const tvshowGenreApiData = tvshowGenreApi.results;
         setGenreTvshows(tvshowGenreApiData);
+        setTotalGenrePages(tvshowGenreApi?.total_pages);
+        console.log(totalGenrePages);
     }
 
     useEffect(() => {
