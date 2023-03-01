@@ -11,15 +11,7 @@ import MovieCard from "../../MoviesComponent/MovieCard/MovieCard";
 
 const ItemSimilarItems = (props) => {
     const navigate = useNavigate();
-    const {
-        tvshowIdApp,
-        setTvshowIdApp,
-        tvtitle,
-        setTvtitle,
-        tvshowSimilarPage,
-        setTvshowSimilarPage,
-        totalSimilarPages,
-    } = useContext(TvshowContext);
+    const { tvshowIdApp, setTvshowIdApp } = useContext(TvshowContext);
     let tvshowDetail = (tvId) => {
         setTvshowIdApp(tvId);
     };
@@ -28,7 +20,8 @@ const ItemSimilarItems = (props) => {
     };
 
     const { movieIdApp, setMovieIdApp } = useContext(MovieContext);
-    // console.log({ tvshowSimilarPage });
+    console.log(props.tvshowSimilarPage);
+    console.log();
 
     useEffect(() => {
         tvshowDetail = (tvId) => {
@@ -41,6 +34,8 @@ const ItemSimilarItems = (props) => {
         };
     }, [tvshowIdApp, movieIdApp]);
 
+    console.log("page", props.tvshowSimilarPage);
+    // console.log("setpage", props.setTvshowSimilarPage);
     return (
         <>
             <h2 className="item-similar-heading">More like this</h2>
@@ -87,10 +82,11 @@ const ItemSimilarItems = (props) => {
             </div>
 
             <div className="item-pagination-container">
+                {props.tvshowSimilarPage}
                 <AppPagination
-                    setPage={setTvshowSimilarPage}
-                    page={tvshowSimilarPage}
-                    pageNumbers={totalSimilarPages}
+                    setPage={props.setTvshowSimilarPage}
+                    page={props.tvshowSimilarPage}
+                    pageNumbers={props.totalSimilarPages}
                 />
             </div>
         </>

@@ -4,6 +4,8 @@ import { url } from "./apis/movieUrl";
 export const GenreContext = createContext();
 
 export const GenreContextProviders = ({ children }) => {
+    const [genreIdMovieApp, setGenreIdMovieApp] = useState(35);
+    const [genreIdTvApp, setGenreIdTvApp] = useState();
     const [movieGenreData, setMovieGenreData] = useState([]);
     const [tvGenreData, setTvGenreData] = useState([]);
 
@@ -29,11 +31,15 @@ export const GenreContextProviders = ({ children }) => {
     useEffect(() => {
         callMovieGenreApi();
         callTvGenreApi();
-    }, []);
+    }, [genreIdMovieApp, genreIdTvApp]);
     return (
         <div>
             <GenreContext.Provider
                 value={{
+                    genreIdMovieApp,
+                    setGenreIdMovieApp,
+                    genreIdTvApp,
+                    setGenreIdTvApp,
                     movieGenreData,
                     tvGenreData,
                     setMovieGenreData,

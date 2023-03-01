@@ -5,24 +5,23 @@ import TvshowCard from "../components/TvshowsComponent/TvshowCard/TvshowCard";
 import { url } from "./apis/movieUrl";
 
 const GenreDetailProviders = (props) => {
+    console.log("genreid", props.genreMovieId);
     const [genrePage, setGenrePage] = useState(1);
     const [totalGenrePages, setTotalGenrePages] = useState(5);
-    const [genreType, setGenreType] = useState();
     const [genreMovies, setGenreMovies] = useState();
     const [genreTvshows, setGenreTvshows] = useState();
 
     async function callGenreMoviesApi() {
         const movieGenreApi = await (
             await fetch(
-                `${url}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${props.genreMovieId}&page=${genrePage}`
+                `${url}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${props.genreIdMovieApp}&page=${genrePage}`
             )
         ).json();
-        const type = "movie";
-        setGenreType(type);
+
         console.log(movieGenreApi);
         const movieGenreApiData = movieGenreApi.results;
         setGenreMovies(movieGenreApiData);
-        setTotalGenrePages(movieGenreApi?.page);
+        setTotalGenrePages(movieGenreApi?.total_pages);
     }
 
     async function callGenreTvshowsApi() {
@@ -31,8 +30,7 @@ const GenreDetailProviders = (props) => {
                 `${url}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${props.genreMovieId}&page=${genrePage}`
             )
         ).json();
-        const type = "tv";
-        setGenreType(type);
+
         const tvshowGenreApiData = tvshowGenreApi.results;
         setGenreTvshows(tvshowGenreApiData);
         setTotalGenrePages(tvshowGenreApi?.total_pages);
@@ -45,7 +43,6 @@ const GenreDetailProviders = (props) => {
     }, []);
     return (
         <>
-            {genreType}
             <div className="items-item-container">
                 {genreMovies?.map((genre) => {
                     return (
@@ -54,7 +51,7 @@ const GenreDetailProviders = (props) => {
                                 title={genre.title}
                                 imgUrl={`https://image.tmdb.org/t/p/w500/${genre.poster_path}`}
                                 rating={genre?.vote_average.toFixed(1)}
-                                movieId={genre.id}
+                                genreIdMovieApp={genre.id}
                             />
                         </>
                     );
@@ -62,7 +59,7 @@ const GenreDetailProviders = (props) => {
             </div>
 
             <div className="item-pagination-container">
-                {genrePage}
+                {genrePage},{totalGenrePages}
                 <AppPagination
                     setPage={setGenrePage}
                     page={genrePage}

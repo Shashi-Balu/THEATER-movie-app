@@ -20,6 +20,8 @@ const MovieDetailProvider = (props) => {
     const [movieBudget, setMovieBudget] = useState();
     const [movieDuration, setMovieDuration] = useState();
     const [movieStatus, setMovieStatus] = useState();
+    const [movieSimilarPage, setMovieSimilarPage] = useState(1);
+    const [totalMovieSimilarPages, setTotalMovieSimilarPages] = useState([]);
     async function callMovieApi() {
         const movieApi = await (
             await fetch(`${url}/movie/${props.id}?api_key=${process.env.REACT_APP_API_KEY}`)
@@ -60,7 +62,6 @@ const MovieDetailProvider = (props) => {
             await fetch(`${url}/movie/${props.id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
 
-        console.log(movieCastApi);
         const movieCastApiData = movieCastApi?.cast;
         setMovieCast(movieCastApiData);
     }
@@ -71,7 +72,8 @@ const MovieDetailProvider = (props) => {
         ).json();
         const movieSimilarApiData = movieSimilarApi?.results;
         setMovieSimilar(movieSimilarApiData);
-
+        setTotalMovieSimilarPages(movieSimilarApi?.total_pages);
+        console.log({ totalMovieSimilarPages });
         console.log({ movieSimilarApiData });
     }
 
@@ -80,8 +82,11 @@ const MovieDetailProvider = (props) => {
         callMovieVideoApi();
         callMovieThumbnailApi();
         callMovieCastApi();
-        callMovieSimilarApi();
     }, []);
+
+    useEffect(() => {
+        callMovieSimilarApi();
+    }, [totalMovieSimilarPages]);
     return (
         <>
             <>
@@ -102,6 +107,9 @@ const MovieDetailProvider = (props) => {
                     movieThumbnails={movieThumbnails}
                     movieCast={movieCast}
                     movieSimilar={movieSimilar}
+                    movieSimilarPage={movieSimilarPage}
+                    setMovieSimilarPage={setMovieSimilarPage}
+                    totalMovieSimilarPages={totalMovieSimilarPages}
                 />
             </>
         </>

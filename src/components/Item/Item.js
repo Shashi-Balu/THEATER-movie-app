@@ -137,6 +137,12 @@ const Item = (props) => {
                 <ItemSimilarItems
                     tvshowSimilar={props.tvshowSimilar}
                     movieSimilar={props.movieSimilar}
+                    tvshowSimilarPage={props.tvshowSimilarPage}
+                    // totalSimilarPages={props.totalSimilarPages}
+                    setTvshowSimilarPage={props.setTvshowSimilarPage}
+                    similarPage={props.similarPage}
+                    setSimilarPage={props.setSimilarPage}
+                    totalSimilarPages={props.totalSimilarPages}
                 />
             </>
         </>

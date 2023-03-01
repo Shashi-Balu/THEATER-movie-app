@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 const TvshowCard = (props) => {
     const { tvshowIdApp, setTvshowIdApp } = useContext(TvshowContext);
     let { tvId } = useParams();
-    console.log("ddfbd", tvId);
+    // console.log("ddfbd", tvId);
 
     const tvshowDetail = (movied) => {
         setTvshowIdApp(movied);

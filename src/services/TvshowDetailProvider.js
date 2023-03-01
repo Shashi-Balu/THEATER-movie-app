@@ -44,7 +44,6 @@ const TvshowDetailProvider = (props) => {
         setTvshowStatus(tvshowApi?.status);
         setTvshowLanguage(tvshowApi?.original_language);
         setTvshowReleaseDate(tvshowApi?.first_air_date);
-        setTotalSimilarPages(tvshowApi?.total_pages);
     }
 
     async function callTvshowVideoApi() {
@@ -73,6 +72,8 @@ const TvshowDetailProvider = (props) => {
             await fetch(`${url}/tv/${props.id}/similar?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
         setTvshowSimilar(tvshowSimilarApi?.results);
+        console.log({ tvshowSimilarApi });
+        setTotalSimilarPages(tvshowSimilarApi?.total_pages);
     }
 
     useEffect(() => {
@@ -80,9 +81,14 @@ const TvshowDetailProvider = (props) => {
         callTvshowVideoApi();
         callTvshowThumbnailApi();
         callTvshowCastApi();
-        callTvshowSimilarApi();
     }, []);
 
+    useEffect(() => {
+        callTvshowSimilarApi();
+        console.log("similar page refreshed", tvshowSimilarPage);
+    }, [tvshowSimilarPage]);
+
+    console.log("detailprovide", tvshowSimilarPage);
     return (
         <>
             <>

@@ -23,6 +23,9 @@ const MovieDetail = (props) => {
                 thumbnails={props.movieThumbnails}
                 cast={props.movieCast}
                 movieSimilar={props.movieSimilar}
+                similarPage={props.movieSimilarPage}
+                setSimilarPage={props.setMovieSimilarPage}
+                totalSimilarPages={props.totalMovieSimilarPages}
             />
         </>
     );

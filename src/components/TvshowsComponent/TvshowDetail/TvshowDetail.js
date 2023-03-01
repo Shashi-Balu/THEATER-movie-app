@@ -26,6 +26,9 @@ const TvshowDetail = (props) => {
                 thumbnails={props.tvshowThumbnails}
                 cast={props.tvshowCast}
                 tvshowSimilar={props.tvshowSimilar}
+                similarPage={props.tvshowSimilarPage}
+                totalSimilarPages={props.totalSimilarPages}
+                setSimilarPage={props.setTvshowSimilarPage}
             />
         </div>
     );

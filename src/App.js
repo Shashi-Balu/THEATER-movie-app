@@ -13,12 +13,14 @@ import MovieDetailProvider from "./services/MovieDetailProviders";
 import { TvshowContext } from "./services/TvshowContextProviders";
 import NotFound from "./pages/NotFound/NotFound";
 import TvshowDetailProvider from "./services/TvshowDetailProvider";
-import { GenreContextProviders } from "./services/GenreContextProviders";
+import { GenreContext, GenreContextProviders } from "./services/GenreContextProviders";
 import GenreDetailProviders from "./services/GenreDetailProviders";
 
 function App() {
     const { movieIdApp, setMovieIdApp } = useContext(MovieContext);
     const { tvshowIdApp, setTvshowIdApp } = useContext(TvshowContext);
+    const { genreIdMovieApp, setGenreIdMovieApp, genreIdTvApp, setGenreIdTvApp } =
+        useContext(GenreContext);
 
     // const navigate = useNavigate();
 
@@ -27,7 +29,7 @@ function App() {
         console.log("refresh", tvshowIdApp);
     });
 
-    console.log(tvshowIdApp);
+    console.log("genreidapp", genreIdMovieApp);
     return (
         <div className="App">
             <BrowserRouter>
@@ -49,7 +51,12 @@ function App() {
 
                     <Route
                         path={`/genres/:genreid`}
-                        element={<GenreDetailProviders id={tvshowIdApp} />}
+                        element={
+                            <GenreDetailProviders
+                                genreIdMovieApp={genreIdMovieApp}
+                                genreIdTvApp={genreIdTvApp}
+                            />
+                        }
                     />
                     <Route path={"*"} element={<NotFound />} />
                 </Routes>
