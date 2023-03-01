@@ -27,9 +27,7 @@ const TvshowDetailProvider = (props) => {
 
     async function callTvshowApi() {
         const tvshowApi = await (
-            await fetch(
-                `${url}/tv/${props.id}?api_key=${process.env.REACT_APP_API_KEY}&page=${tvshowSimilarPage}`
-            )
+            await fetch(`${url}/tv/${props.id}?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
 
         setTvshowId(tvshowApi?.id);
@@ -69,7 +67,9 @@ const TvshowDetailProvider = (props) => {
 
     async function callTvshowSimilarApi() {
         const tvshowSimilarApi = await (
-            await fetch(`${url}/tv/${props.id}/similar?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/tv/${props.id}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${tvshowSimilarPage}`
+            )
         ).json();
         setTvshowSimilar(tvshowSimilarApi?.results);
         console.log({ tvshowSimilarApi });

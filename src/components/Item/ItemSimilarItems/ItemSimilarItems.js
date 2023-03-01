@@ -20,8 +20,7 @@ const ItemSimilarItems = (props) => {
     };
 
     const { movieIdApp, setMovieIdApp } = useContext(MovieContext);
-    console.log(props.tvshowSimilarPage);
-    console.log();
+    console.log(props.similarPage);
 
     useEffect(() => {
         tvshowDetail = (tvId) => {
@@ -34,8 +33,6 @@ const ItemSimilarItems = (props) => {
         };
     }, [tvshowIdApp, movieIdApp]);
 
-    console.log("page", props.tvshowSimilarPage);
-    // console.log("setpage", props.setTvshowSimilarPage);
     return (
         <>
             <h2 className="item-similar-heading">More like this</h2>
@@ -82,9 +79,8 @@ const ItemSimilarItems = (props) => {
             </div>
 
             <div className="item-pagination-container">
-                {props.tvshowSimilarPage}
                 <AppPagination
-                    setPage={props.setTvshowSimilarPage}
+                    setPage={props.setSimilarPage}
                     page={props.tvshowSimilarPage}
                     pageNumbers={props.totalSimilarPages}
                 />

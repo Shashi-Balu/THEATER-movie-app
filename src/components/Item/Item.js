@@ -8,6 +8,8 @@ import ItemCast from "./ItemCast/ItemCast";
 import ItemSimilarItems from "./ItemSimilarItems/ItemSimilarItems";
 import TvshowCard from "../TvshowsComponent/TvshowCard/TvshowCard";
 const Item = (props) => {
+    console.log("similar page", props.similarPage);
+    // console.log("set similar page", props.setSimilarPage);
     const [itemType, setItemType] = useState("itemTypeDetail");
     const [itemTypeDetail, setItemTypeDetail] = useState("itemTypeDetail");
     const [itemTypeVideos, setItemTypeVideos] = useState("itemTypeVideos");
