@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const TvshowDetailProvider = (props) => {
     const { tvId } = useParams();
-    // console.log(props.id);
     const [tvshowSimilarPage, setTvshowSimilarPage] = useState(1);
     const [totalSimilarPages, setTotalSimilarPages] = useState([]);
     const [tvshowId, setTvshowId] = useState();
@@ -72,7 +71,6 @@ const TvshowDetailProvider = (props) => {
             )
         ).json();
         setTvshowSimilar(tvshowSimilarApi?.results);
-        console.log({ tvshowSimilarApi });
         setTotalSimilarPages(tvshowSimilarApi?.total_pages);
     }
 
@@ -85,10 +83,7 @@ const TvshowDetailProvider = (props) => {
 
     useEffect(() => {
         callTvshowSimilarApi();
-        console.log("similar page refreshed", tvshowSimilarPage);
     }, [tvshowSimilarPage]);
-
-    console.log("detailprovide", tvshowSimilarPage);
     return (
         <>
             <>

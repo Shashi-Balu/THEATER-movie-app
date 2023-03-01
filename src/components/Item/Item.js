@@ -8,15 +8,12 @@ import ItemCast from "./ItemCast/ItemCast";
 import ItemSimilarItems from "./ItemSimilarItems/ItemSimilarItems";
 import TvshowCard from "../TvshowsComponent/TvshowCard/TvshowCard";
 const Item = (props) => {
-    console.log("similar page", props.similarPage);
-    // console.log("set similar page", props.setSimilarPage);
     const [itemType, setItemType] = useState("itemTypeDetail");
     const [itemTypeDetail, setItemTypeDetail] = useState("itemTypeDetail");
     const [itemTypeVideos, setItemTypeVideos] = useState("itemTypeVideos");
     const [itemTypeThumbnails, setItemTypeThumbnails] = useState("itemTypeThumbnails");
     const handleItemType = (event) => {
         setItemType(event.target.value);
-        console.log(event.target.value);
     };
 
     return (
@@ -140,7 +137,6 @@ const Item = (props) => {
                     tvshowSimilar={props.tvshowSimilar}
                     movieSimilar={props.movieSimilar}
                     tvshowSimilarPage={props.tvshowSimilarPage}
-                    // totalSimilarPages={props.totalSimilarPages}
                     setTvshowSimilarPage={props.setTvshowSimilarPage}
                     similarPage={props.similarPage}
                     setSimilarPage={props.setSimilarPage}

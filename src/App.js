@@ -53,7 +53,7 @@ function App() {
                         path={`/genres/:genreid`}
                         element={
                             <GenreDetailProviders
-                                genreIdMovieApp={genreIdMovieApp}
+                                genreIdMovieApp={movieIdApp}
                                 genreIdTvApp={genreIdTvApp}
                             />
                         }

@@ -40,7 +40,7 @@ const GenreDetailProviders = (props) => {
     useEffect(() => {
         callGenreMoviesApi();
         callGenreTvshowsApi();
-    }, []);
+    }, [genrePage]);
     return (
         <>
             <div className="items-item-container">

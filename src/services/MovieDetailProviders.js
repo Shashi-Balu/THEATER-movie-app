@@ -87,8 +87,6 @@ const MovieDetailProvider = (props) => {
     useEffect(() => {
         callMovieSimilarApi();
     }, [movieSimilarPage]);
-
-    console.log({ movieSimilarPage });
     return (
         <>
             <>

@@ -20,7 +20,6 @@ const ItemSimilarItems = (props) => {
     };
 
     const { movieIdApp, setMovieIdApp } = useContext(MovieContext);
-    console.log(props.similarPage);
 
     useEffect(() => {
         tvshowDetail = (tvId) => {

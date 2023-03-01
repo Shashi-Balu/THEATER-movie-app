@@ -3,7 +3,6 @@ import Item from "../../Item/Item";
 import "../../Item/Item.css";
 
 const MovieDetail = (props) => {
-    console.log(props.similar);
     return (
         <>
             <Item
