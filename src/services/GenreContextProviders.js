@@ -4,10 +4,12 @@ import { url } from "./apis/movieUrl";
 export const GenreContext = createContext();
 
 export const GenreContextProviders = ({ children }) => {
-    const [genreIdMovieApp, setGenreIdMovieApp] = useState(35);
+    const [genreIdMovieApp, setGenreIdMovieApp] = useState();
     const [genreIdTvApp, setGenreIdTvApp] = useState();
     const [movieGenreData, setMovieGenreData] = useState([]);
     const [tvGenreData, setTvGenreData] = useState([]);
+
+    // console.log({ genreIdMovieApp });
 
     async function callMovieGenreApi() {
         const movieGenreApi = await (
@@ -16,7 +18,8 @@ export const GenreContextProviders = ({ children }) => {
 
         const movieGenreApiData = movieGenreApi.genres;
         setMovieGenreData(movieGenreApiData);
-        // console.log(movieGenreData);
+        setGenreIdMovieApp(movieGenreApi?.id);
+        // console.log({ genreIdMovieApp });
     }
     async function callTvGenreApi() {
         const tvGenreApi = await (
@@ -25,13 +28,14 @@ export const GenreContextProviders = ({ children }) => {
 
         const tvGenreApiData = tvGenreApi.genres;
         setTvGenreData(tvGenreApiData);
-        console.log(tvGenreData);
     }
 
     useEffect(() => {
         callMovieGenreApi();
         callTvGenreApi();
     }, [genreIdMovieApp, genreIdTvApp]);
+
+    // console.log({ genreIdMovieApp });
     return (
         <div>
             <GenreContext.Provider

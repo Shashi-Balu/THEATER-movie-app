@@ -26,10 +26,10 @@ function App() {
 
     useEffect(() => {
         setTvshowIdApp(tvshowIdApp);
-        console.log("refresh", tvshowIdApp);
+        // console.log("refresh", tvshowIdApp);
     });
 
-    console.log("genreidapp", genreIdMovieApp);
+    // console.log("genreidapp", genreIdMovieApp);
     return (
         <div className="App">
             <BrowserRouter>
@@ -53,7 +53,7 @@ function App() {
                         path={`/genres/:genreid`}
                         element={
                             <GenreDetailProviders
-                                genreIdMovieApp={movieIdApp}
+                                genreIdMovieApp={genreIdMovieApp}
                                 genreIdTvApp={genreIdTvApp}
                             />
                         }

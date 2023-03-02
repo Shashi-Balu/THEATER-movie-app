@@ -19,10 +19,9 @@ const TvshowCard = (props) => {
                 className="item-card-container"
                 onClick={() => {
                     tvshowDetail(props.tvId);
-                    console.log(props.tvId);
                 }}
             >
-                <Link to={`/tv-shows/:${props.tvId}`}>
+                <Link to={`/tv-shows/${props.tvId}`}>
                     <div className="item-card-image-container">
                         <img src={props.imgUrl} alt={props.title} className="item-card-image" />
                     </div>

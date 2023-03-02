@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { url } from "./apis/movieUrl";
 import MovieDetail from "../components/MoviesComponent/MovieDetail/MovieDetail";
+import { useParams } from "react-router-dom";
 
 const MovieDetailProvider = (props) => {
-    console.log(props.id);
+    const params = useParams();
+    console.log({ params });
+    // console.log(params.movieId);
     const [movieTitle, setMovieTitle] = useState();
     const [movieRating, setMovieRating] = useState();
     const [movieGenres, setMovieGenres] = useState();
@@ -24,7 +27,7 @@ const MovieDetailProvider = (props) => {
     const [totalMovieSimilarPages, setTotalMovieSimilarPages] = useState([]);
     async function callMovieApi() {
         const movieApi = await (
-            await fetch(`${url}/movie/${props.id}?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(`${url}/movie/${params.movieId}?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
 
         setMovieTitle(movieApi?.title);
@@ -39,11 +42,15 @@ const MovieDetailProvider = (props) => {
         setMovieBudget(movieApi?.budget);
         setMovieDuration(movieApi?.runtime);
         setMovieStatus(movieApi?.status);
+
+        console.log(movieApi);
     }
 
     async function callMovieVideoApi() {
         const movieVideoApi = await (
-            await fetch(`${url}/movie/${props.id}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/movie/${params.movieId}/videos?api_key=${process.env.REACT_APP_API_KEY}`
+            )
         ).json();
         const movieVideoApiData = movieVideoApi?.results;
         setMovieVideos(movieVideoApiData);
@@ -51,7 +58,9 @@ const MovieDetailProvider = (props) => {
 
     async function callMovieThumbnailApi() {
         const movieThumbnailApi = await (
-            await fetch(`${url}/movie/${props.id}/images?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/movie/${params.movieId}/images?api_key=${process.env.REACT_APP_API_KEY}`
+            )
         ).json();
         const movieThumbnailApiData = movieThumbnailApi?.backdrops;
         setMovieThumbnails(movieThumbnailApiData);
@@ -59,7 +68,9 @@ const MovieDetailProvider = (props) => {
 
     async function callMovieCastApi() {
         const movieCastApi = await (
-            await fetch(`${url}/movie/${props.id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/movie/${params.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}`
+            )
         ).json();
 
         const movieCastApiData = movieCastApi?.cast;
@@ -69,7 +80,7 @@ const MovieDetailProvider = (props) => {
     async function callMovieSimilarApi() {
         const movieSimilarApi = await (
             await fetch(
-                `${url}/movie/${props.id}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${movieSimilarPage}`
+                `${url}/movie/${params.movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${movieSimilarPage}`
             )
         ).json();
         const movieSimilarApiData = movieSimilarApi?.results;

@@ -4,7 +4,10 @@ import TvshowDetail from "../components/TvshowsComponent/TvshowDetail/TvshowDeta
 import { useParams } from "react-router-dom";
 
 const TvshowDetailProvider = (props) => {
-    const { tvId } = useParams();
+    const params = useParams();
+
+    console.log(params);
+    console.log(params.tvId);
     const [tvshowSimilarPage, setTvshowSimilarPage] = useState(1);
     const [totalSimilarPages, setTotalSimilarPages] = useState([]);
     const [tvshowId, setTvshowId] = useState();
@@ -26,7 +29,7 @@ const TvshowDetailProvider = (props) => {
 
     async function callTvshowApi() {
         const tvshowApi = await (
-            await fetch(`${url}/tv/${props.id}?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(`${url}/tv/${params.tvId}?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
 
         setTvshowId(tvshowApi?.id);
@@ -45,21 +48,21 @@ const TvshowDetailProvider = (props) => {
 
     async function callTvshowVideoApi() {
         const tvshowVideoApi = await (
-            await fetch(`${url}/tv/${props.id}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(`${url}/tv/${params.tvId}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
         setTvshowVideos(tvshowVideoApi?.results);
     }
 
     async function callTvshowThumbnailApi() {
         const tvshowThumbnailApi = await (
-            await fetch(`${url}/tv/${props.id}/images?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(`${url}/tv/${params.tvId}/images?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
         setTvshowThumbnails(tvshowThumbnailApi?.backdrops);
     }
 
     async function callTvshowCastApi() {
         const tvshowCastApi = await (
-            await fetch(`${url}/tv/${props.id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(`${url}/tv/${params.tvId}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
         ).json();
         setTvshowCast(tvshowCastApi?.cast);
     }
@@ -67,7 +70,7 @@ const TvshowDetailProvider = (props) => {
     async function callTvshowSimilarApi() {
         const tvshowSimilarApi = await (
             await fetch(
-                `${url}/tv/${props.id}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${tvshowSimilarPage}`
+                `${url}/tv/${params.tvId}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${tvshowSimilarPage}`
             )
         ).json();
         setTvshowSimilar(tvshowSimilarApi?.results);

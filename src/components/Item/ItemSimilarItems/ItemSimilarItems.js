@@ -23,11 +23,11 @@ const ItemSimilarItems = (props) => {
 
     useEffect(() => {
         tvshowDetail = (tvId) => {
-            navigate(`/tv-shows/:${tvId}cxxgxvv`, { replace: true });
+            navigate(`/tv-shows/${tvId}`, { replace: true });
             console.log({ tvId });
         };
         movieDetail = (movieId) => {
-            navigate(`/movies/:${movieId}cxxgxvv`, { replace: true });
+            navigate(`/movies/${movieId}`, { replace: true });
             console.log({ movieId });
         };
     }, [tvshowIdApp, movieIdApp]);
@@ -81,7 +81,7 @@ const ItemSimilarItems = (props) => {
                 <AppPagination
                     setPage={props.setSimilarPage}
                     page={props.tvshowSimilarPage}
-                    pageNumbers={props.totalSimilarPages}
+                    pageNumbers={500}
                 />
             </div>
         </>

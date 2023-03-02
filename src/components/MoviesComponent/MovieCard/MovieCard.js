@@ -10,7 +10,7 @@ const MovieCard = (props) => {
     const movieDetail = (movied, mtitle) => {
         setMovieIdApp(movied);
         setTitle(mtitle);
-        // console.log(movied);
+        console.log({ movied });
     };
     return (
         <>
@@ -21,7 +21,7 @@ const MovieCard = (props) => {
                     console.log(props.movieId);
                 }}
             >
-                <Link to={`/movies/:${props.movieId}`}>
+                <Link to={`/movies/${props.movieId}`}>
                     <div className="item-card-image-container">
                         <img src={props.imgUrl} alt={props.title} className="item-card-image" />
                     </div>
