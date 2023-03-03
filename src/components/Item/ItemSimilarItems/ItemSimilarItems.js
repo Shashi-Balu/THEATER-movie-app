@@ -11,6 +11,7 @@ import MovieCard from "../../MoviesComponent/MovieCard/MovieCard";
 
 const ItemSimilarItems = (props) => {
     const params = useParams();
+    // console.log("similar param", params);
     return (
         <>
             <h2 className="item-similar-heading">More like this</h2>
@@ -40,12 +41,12 @@ const ItemSimilarItems = (props) => {
                     props.movieSimilar?.map((item) => {
                         return (
                             <div>
-                                <Link to={`/movies/:${item.id}cbbfbs`} className="color">
+                                <Link to={`/similar-movies/movieId`} className="color">
                                     <MovieCard
                                         title={item.title}
                                         imgUrl={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                                         rating={item?.vote_average.toFixed(1)}
-                                        tvId={item.id}
+                                        movieId={item.id}
                                     />
                                 </Link>
                             </div>

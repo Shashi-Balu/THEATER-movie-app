@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const MovieDetailProvider = (props) => {
     const params = useParams();
-    console.log({ params });
+    // console.log("movie detail", params);
 
     const [movieTitle, setMovieTitle] = useState();
     const [movieRating, setMovieRating] = useState();
@@ -91,11 +91,10 @@ const MovieDetailProvider = (props) => {
         callMovieVideoApi();
         callMovieThumbnailApi();
         callMovieCastApi();
-    }, []);
-
-    useEffect(() => {
         callMovieSimilarApi();
-    }, [movieSimilarPage]);
+    }, [params.movieId, movieSimilarPage]);
+
+    // console.log(movieSimilarPage);
     return (
         <>
             <>

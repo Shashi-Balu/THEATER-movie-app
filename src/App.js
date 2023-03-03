@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 
 import React from "react";
 import Genres from "./pages/Genres/Genres";
@@ -16,6 +16,8 @@ import TvshowDetailProvider from "./services/TvshowDetailProvider";
 import GenreDetailProviders from "./services/GenreDetailProviders";
 
 function App() {
+    const params = useParams();
+    // console.log("app param", params);
     return (
         <div className="App">
             <BrowserRouter>
@@ -28,8 +30,10 @@ function App() {
                     <Route path={"/genres"} element={<Genres />} />
                     <Route path={`/movies/:movieId`} element={<MovieDetailProvider />} />
                     <Route path={`/tv-shows/:tvId`} element={<TvshowDetailProvider />} />
-
-                    <Route path={`/genres/:genreId`} element={<GenreDetailProviders />} />
+                    <Route
+                        path={`/genres/:genreItem/:genreId`}
+                        element={<GenreDetailProviders />}
+                    />
                     <Route path={"*"} element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

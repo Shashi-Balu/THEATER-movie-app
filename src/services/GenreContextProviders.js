@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { url } from "./apis/movieUrl";
 
 export const GenreContext = createContext();

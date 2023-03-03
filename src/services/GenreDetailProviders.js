@@ -8,13 +8,13 @@ import { GenreContext } from "./GenreContextProviders";
 
 const GenreDetailProviders = (props) => {
     const params = useParams();
-    // console.log("params", params);
+    console.log("params", params);
+    console.log("object params", Object.values(params)[0]);
     const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
     const [genrePage, setGenrePage] = useState(1);
     const [totalGenrePages, setTotalGenrePages] = useState(5);
     const [genreMovies, setGenreMovies] = useState();
     const [genreTvshows, setGenreTvshows] = useState();
-    const [display, setDisplay] = useState();
 
     const callGenreMoviesApi = async () => {
         const movieGenreDetailApi = await (
@@ -37,11 +37,11 @@ const GenreDetailProviders = (props) => {
             )
         ).json();
 
-        // const tvshowGenreDetailApiData = tvshowGenreDetailApi.results;
-        // setGenreTvshows(tvshowGenreDetailApiData);
-        // console.log({ tvshowGenreDetailApi });
-        // setTotalGenrePages(tvshowGenreDetailApi?.total_pages);
-        // console.log(totalGenrePages);
+        const tvshowGenreDetailApiData = tvshowGenreDetailApi.results;
+        setGenreTvshows(tvshowGenreDetailApiData);
+        console.log({ tvshowGenreDetailApi });
+        setTotalGenrePages(tvshowGenreDetailApi?.total_pages);
+        console.log(totalGenrePages);
     };
 
     useEffect(() => {
@@ -53,10 +53,8 @@ const GenreDetailProviders = (props) => {
     }, [genrePage]);
     return (
         <>
-            {display}
-            {callGenreMoviesApi ? (
+            {Object.values(params)[0] === "movies" && (
                 <>
-                    {/* Movie */}
                     <div className="items-item-container">
                         {genreMovies?.map((genre) => {
                             return (
@@ -81,8 +79,34 @@ const GenreDetailProviders = (props) => {
                         />
                     </div>
                 </>
-            ) : (
-                ""
+            )}
+
+            {Object.values(params)[0] === "tv-shows" && (
+                <>
+                    <div className="items-item-container">
+                        {genreTvshows?.map((genre) => {
+                            return (
+                                <>
+                                    <TvshowCard
+                                        title={genre.name}
+                                        imgUrl={`https://image.tmdb.org/t/p/w500/${genre.poster_path}`}
+                                        rating={genre?.vote_average.toFixed(1)}
+                                        tvId={genre.id}
+                                    />
+                                </>
+                            );
+                        })}
+                    </div>
+
+                    <div className="item-pagination-container">
+                        {genrePage},{totalGenrePages}
+                        <AppPagination
+                            setPage={setGenrePage}
+                            page={genrePage}
+                            pageNumbers={totalGenrePages > 500 ? 500 : totalGenrePages}
+                        />
+                    </div>
+                </>
             )}
         </>
     );

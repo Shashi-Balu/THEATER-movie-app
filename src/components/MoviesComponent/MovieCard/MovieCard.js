@@ -8,7 +8,10 @@ const MovieCard = (props) => {
     return (
         <>
             <div className="item-card-container">
-                <Link to={`/movies/${props.movieId}`}>
+                <Link
+                    to={`/movies/${props.movieId}`}
+                    onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+                >
                     <div className="item-card-image-container">
                         <img src={props.imgUrl} alt={props.title} className="item-card-image" />
                     </div>

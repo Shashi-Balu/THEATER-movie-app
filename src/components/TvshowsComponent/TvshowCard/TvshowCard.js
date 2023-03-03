@@ -1,15 +1,16 @@
-import React, { createContext, useContext } from "react";
+import React from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "../../../styles/ItemCard.css";
 import { Link } from "react-router-dom";
-import { TvshowContext } from "../../../services/TvshowContextProviders";
-import { useParams } from "react-router-dom";
 
 const TvshowCard = (props) => {
     return (
         <>
             <div className="item-card-container">
-                <Link to={`/tv-shows/${props.tvId}`}>
+                <Link
+                    to={`/tv-shows/${props.tvId}`}
+                    onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+                >
                     <div className="item-card-image-container">
                         <img src={props.imgUrl} alt={props.title} className="item-card-image" />
                     </div>

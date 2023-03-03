@@ -8,12 +8,11 @@ function Genres() {
     const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
 
     const handleClick = (genreid) => {
-        // console.log({ genreid });
+        console.log({ genreid });
         setGenreIdMovieApp(genreid);
     };
     return (
         <>
-            fdtmhngbv
             <div className="genres-container">
                 <div className="genres-movies">
                     <h3 className="genres-heading">movies</h3>
@@ -21,7 +20,7 @@ function Genres() {
                         {movieGenreData.map((genre) => (
                             <Link
                                 className="genre-name"
-                                to={`/genres/${genre.id}`}
+                                to={`/genres/movies/${genre.id}`}
                                 onClick={() => handleClick(genre.id)}
                             >
                                 <span>{genre.name}</span>
@@ -29,12 +28,11 @@ function Genres() {
                         ))}
                     </p>
                 </div>
-                fgfhm
                 <div className="genres-tvshows">
                     <h3 className="genres-heading">tvshow</h3>
                     <p className="genres-data">
                         {tvGenreData.map((genre) => (
-                            <Link className="genre-name" to={`/genres/${genre.id}`}>
+                            <Link className="genre-name" to={`/genres/tv-shows/${genre.id}`}>
                                 {genre.name}
                             </Link>
                         ))}
