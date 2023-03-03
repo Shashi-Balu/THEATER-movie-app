@@ -3,10 +3,6 @@ import "../../Item/Item.css";
 import Item from "../../Item/Item";
 
 const TvshowDetail = (props) => {
-    useEffect(() => {
-        props.setTvshowId(props.tvshowId);
-    }, []);
-    console.log("tvshowdetail", props.tvshowSimilar);
     return (
         <div>
             <Item

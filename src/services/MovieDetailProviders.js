@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const MovieDetailProvider = (props) => {
     const params = useParams();
     console.log({ params });
-    // console.log(params.movieId);
+
     const [movieTitle, setMovieTitle] = useState();
     const [movieRating, setMovieRating] = useState();
     const [movieGenres, setMovieGenres] = useState();
@@ -42,8 +42,6 @@ const MovieDetailProvider = (props) => {
         setMovieBudget(movieApi?.budget);
         setMovieDuration(movieApi?.runtime);
         setMovieStatus(movieApi?.status);
-
-        console.log(movieApi);
     }
 
     async function callMovieVideoApi() {

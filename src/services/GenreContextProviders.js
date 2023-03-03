@@ -19,7 +19,7 @@ export const GenreContextProviders = ({ children }) => {
         const movieGenreApiData = movieGenreApi.genres;
         setMovieGenreData(movieGenreApiData);
         setGenreIdMovieApp(movieGenreApi?.id);
-        console.log({ genreIdMovieApp });
+        // console.log({ genreIdMovieApp });
     }
     async function callTvGenreApi() {
         const tvGenreApi = await (

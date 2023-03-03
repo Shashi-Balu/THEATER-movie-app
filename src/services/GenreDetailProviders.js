@@ -8,7 +8,7 @@ import { GenreContext } from "./GenreContextProviders";
 
 const GenreDetailProviders = (props) => {
     const params = useParams();
-    console.log("params", params);
+    // console.log("params", params);
     const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
     const [genrePage, setGenrePage] = useState(1);
     const [totalGenrePages, setTotalGenrePages] = useState(5);
@@ -24,11 +24,10 @@ const GenreDetailProviders = (props) => {
         ).json();
 
         // console.log(params.genreIdMovieApp);
-        console.log({ movieGenreDetailApi });
+
         const movieGenreDetailApiData = movieGenreDetailApi.results;
         setGenreMovies(movieGenreDetailApiData);
         setTotalGenrePages(movieGenreDetailApi?.total_pages);
-        console.log("movie pages", movieGenreDetailApi?.total_pages);
     };
 
     const callGenreTvshowsApi = async () => {
@@ -37,7 +36,7 @@ const GenreDetailProviders = (props) => {
                 `${url}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}`
             )
         ).json();
-        console.log({ tvshowGenreDetailApi });
+
         // const tvshowGenreDetailApiData = tvshowGenreDetailApi.results;
         // setGenreTvshows(tvshowGenreDetailApiData);
         // console.log({ tvshowGenreDetailApi });

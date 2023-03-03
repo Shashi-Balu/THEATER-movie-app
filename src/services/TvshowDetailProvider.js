@@ -7,7 +7,7 @@ const TvshowDetailProvider = (props) => {
     const params = useParams();
 
     console.log({ params });
-    console.log(Object.keys(params));
+
     console.log(params.tvId);
     const [tvshowSimilarPage, setTvshowSimilarPage] = useState(1);
     const [totalSimilarPages, setTotalSimilarPages] = useState([]);
