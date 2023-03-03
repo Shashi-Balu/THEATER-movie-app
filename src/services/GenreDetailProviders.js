@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import MovieCard from "../components/MoviesComponent/MovieCard/MovieCard";
 import AppPagination from "../components/sections/AppPagination/AppPagination";
 import TvshowCard from "../components/TvshowsComponent/TvshowCard/TvshowCard";
@@ -6,6 +7,8 @@ import { url } from "./apis/movieUrl";
 import { GenreContext } from "./GenreContextProviders";
 
 const GenreDetailProviders = (props) => {
+    const params = useParams();
+    console.log("params", params);
     const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
     const [genrePage, setGenrePage] = useState(1);
     const [totalGenrePages, setTotalGenrePages] = useState(5);
@@ -16,11 +19,11 @@ const GenreDetailProviders = (props) => {
     const callGenreMoviesApi = async () => {
         const movieGenreDetailApi = await (
             await fetch(
-                `${url}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${props.genreIdMovieApp}&page=${genrePage}`
+                `${url}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}`
             )
         ).json();
 
-        // console.log(props.genreIdMovieApp);
+        // console.log(params.genreIdMovieApp);
         console.log({ movieGenreDetailApi });
         const movieGenreDetailApiData = movieGenreDetailApi.results;
         setGenreMovies(movieGenreDetailApiData);
@@ -31,7 +34,7 @@ const GenreDetailProviders = (props) => {
     const callGenreTvshowsApi = async () => {
         const tvshowGenreDetailApi = await (
             await fetch(
-                `${url}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${props.genreIdTvApp}&page=${genrePage}`
+                `${url}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}`
             )
         ).json();
         console.log({ tvshowGenreDetailApi });
@@ -87,3 +90,12 @@ const GenreDetailProviders = (props) => {
 };
 
 export default GenreDetailProviders;
+
+{
+    /* <TvshowCard
+                                    title={genre.name}
+                                    imgUrl={`https://image.tmdb.org/t/p/w500/${genre.poster_path}`}
+                                    rating={genre?.vote_average.toFixed(1)}
+                                    tvId={genre.id}
+                                /> */
+}

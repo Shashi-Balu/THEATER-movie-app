@@ -13,6 +13,7 @@ function Genres() {
     };
     return (
         <>
+            fdtmhngbv
             <div className="genres-container">
                 <div className="genres-movies">
                     <h3 className="genres-heading">movies</h3>
@@ -20,7 +21,7 @@ function Genres() {
                         {movieGenreData.map((genre) => (
                             <Link
                                 className="genre-name"
-                                to={`/genres/:${genre.id}`}
+                                to={`/genres/${genre.id}`}
                                 onClick={() => handleClick(genre.id)}
                             >
                                 <span>{genre.name}</span>
@@ -28,19 +29,13 @@ function Genres() {
                         ))}
                     </p>
                 </div>
-
+                fgfhm
                 <div className="genres-tvshows">
                     <h3 className="genres-heading">tvshow</h3>
                     <p className="genres-data">
                         {tvGenreData.map((genre) => (
                             <Link className="genre-name" to={`/genres/${genre.id}`}>
                                 {genre.name}
-                                {/* <TvshowCard
-                                    title={genre.name}
-                                    imgUrl={`https://image.tmdb.org/t/p/w500/${genre.poster_path}`}
-                                    rating={genre?.vote_average.toFixed(1)}
-                                    tvId={genre.id}
-                                /> */}
                             </Link>
                         ))}
                     </p>

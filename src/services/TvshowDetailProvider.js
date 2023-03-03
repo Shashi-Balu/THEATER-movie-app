@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 const TvshowDetailProvider = (props) => {
     const params = useParams();
 
-    console.log(params);
+    console.log({ params });
+    console.log(Object.keys(params));
     console.log(params.tvId);
     const [tvshowSimilarPage, setTvshowSimilarPage] = useState(1);
     const [totalSimilarPages, setTotalSimilarPages] = useState([]);
@@ -86,7 +87,8 @@ const TvshowDetailProvider = (props) => {
 
     useEffect(() => {
         callTvshowSimilarApi();
-    }, [tvshowSimilarPage]);
+    }, []);
+
     return (
         <>
             <>

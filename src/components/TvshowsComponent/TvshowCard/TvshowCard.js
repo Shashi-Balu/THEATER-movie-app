@@ -6,21 +6,9 @@ import { TvshowContext } from "../../../services/TvshowContextProviders";
 import { useParams } from "react-router-dom";
 
 const TvshowCard = (props) => {
-    const { tvshowIdApp, setTvshowIdApp } = useContext(TvshowContext);
-    let { tvId } = useParams();
-    // console.log("ddfbd", tvId);
-
-    const tvshowDetail = (movied) => {
-        setTvshowIdApp(movied);
-    };
     return (
         <>
-            <div
-                className="item-card-container"
-                onClick={() => {
-                    tvshowDetail(props.tvId);
-                }}
-            >
+            <div className="item-card-container">
                 <Link to={`/tv-shows/${props.tvId}`}>
                     <div className="item-card-image-container">
                         <img src={props.imgUrl} alt={props.title} className="item-card-image" />

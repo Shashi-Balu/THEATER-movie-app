@@ -5,22 +5,9 @@ import { Link } from "react-router-dom";
 import { MovieContext } from "../../../services/MovieContextProviders";
 
 const MovieCard = (props) => {
-    const { setMovieIdApp, setTitle } = useContext(MovieContext);
-
-    const movieDetail = (movied, mtitle) => {
-        setMovieIdApp(movied);
-        setTitle(mtitle);
-        console.log({ movied });
-    };
     return (
         <>
-            <div
-                className="item-card-container"
-                onClick={() => {
-                    movieDetail(props.movieId, props.title);
-                    console.log(props.movieId);
-                }}
-            >
+            <div className="item-card-container">
                 <Link to={`/movies/${props.movieId}`}>
                     <div className="item-card-image-container">
                         <img src={props.imgUrl} alt={props.title} className="item-card-image" />

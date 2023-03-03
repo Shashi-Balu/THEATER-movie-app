@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./Item.css";
 import ItemDetail from "./ItemDetail/ItemDetail";
@@ -7,6 +7,7 @@ import ItemThumbnail from "./ItemThumbnail/ItemThumbnail";
 import ItemCast from "./ItemCast/ItemCast";
 import ItemSimilarItems from "./ItemSimilarItems/ItemSimilarItems";
 import TvshowCard from "../TvshowsComponent/TvshowCard/TvshowCard";
+import { useParams } from "react-router-dom";
 const Item = (props) => {
     const [itemType, setItemType] = useState("itemTypeDetail");
     const [itemTypeDetail, setItemTypeDetail] = useState("itemTypeDetail");
