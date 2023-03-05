@@ -52,3 +52,9 @@
 .type-radio:checked {
     color: yellow;
 }
+
+.search-results {
+    color: var(--gold);
+    font-weight: 300;
+    margin-left: 50px;
+}

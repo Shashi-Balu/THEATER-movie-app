@@ -8,7 +8,7 @@ function Genres() {
     const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
 
     const handleClick = (genreid) => {
-        console.log({ genreid });
+        // console.log({ genreid });
         setGenreIdMovieApp(genreid);
     };
     return (

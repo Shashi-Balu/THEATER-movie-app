@@ -8,11 +8,11 @@ import { GenreContext } from "./GenreContextProviders";
 
 const GenreDetailProviders = (props) => {
     const params = useParams();
-    console.log("params", params);
-    console.log("object params", Object.values(params)[0]);
+    // console.log("params", params);
+    // console.log("object params", Object.values(params)[0]);
     const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
     const [genrePage, setGenrePage] = useState(1);
-    const [totalGenrePages, setTotalGenrePages] = useState(5);
+    const [totalGenrePages, setTotalGenrePages] = useState(10);
     const [genreMovies, setGenreMovies] = useState();
     const [genreTvshows, setGenreTvshows] = useState();
 
@@ -39,9 +39,9 @@ const GenreDetailProviders = (props) => {
 
         const tvshowGenreDetailApiData = tvshowGenreDetailApi.results;
         setGenreTvshows(tvshowGenreDetailApiData);
-        console.log({ tvshowGenreDetailApi });
+        // console.log({ tvshowGenreDetailApi });
         setTotalGenrePages(tvshowGenreDetailApi?.total_pages);
-        console.log(totalGenrePages);
+        // console.log(totalGenrePages);
     };
 
     useEffect(() => {

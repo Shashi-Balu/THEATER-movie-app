@@ -1,8 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Item from "../../Item/Item";
 import "../../Item/Item.css";
 
 const MovieDetail = (props) => {
+    const params = useParams();
+    console.log({ params });
     return (
         <>
             <Item

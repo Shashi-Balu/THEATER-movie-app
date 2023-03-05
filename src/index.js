@@ -7,17 +7,20 @@ import { MovieContextProvider } from "./services/MovieContextProviders";
 import { GenreContextProviders } from "./services/GenreContextProviders";
 import TvshowContextProviders from "./services/TvshowContextProviders";
 import { TypeContextProviders } from "./services/TypeContextProviders";
+import SearchProviders from "./services/SearchProviders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <TypeContextProviders>
             <GenreContextProviders>
-                <MovieContextProvider>
-                    <TvshowContextProviders>
-                        <App />
-                    </TvshowContextProviders>
-                </MovieContextProvider>
+                <SearchProviders>
+                    <MovieContextProvider>
+                        <TvshowContextProviders>
+                            <App />
+                        </TvshowContextProviders>
+                    </MovieContextProvider>
+                </SearchProviders>
             </GenreContextProviders>
         </TypeContextProviders>
     </React.StrictMode>

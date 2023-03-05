@@ -11,7 +11,8 @@ import MovieCard from "../../MoviesComponent/MovieCard/MovieCard";
 
 const ItemSimilarItems = (props) => {
     const params = useParams();
-    // console.log("similar param", params);
+    const moreLikeThis = document.querySelector(".item-similar-heading");
+
     return (
         <>
             <h2 className="item-similar-heading">More like this</h2>
@@ -61,6 +62,7 @@ const ItemSimilarItems = (props) => {
             (props.tvshowSimilar && props.tvshowSimilar.length !== 0) ? (
                 <div className="item-pagination-container">
                     <AppPagination
+                        scrollToThis={moreLikeThis}
                         setPage={props.setSimilarPage}
                         page={props.tvshowSimilarPage}
                         pageNumbers={500}
