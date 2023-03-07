@@ -74,8 +74,13 @@
 .item-choose-label {
     cursor: pointer;
     margin-left: 100px;
+    transition: all 0.2s;
 }
 
 .item-choose-label-first {
     margin-left: 0;
+}
+
+.item-type-radio:checked + .item-choose-label {
+    color: var(--white);
 }

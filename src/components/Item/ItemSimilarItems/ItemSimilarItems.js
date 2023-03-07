@@ -65,7 +65,7 @@ const ItemSimilarItems = (props) => {
                         scrollToThis={moreLikeThis}
                         setPage={props.setSimilarPage}
                         page={props.tvshowSimilarPage}
-                        pageNumbers={500}
+                        pageNumbers={props.totalSimilarPages}
                     />
                 </div>
             ) : (

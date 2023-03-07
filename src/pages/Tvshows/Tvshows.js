@@ -153,14 +153,6 @@ function Tvshows() {
                                                     pageNumbers={totalTrendingPages}
                                                 />
                                             </div>
-
-                                            <div className="item-pagination-container">
-                                                <AppPagination
-                                                    setPage={setSearchQueryPage}
-                                                    page={searchQueryPage}
-                                                    pageNumbers={totalSearchQueryPages}
-                                                />
-                                            </div>
                                         </>
                                     );
                             }

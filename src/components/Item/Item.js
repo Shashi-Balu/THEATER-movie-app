@@ -45,7 +45,11 @@ const Item = (props) => {
                             </div>
                         </div>
                         <div>
-                            <p className="item-detail-description">{props.description}</p>
+                            <p className="item-detail-description">
+                                {props.description && props.description.length >= 500
+                                    ? `${props.description.slice(0, 500)}...`
+                                    : props.description}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -59,6 +63,7 @@ const Item = (props) => {
                             value={itemTypeDetail}
                             onChange={handleItemType}
                             className="item-type-radio"
+                            defaultChecked
                         />
                         <label
                             className="item-choose-label item-choose-label-first"

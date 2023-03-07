@@ -16,19 +16,23 @@ const ItemDetail = (props) => {
 
                     <div className="item-detail-data-para">
                         <div className="item-detail-data-heading">
-                            <p>Release Date:</p>
-                            <p>Available Language:</p>
+                            {props.release_date ? <p>Release Date:</p> : ""}
+                            {props.language ? <p>Available Language:</p> : ""}
                             {props.revenue ? <p>Revenue:</p> : ""}
                             {props.duration ? <p> Duration:</p> : ""}
-
-                            <p> Status:</p>
-                            <p> Genres:</p>
+                            {props.status ? <p> Status:</p> : ""}
+                            {props.genres ? <p> Genres:</p> : ""}
                             {props.tagline ? <p>Tagline:</p> : ""}
                         </div>
 
                         <div className="item-detail-data-content">
-                            <p>{props.release_date}</p>
-                            <p className="item-detail-language">{props.language}</p>
+                            {props.release_date ? <p>{props.release_date}</p> : ""}
+                            {props.language ? (
+                                <p className="item-detail-language">{props.language}</p>
+                            ) : (
+                                ""
+                            )}
+
                             {props.revenue ? <p>${props.revenue}</p> : ""}
                             {props.duration ? <p>{props.duration}mins</p> : ""}
 

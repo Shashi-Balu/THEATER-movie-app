@@ -9,29 +9,19 @@ import { useParams } from "react-router-dom";
 const Searchbar = (props) => {
     const { typeTrending, typeUpcoming, typeTopRated, typePopular, type, setType } =
         useContext(TypeContext);
-    const {
-        searchQuery,
-        setSearchQuery,
-        searchMovieQuery,
-        searchMovieQueryData,
-        searchTvshowQuery,
-        searchTvshowQueryData,
-
-        totalSearchQueryPages,
-    } = useContext(SearchContext);
+    const { searchQuery, setSearchQuery, searchMovieQuery, searchTvshowQuery } =
+        useContext(SearchContext);
 
     const params = useParams();
-
-    console.log(params[0]);
     const changeType = (event) => {
         setType(event.target.value);
-        // console.log(event.target.value);
     };
-
     const insertMovie = (event) => {
         event.preventefault();
     };
     props.getType(type);
+
+    console.log({ type });
 
     return (
         <>
@@ -48,68 +38,75 @@ const Searchbar = (props) => {
                 </div>
             </form>
 
-            {type}
-
             <div className="type-categories">
                 {searchQuery?.length < 1 && (
-                    <>
-                        <input
-                            type="radio"
-                            label={typeTrending}
-                            name="movie"
-                            id={typeTrending}
-                            value={typeTrending}
-                            onChange={changeType}
-                            checked={type === { typeTrending }}
-                            className="type-radio"
-                        />
+                    <div className="input-type-radio-container">
+                        <>
+                            <input
+                                type="radio"
+                                label={typeTrending}
+                                name="movie"
+                                id={typeTrending}
+                                value={typeTrending}
+                                onChange={changeType}
+                                // checked={type === { typeTrending }}
+                                className="type-radio"
+                                defaultChecked
+                            />
 
-                        <label className="type-label" htmlFor={typeTrending}>
-                            {props.trending}
-                        </label>
+                            <label className="type-label" htmlFor={typeTrending} for={typeTrending}>
+                                {props.trending}
+                            </label>
+                        </>
 
-                        <input
-                            type="radio"
-                            label={typeUpcoming}
-                            name="movie"
-                            id={typeUpcoming}
-                            value={typeUpcoming}
-                            onChange={changeType}
-                            checked={type === { typeUpcoming }}
-                            className="type-radio"
-                        />
-                        <label className="type-label" htmlFor={typeUpcoming}>
-                            {props.upcoming}
-                        </label>
+                        <>
+                            <input
+                                type="radio"
+                                label={typeUpcoming}
+                                name="movie"
+                                id={typeUpcoming}
+                                value={typeUpcoming}
+                                onChange={changeType}
+                                // checked={type === { typeUpcoming }}
+                                className="type-radio"
+                            />
+                            <label className="type-label" htmlFor={typeUpcoming} for={typeUpcoming}>
+                                {props.upcoming}
+                            </label>
+                        </>
 
-                        <input
-                            type="radio"
-                            label={typeTopRated}
-                            name="movie"
-                            id={typeTopRated}
-                            value={typeTopRated}
-                            onChange={changeType}
-                            checked={type === { typeTopRated }}
-                            className="type-radio"
-                        />
-                        <label className="type-label" htmlFor={typeTopRated}>
-                            {props.topRated}
-                        </label>
-
-                        <input
-                            type="radio"
-                            label={typePopular}
-                            name="movie"
-                            id={typePopular}
-                            value={typePopular}
-                            onChange={changeType}
-                            checked={type === { typePopular }}
-                            className="type-radio"
-                        />
-                        <label className="type-label" htmlFor={typePopular}>
-                            {props.popular}
-                        </label>
-                    </>
+                        <>
+                            {" "}
+                            <input
+                                type="radio"
+                                label={typeTopRated}
+                                name="movie"
+                                id={typeTopRated}
+                                value={typeTopRated}
+                                onChange={changeType}
+                                // checked={type === { typeTopRated }}
+                                className="type-radio"
+                            />
+                            <label className="type-label" htmlFor={typeTopRated} for={typeTopRated}>
+                                {props.topRated}
+                            </label>
+                        </>
+                        <>
+                            <input
+                                type="radio"
+                                label={typePopular}
+                                name="movie"
+                                id={typePopular}
+                                value={typePopular}
+                                onChange={changeType}
+                                // checked={type === { typePopular }}
+                                className="type-radio"
+                            />
+                            <label className="type-label" htmlFor={typePopular} for={typePopular}>
+                                {props.popular}
+                            </label>
+                        </>
+                    </div>
                 )}
             </div>
             {searchQuery !== "" && (

@@ -10,6 +10,17 @@
 .app-pagination-container > ul > li > button:hover {
     border: 1px solid var(--gold);
 }
-.app-pagination-container > ul > li > button:active {
+.app-pagination-container > ul > li > button:checked {
     border: 1px solid var(--gold);
+}
+.MuiPagination-root button:checked {
+    color: red !important;
+}
+
+.Mui-selected {
+    background-color: var(--gold);
+}
+
+.MuiPaginationItem-root .Mui-selected {
+    background-color: #fff;
 }
