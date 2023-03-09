@@ -17,12 +17,12 @@ const useStyles = (theme) => ({
 
 const AppPagination = ({ pageNumbers = 10, setPage, scrollToThis }) => {
     const params = useParams();
-    console.log({ params });
+    // console.log({ params });
 
     const handleChange = (page = 1) => {
         setPage(page);
-        console.log({ page });
-        console.log(Object.keys(params)[0]);
+        // console.log({ page });
+        // console.log(Object.keys(params)[0]);
 
         if (
             Object.keys(params)[0] === "movieId" ||

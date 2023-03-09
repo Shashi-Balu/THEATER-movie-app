@@ -19,7 +19,7 @@ const GenreDetailProviders = (props) => {
     const callGenreMoviesApi = async () => {
         const movieGenreDetailApi = await (
             await fetch(
-                `${url}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}`
+                `${url}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}&adult=false`
             )
         ).json();
 
@@ -33,7 +33,7 @@ const GenreDetailProviders = (props) => {
     const callGenreTvshowsApi = async () => {
         const tvshowGenreDetailApi = await (
             await fetch(
-                `${url}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}`
+                `${url}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.genreId}&page=${genrePage}&adult=false`
             )
         ).json();
 

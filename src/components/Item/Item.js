@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "./Item.css";
 import ItemDetail from "./ItemDetail/ItemDetail";
@@ -6,8 +6,8 @@ import ItemEmbedVideo from "./ItemEmbedVideo/ItemEmbedVideo";
 import ItemThumbnail from "./ItemThumbnail/ItemThumbnail";
 import ItemCast from "./ItemCast/ItemCast";
 import ItemSimilarItems from "./ItemSimilarItems/ItemSimilarItems";
-import TvshowCard from "../TvshowsComponent/TvshowCard/TvshowCard";
-import { useParams } from "react-router-dom";
+import { imgNotAvailableLandscape } from "../../services/imgNotAvailable";
+
 const Item = (props) => {
     const [itemType, setItemType] = useState("itemTypeDetail");
     const [itemTypeDetail, setItemTypeDetail] = useState("itemTypeDetail");
@@ -16,14 +16,18 @@ const Item = (props) => {
     const handleItemType = (event) => {
         setItemType(event.target.value);
     };
-
+    console.log(props.imgUrl);
     return (
         <>
             <div className="item-container">
                 <div className="item-detail-container">
                     <img
                         className="item-detail-img"
-                        src={`https://image.tmdb.org/t/p/original/${props.imgUrl}`}
+                        src={
+                            props.imgUrl !== null
+                                ? `https://image.tmdb.org/t/p/original/${props.imgUrl}`
+                                : imgNotAvailableLandscape
+                        }
                     />
                     <div className="item-detail-data-container">
                         <h2 className="item-detail-title">{props.title}</h2>

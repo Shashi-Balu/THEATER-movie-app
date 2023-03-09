@@ -1,14 +1,21 @@
 import React from "react";
 import "./ItemDetail.css";
+import { imgNotAvailablePortrait } from "../../../services/imgNotAvailable";
 
 const ItemDetail = (props) => {
+    console.log(props.poster);
     return (
         <>
             <div className="item-detail-content-container">
                 <div className="item-detail-poster">
                     <img
                         className="item-detail-poster-img"
-                        src={`https://image.tmdb.org/t/p/original/${props.poster}`}
+                        src={
+                            props.poster !== null
+                                ? `https://image.tmdb.org/t/p/original/${props.poster}`
+                                : imgNotAvailablePortrait
+                        }
+                        loading="lazy"
                     />
                 </div>
                 <div className="item-detail-content-data-container">

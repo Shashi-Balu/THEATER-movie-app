@@ -5,12 +5,11 @@ import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import "../../styles/ItemPage.css";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 import { SearchContext } from "../../services/SearchProviders";
+import { imgNotAvailablePortrait } from "../../services/imgNotAvailable";
 
 function Tvshows() {
     const {
         searchQuery,
-        setSearchQuery,
-        searchTvshowQuery,
         searchTvshowQueryData,
         searchQueryPage,
         setSearchQueryPage,
@@ -42,8 +41,10 @@ function Tvshows() {
 
     const searchTvshowQueryImages =
         searchTvshowQueryData &&
-        searchTvshowQueryData?.map(
-            (tvshow) => `https://image.tmdb.org/t/p/w500${tvshow.poster_path}`
+        searchTvshowQueryData?.map((tvshow) =>
+            tvshow.poster_path !== null
+                ? `https://image.tmdb.org/t/p/w500${tvshow.poster_path}`
+                : imgNotAvailablePortrait
         );
     return (
         <>

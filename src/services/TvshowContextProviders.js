@@ -22,7 +22,7 @@ const TvshowContextProviders = ({ children }) => {
     async function callTvshowsApi() {
         const trendingTvshowsApi = await (
             await fetch(
-                `${url}/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}`
+                `${url}/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}&adult=false`
             )
         ).json();
         const trendingTvshowsApiData = trendingTvshowsApi?.results;
@@ -31,7 +31,7 @@ const TvshowContextProviders = ({ children }) => {
 
         const airingTodayTvshowsApi = await (
             await fetch(
-                `${url}/tv/airing_today?api_key=${process.env.REACT_APP_API_KEY}&page=${upcomingPage}`
+                `${url}/tv/airing_today?api_key=${process.env.REACT_APP_API_KEY}&page=${upcomingPage}&adult=false`
             )
         ).json();
         const airingTodayTvshowsApiData = airingTodayTvshowsApi?.results;
@@ -40,7 +40,7 @@ const TvshowContextProviders = ({ children }) => {
 
         const popularTvshowsApi = await (
             await fetch(
-                `${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${popularPage}`
+                `${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${popularPage}&adult=false`
             )
         ).json();
         const popularTvshowsApiData = popularTvshowsApi?.results;
@@ -49,7 +49,7 @@ const TvshowContextProviders = ({ children }) => {
 
         const topRatedTvshowsApi = await (
             await fetch(
-                `${url}/tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${topRatedPage}`
+                `${url}/tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${topRatedPage}&adult=false`
             )
         ).json();
         const topRatedTvshowsApiData = topRatedTvshowsApi?.results;
@@ -58,7 +58,7 @@ const TvshowContextProviders = ({ children }) => {
 
         const tvshowsApi = await (
             await fetch(
-                `${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}`
+                `${url}/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}&adult=false`
             )
         ).json();
         const tvshowsApiData = tvshowsApi?.results;

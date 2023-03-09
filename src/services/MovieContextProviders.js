@@ -21,7 +21,7 @@ export const MovieContextProvider = ({ children }) => {
     async function callMovieApi() {
         const trendingMoviesApi = await (
             await fetch(
-                `${url}/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}`
+                `${url}/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}&page=${trendingPage}&adult=false`
             )
         ).json();
         const trendingMoviesApiData = trendingMoviesApi?.results;
@@ -30,7 +30,7 @@ export const MovieContextProvider = ({ children }) => {
 
         const upcomingMoviesApi = await (
             await fetch(
-                `${url}/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&page=${upcomingPage}`
+                `${url}/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&page=${upcomingPage}&adult=false`
             )
         ).json();
         const upcomingMoviesApiData = upcomingMoviesApi?.results;
@@ -39,7 +39,7 @@ export const MovieContextProvider = ({ children }) => {
 
         const popularMoviesApi = await (
             await fetch(
-                `${url}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${popularPage}`
+                `${url}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${popularPage}&adult=false`
             )
         ).json();
         const popularMoviesApiData = popularMoviesApi?.results;
@@ -48,7 +48,7 @@ export const MovieContextProvider = ({ children }) => {
 
         const topRatedMoviesApi = await (
             await fetch(
-                `${url}/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${topRatedPage}`
+                `${url}/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${topRatedPage}&adult=false`
             )
         ).json();
         const topRatedMoviesApiData = topRatedMoviesApi?.results;
@@ -56,9 +56,13 @@ export const MovieContextProvider = ({ children }) => {
         setTotalTopRatedPages(topRatedMoviesApi?.total_pages);
     }
 
-    const trendingMoviesImages = trendingMovies?.map(
-        (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    const trendingMoviesImages = trendingMovies?.map((movie) =>
+        movie.poster_path !== null
+            ? // ? console.log(movie.poster_path)
+              `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : ""
     );
+
     const upcomingMoviesImages = upcomingMovies?.map(
         (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
@@ -69,6 +73,7 @@ export const MovieContextProvider = ({ children }) => {
         (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
 
+    console.log(trendingMoviesImages);
     useEffect(() => {
         callMovieApi();
     }, [trendingPage, upcomingPage, topRatedPage, popularPage]);

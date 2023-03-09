@@ -21,7 +21,6 @@ const SearchProviders = ({ children }) => {
                 `${url}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&include_adult=false&page=${searchQueryPage}`
             )
         ).json();
-        console.log({ searchMovieQueryApi });
         setSearchMovieQuery(searchMovieQueryApi);
         setSearchMovieQueryData(searchMovieQueryApi.results);
         setTotalSearchQueryPages(searchMovieQueryApi.total_pages);
@@ -33,7 +32,6 @@ const SearchProviders = ({ children }) => {
                 `${url}/search/tv?api_key=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&include_adult=false&page=${searchQueryPage}`
             )
         ).json();
-        console.log({ searchTvshowQueryApi });
         setSearchTvshowQuery(searchTvshowQueryApi);
         setSearchTvshowQueryData(searchTvshowQueryApi.results);
         setTotalSearchQueryPages(searchTvshowQueryApi.total_pages);

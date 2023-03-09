@@ -14,7 +14,9 @@ export const GenreContextProviders = ({ children }) => {
 
     async function callMovieGenreApi() {
         const movieGenreApi = await (
-            await fetch(`${url}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
+            )
         ).json();
 
         const movieGenreApiData = movieGenreApi.genres;
@@ -24,7 +26,7 @@ export const GenreContextProviders = ({ children }) => {
     }
     async function callTvGenreApi() {
         const tvGenreApi = await (
-            await fetch(`${url}/genre/tv/list?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(`${url}/genre/tv/list?api_key=${process.env.REACT_APP_API_KEY}&adult=false`)
         ).json();
 
         const tvGenreApiData = tvGenreApi.genres;

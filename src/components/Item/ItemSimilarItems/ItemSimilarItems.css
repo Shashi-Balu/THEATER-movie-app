@@ -6,11 +6,11 @@
     font-weight: 400;
 }
 
-.color {
-    color: wheat;
-    font-size: 1.6rem;
-}
-
 .similar-not-available {
     text-align: center;
+}
+
+.similar-item-card {
+    width: 300px;
+    /* height: 500px; */
 }

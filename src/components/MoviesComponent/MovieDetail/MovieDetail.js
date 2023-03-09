@@ -4,8 +4,6 @@ import Item from "../../Item/Item";
 import "../../Item/Item.css";
 
 const MovieDetail = (props) => {
-    const params = useParams();
-    console.log({ params });
     return (
         <>
             <Item

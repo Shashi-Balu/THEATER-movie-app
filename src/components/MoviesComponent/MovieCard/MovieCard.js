@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
 import "../../../styles/ItemCard.css";
 import { Link } from "react-router-dom";
-import { MovieContext } from "../../../services/MovieContextProviders";
+
+import { imgNotAvailablePortrait } from "../../../services/imgNotAvailable";
 
 const MovieCard = (props) => {
     return (
@@ -13,7 +14,12 @@ const MovieCard = (props) => {
                     onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
                 >
                     <div className="item-card-image-container">
-                        <img src={props.imgUrl} alt={props.title} className="item-card-image" />
+                        <img
+                            src={props.imgUrl !== "" ? props.imgUrl : imgNotAvailablePortrait}
+                            alt={props.title}
+                            className="item-card-image"
+                            loading="lazy"
+                        />
                     </div>
 
                     <div className="item-card-text-container">

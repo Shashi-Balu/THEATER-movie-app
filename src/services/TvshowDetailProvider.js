@@ -29,7 +29,9 @@ const TvshowDetailProvider = (props) => {
 
     async function callTvshowApi() {
         const tvshowApi = await (
-            await fetch(`${url}/tv/${params.tvId}?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/tv/${params.tvId}?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
+            )
         ).json();
 
         setTvshowId(tvshowApi?.id);
@@ -48,21 +50,27 @@ const TvshowDetailProvider = (props) => {
 
     async function callTvshowVideoApi() {
         const tvshowVideoApi = await (
-            await fetch(`${url}/tv/${params.tvId}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/tv/${params.tvId}/videos?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
+            )
         ).json();
         setTvshowVideos(tvshowVideoApi?.results);
     }
 
     async function callTvshowThumbnailApi() {
         const tvshowThumbnailApi = await (
-            await fetch(`${url}/tv/${params.tvId}/images?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/tv/${params.tvId}/images?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
+            )
         ).json();
         setTvshowThumbnails(tvshowThumbnailApi?.backdrops);
     }
 
     async function callTvshowCastApi() {
         const tvshowCastApi = await (
-            await fetch(`${url}/tv/${params.tvId}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
+            await fetch(
+                `${url}/tv/${params.tvId}/credits?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
+            )
         ).json();
         setTvshowCast(tvshowCastApi?.cast);
     }
@@ -70,7 +78,7 @@ const TvshowDetailProvider = (props) => {
     async function callTvshowSimilarApi() {
         const tvshowSimilarApi = await (
             await fetch(
-                `${url}/tv/${params.tvId}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${tvshowSimilarPage}`
+                `${url}/tv/${params.tvId}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${tvshowSimilarPage}&adult=false`
             )
         ).json();
         setTvshowSimilar(tvshowSimilarApi?.results);

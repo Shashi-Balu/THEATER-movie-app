@@ -2,6 +2,7 @@ import React from "react";
 import TvshowCard from "../../TvshowsComponent/TvshowCard/TvshowCard";
 import "../../../styles/ItemPage.css";
 import "./ItemSimilarItems.css";
+import { imgNotAvailablePortrait } from "../../../services/imgNotAvailable";
 
 import { Link, useParams } from "react-router-dom";
 
@@ -12,6 +13,7 @@ import MovieCard from "../../MoviesComponent/MovieCard/MovieCard";
 const ItemSimilarItems = (props) => {
     const params = useParams();
     const moreLikeThis = document.querySelector(".item-similar-heading");
+    console.log(props.poster_path);
 
     return (
         <>
@@ -21,11 +23,16 @@ const ItemSimilarItems = (props) => {
                     props.tvshowSimilar && props.tvshowSimilar.length !== 0 ? (
                         props.tvshowSimilar?.map((item) => {
                             return (
-                                <div>
-                                    <Link to={`/tv-shows/:${item.id}cbbfbs`} className="color">
+                                <div className="similar-item-card">
+                                    <Link to={`/tv-shows/:${item.id}`}>
                                         <TvshowCard
+                                            className="color"
                                             title={item.name}
-                                            imgUrl={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                                            imgUrl={
+                                                item.poster_path !== null
+                                                    ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                                                    : imgNotAvailablePortrait
+                                            }
                                             rating={item?.vote_average.toFixed(1)}
                                             tvId={item.id}
                                         />
@@ -41,11 +48,15 @@ const ItemSimilarItems = (props) => {
                 ) : props.movieSimilar && props.movieSimilar.length !== 0 ? (
                     props.movieSimilar?.map((item) => {
                         return (
-                            <div>
-                                <Link to={`/similar-movies/movieId`} className="color">
+                            <div className="similar-item-card">
+                                <Link to={`/movies/${item.id}`}>
                                     <MovieCard
                                         title={item.title}
-                                        imgUrl={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                                        imgUrl={
+                                            item.poster_path !== null
+                                                ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                                                : imgNotAvailablePortrait
+                                        }
                                         rating={item?.vote_average.toFixed(1)}
                                         movieId={item.id}
                                     />

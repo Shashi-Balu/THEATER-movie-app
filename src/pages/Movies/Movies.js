@@ -5,6 +5,7 @@ import "../../styles/ItemPage.css";
 import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 import { SearchContext } from "../../services/SearchProviders";
+import { imgNotAvailablePortrait } from "../../services/imgNotAvailable";
 function Movies() {
     const {
         searchQuery,
@@ -16,7 +17,11 @@ function Movies() {
     const [displayType, setDisplayType] = useState("");
     const searchMovieQueryImages =
         searchMovieQueryData &&
-        searchMovieQueryData?.map((movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
+        searchMovieQueryData?.map((movie) =>
+            movie.poster_path !== null
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : imgNotAvailablePortrait
+        );
     const {
         trendingPage,
         setTrendingPage,

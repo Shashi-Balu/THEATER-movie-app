@@ -47,7 +47,7 @@ const MovieDetailProvider = (props) => {
     async function callMovieVideoApi() {
         const movieVideoApi = await (
             await fetch(
-                `${url}/movie/${params.movieId}/videos?api_key=${process.env.REACT_APP_API_KEY}`
+                `${url}/movie/${params.movieId}/videos?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
             )
         ).json();
         const movieVideoApiData = movieVideoApi?.results;
@@ -57,7 +57,7 @@ const MovieDetailProvider = (props) => {
     async function callMovieThumbnailApi() {
         const movieThumbnailApi = await (
             await fetch(
-                `${url}/movie/${params.movieId}/images?api_key=${process.env.REACT_APP_API_KEY}`
+                `${url}/movie/${params.movieId}/images?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
             )
         ).json();
         const movieThumbnailApiData = movieThumbnailApi?.backdrops;
@@ -67,7 +67,7 @@ const MovieDetailProvider = (props) => {
     async function callMovieCastApi() {
         const movieCastApi = await (
             await fetch(
-                `${url}/movie/${params.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}`
+                `${url}/movie/${params.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
             )
         ).json();
 
@@ -78,12 +78,13 @@ const MovieDetailProvider = (props) => {
     async function callMovieSimilarApi() {
         const movieSimilarApi = await (
             await fetch(
-                `${url}/movie/${params.movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${movieSimilarPage}`
+                `${url}/movie/${params.movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${movieSimilarPage}&adult=false`
             )
         ).json();
         const movieSimilarApiData = movieSimilarApi?.results;
         setMovieSimilar(movieSimilarApiData);
         setTotalMovieSimilarPages(movieSimilarApi?.total_pages);
+        console.log(movieSimilarApi?.results);
     }
 
     useEffect(() => {
