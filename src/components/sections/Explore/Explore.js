@@ -20,7 +20,6 @@ function Explore() {
         navigate("/movies");
         setType(typeUpcoming);
         window.scroll(0, 0);
-        // console.log("upcoming");
     };
     const topRatedSection = () => {
         navigate("/movies");
@@ -51,38 +50,24 @@ function Explore() {
                 <p className="explore-title">explore</p>
             </div>
             <div className="explore-cards">
-                <div className="home-cards">
-                    <div onClick={() => trendingSection()}>
-                        <Card
-                            img={trendingMoviesImages[0]}
-                            title="trending"
-                            className="card-image"
-                        />
-                    </div>
+                <div onClick={() => trendingSection()}>
+                    <Card img={trendingMoviesImages[0]} title="trending" className="card-image" />
+                </div>
 
-                    <div onClick={upcomingSection}>
-                        <Card
-                            img={upcomingMoviesImages[0]}
-                            title="upcoming"
-                            className="card-image"
-                        />
-                    </div>
+                <div onClick={upcomingSection}>
+                    <Card img={upcomingMoviesImages[0]} title="upcoming" className="card-image" />
+                </div>
 
-                    <div onClick={topRatedSection}>
-                        <Card
-                            img={topRatedMoviesImages[0]}
-                            title="top rated"
-                            className="card-image"
-                        />
-                    </div>
+                <div onClick={topRatedSection}>
+                    <Card img={topRatedMoviesImages[0]} title="top rated" className="card-image" />
+                </div>
 
-                    <div onClick={popularSection}>
-                        <Card img={popularMoviesImages[0]} title="popular" className="card-image" />
-                    </div>
+                <div onClick={popularSection}>
+                    <Card img={popularMoviesImages[0]} title="popular" className="card-image" />
+                </div>
 
-                    <div onClick={tvshowsSection}>
-                        <Card img={tvshowsImages[0]} title="tv shows" className="card-image" />
-                    </div>
+                <div onClick={tvshowsSection}>
+                    <Card img={tvshowsImages[0]} title="tv shows" className="card-image" />
                 </div>
             </div>
         </>

@@ -44,7 +44,6 @@
     display: flex;
     font-size: 1.7rem;
     font-weight: 400;
-    color: #fff;
     animation: slide 5.1s infinite ease-in-out;
     animation-direction: alternate;
     transition: all 1s;
@@ -113,3 +112,99 @@
      animation: zoominoutsinglefeatured 5s infinite; 
     animation: move 3s infinite ease-in-out;
 } */
+
+@media only screen and (max-width: 1110px) {
+    .carousel-title {
+        font-size: 3.3rem;
+        margin-top: 5.5rem;
+    }
+    .carousel-data {
+        margin-top: -12px;
+        font-size: 1.5rem;
+    }
+    .carousel-star {
+        transform: scale(1.2);
+        margin-top: -1px;
+    }
+    .carousel-description {
+        margin-top: -5px;
+        width: 85%;
+    }
+
+    .carousel-data,
+    .carousel-description,
+    .carousel-title {
+        animation: none;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .carousel-data-container {
+        margin-left: -30px;
+    }
+    .carousel-title {
+        font-size: 3rem;
+        margin: 4rem 0 40px auto;
+    }
+    .carousel-data {
+        font-size: 1.5rem;
+    }
+    .carousel-star {
+        transform: scale(1.2);
+        margin-top: -1px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .carousel-title {
+        margin-top: 7rem;
+        font-size: 2.3rem;
+    }
+    .carousel-data,
+    .carousel-description {
+        font-size: 1.2rem;
+    }
+    .carousel-star {
+        transform: scale(1);
+        margin-top: -3px;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .carousel-title {
+        margin-top: -5px;
+        font-size: 1.6rem;
+    }
+    .carousel-data,
+    .carousel-description {
+        font-size: 0.8rem;
+    }
+    .carousel-star {
+        transform: scale(0.9);
+        margin-top: -4px;
+    }
+
+    .carousel-data-container {
+        left: 0;
+        margin-left: 20px;
+    }
+    .carousel-image {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .carousel-title {
+        margin-top: -15px;
+        font-size: 1.3rem;
+    }
+    .carousel-image-container {
+        margin-left: 2px;
+    }
+    .carousel-star {
+        transform: scale(0.7);
+        margin: -7px 2px auto -3px;
+    }
+    .carousel-rating::after {
+        margin: -3px 10px;
+    }
+}

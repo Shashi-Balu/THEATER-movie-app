@@ -3,7 +3,6 @@ import "./Searchbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import { TypeContext } from "../../../services/TypeContextProviders";
 import { SearchContext } from "../../../services/SearchProviders";
-import MovieCard from "../../MoviesComponent/MovieCard/MovieCard";
 import { useParams } from "react-router-dom";
 
 const Searchbar = (props) => {
@@ -37,7 +36,6 @@ const Searchbar = (props) => {
                     />
                 </div>
             </form>
-
             <div className="type-categories">
                 {searchQuery?.length < 1 && (
                     <div className="input-type-radio-container">
