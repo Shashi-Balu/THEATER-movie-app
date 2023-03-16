@@ -74,7 +74,6 @@ const Searchbar = (props) => {
                         </>
 
                         <>
-                            {" "}
                             <input
                                 type="radio"
                                 label={typeTopRated}

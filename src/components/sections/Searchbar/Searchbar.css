@@ -29,24 +29,22 @@
     margin-bottom: 5px;
     display: none;
     transform: scaleX(0);
-
     border-bottom: 1px solid transparent;
 }
 
 .type-label {
-    font-size: 1.6rem;
-    margin-left: 13%;
+    font-size: 1.5rem;
     text-transform: uppercase;
-
     cursor: pointer;
-    padding: 5px;
+    margin-right: 9rem;
     transition: all 0.3s;
 }
 
 .type-categories {
-    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 6rem;
 }
-
 .search-results {
     color: var(--gold);
     font-weight: 300;
@@ -56,4 +54,116 @@
 .type-radio:checked + .type-label {
     border-bottom: 1px solid var(--gold);
     transform: translateX(10px);
+}
+
+@media only screen and (max-width: 1280px) {
+    .type-label {
+        margin-right: 8rem;
+    }
+    .type-categories {
+        margin-left: 4.5rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .type-label {
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+    .searchbar {
+        font-size: 1.4rem;
+    }
+    .search-icon {
+        transform: scale(1.2);
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    .type-label {
+        margin-right: 5rem;
+        font-size: 1.2rem;
+    }
+    .searchbar {
+        font-size: 1.2rem;
+    }
+    .search-icon {
+        transform: scale(1.15);
+        padding: 4px;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .type-label {
+        margin-right: 3.5rem;
+    }
+
+    .search-icon {
+        padding: 3px;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .type-label {
+        font-size: 1.1rem;
+        margin-right: 2rem;
+    }
+    .type-categories {
+        margin-left: 1.2rem;
+    }
+    .searchbar-container {
+        margin-top: 10px;
+    }
+    .searchbar {
+        font-size: 1.1rem;
+    }
+    .search-icon {
+        transform: scale(1);
+        padding: 2px;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .type-label {
+        font-size: 1rem;
+        margin-right: 1.15rem;
+    }
+    .searchbar {
+        font-size: 1rem;
+    }
+
+    .search-icon {
+        transform: scale(1);
+        padding: 2px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .type-label {
+        margin-right: 0rem;
+        border: none;
+    }
+    .type-categories {
+        margin-left: -1rem;
+    }
+    .type-radio:checked + .type-label {
+        border: none;
+        color: var(--gold);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .type-label {
+        font-size: 0.87rem;
+        margin-right: -0.5rem;
+        border: none;
+    }
+    .type-categories {
+        width: 100%;
+        margin-left: -0.25rem;
+    }
+    .type-radio:checked + .type-label {
+        border: none;
+        color: var(--gold);
+    }
 }

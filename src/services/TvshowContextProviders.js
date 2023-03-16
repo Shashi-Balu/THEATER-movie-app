@@ -79,6 +79,18 @@ const TvshowContextProviders = ({ children }) => {
     );
     const tvshowsImages = tvshows?.map((tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`);
 
+    const trendingTvshowsLandscapeImages = trendingTvshows?.map(
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+    );
+    const airingTodayTvshowsLandscapeImages = airingTodayTvshows?.map(
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+    );
+    const popularTvshowsLandscapeImages = popularTvshows?.map(
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+    );
+    const topRatedTvshowsLandscapeImages = topRatedTvshows?.map(
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+    );
     const tvshowsLandscapeImages = tvshows?.map(
         (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
     );
@@ -121,6 +133,10 @@ const TvshowContextProviders = ({ children }) => {
                     popularTvshowsImages,
                     topRatedTvshowsImages,
                     tvshowsImages,
+                    trendingTvshowsLandscapeImages,
+                    airingTodayTvshowsLandscapeImages,
+                    popularTvshowsLandscapeImages,
+                    topRatedTvshowsLandscapeImages,
                     tvshowsLandscapeImages,
                 }}
             >

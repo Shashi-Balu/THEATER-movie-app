@@ -6,6 +6,7 @@ import "../../styles/ItemPage.css";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 import { SearchContext } from "../../services/SearchProviders";
 import { imgNotAvailablePortrait } from "../../services/imgNotAvailable";
+import { useMediaQuery } from "react-responsive";
 
 function Tvshows() {
     const {
@@ -37,7 +38,31 @@ function Tvshows() {
         airingTodayTvshowsImages,
         popularTvshowsImages,
         topRatedTvshowsImages,
+        trendingTvshowsLandscapeImages,
+        airingTodayTvshowsLandscapeImages,
+        popularTvshowsLandscapeImages,
+        topRatedTvshowsLandscapeImages,
     } = useContext(TvshowContext);
+
+    const isDesktopOrLaptop = useMediaQuery({
+        query: "(min-width: 610px)",
+    });
+    let trendingTvshowsDisplay = "";
+    let airingTodayTvshowsDisplay = "";
+    let popularTvshowsDisplay = "";
+    let topRatedTvshowsDisplay = "";
+    isDesktopOrLaptop
+        ? (trendingTvshowsDisplay = trendingTvshowsImages)
+        : (trendingTvshowsDisplay = trendingTvshowsLandscapeImages);
+    isDesktopOrLaptop
+        ? (airingTodayTvshowsDisplay = airingTodayTvshowsImages)
+        : (airingTodayTvshowsDisplay = airingTodayTvshowsLandscapeImages);
+    isDesktopOrLaptop
+        ? (popularTvshowsDisplay = popularTvshowsImages)
+        : (popularTvshowsDisplay = popularTvshowsLandscapeImages);
+    isDesktopOrLaptop
+        ? (topRatedTvshowsDisplay = topRatedTvshowsImages)
+        : (topRatedTvshowsDisplay = topRatedTvshowsLandscapeImages);
 
     const searchTvshowQueryImages =
         searchTvshowQueryData &&
@@ -71,7 +96,7 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv.name}
                                                         rating={tv.vote_average.toFixed(1)}
-                                                        imgUrl={airingTodayTvshowsImages[index]}
+                                                        imgUrl={airingTodayTvshowsDisplay[index]}
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -94,7 +119,7 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv.name}
                                                         rating={tv.vote_average.toFixed(1)}
-                                                        imgUrl={topRatedTvshowsImages[index]}
+                                                        imgUrl={topRatedTvshowsDisplay[index]}
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -117,7 +142,7 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv?.name}
                                                         rating={tv.vote_average?.toFixed(1)}
-                                                        imgUrl={popularTvshowsImages[index]}
+                                                        imgUrl={popularTvshowsDisplay[index]}
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -142,7 +167,7 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv.name}
                                                         rating={tv.vote_average.toFixed(1)}
-                                                        imgUrl={trendingTvshowsImages[index]}
+                                                        imgUrl={trendingTvshowsDisplay[index]}
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -160,7 +185,6 @@ function Tvshows() {
                         })()
                     ) : (
                         <>
-                            {" "}
                             <div className="items-item-container">
                                 {searchTvshowQueryData?.map((tv, index) => {
                                     return (

@@ -6,6 +6,7 @@ import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 import { SearchContext } from "../../services/SearchProviders";
 import { imgNotAvailablePortrait } from "../../services/imgNotAvailable";
+import { useMediaQuery } from "react-responsive";
 function Movies() {
     const {
         searchQuery,
@@ -41,7 +42,31 @@ function Movies() {
         upcomingMoviesImages,
         popularMoviesImages,
         topRatedMoviesImages,
+        trendingMoviesLandscapeImages,
+        upcomingMoviesLandscapeImages,
+        popularMoviesLandscapeImages,
+        topRatedMoviesLandscapeImages,
     } = useContext(MovieContext);
+
+    const isDesktopOrLaptop = useMediaQuery({
+        query: "(min-width: 610px)",
+    });
+    let trendingMoviesDisplay = "";
+    let upcomingMoviesDisplay = "";
+    let popularMoviesDisplay = "";
+    let topRatedMoviesDisplay = "";
+    isDesktopOrLaptop
+        ? (trendingMoviesDisplay = trendingMoviesImages)
+        : (trendingMoviesDisplay = trendingMoviesLandscapeImages);
+    isDesktopOrLaptop
+        ? (upcomingMoviesDisplay = upcomingMoviesImages)
+        : (upcomingMoviesDisplay = upcomingMoviesLandscapeImages);
+    isDesktopOrLaptop
+        ? (popularMoviesDisplay = popularMoviesImages)
+        : (popularMoviesDisplay = popularMoviesLandscapeImages);
+    isDesktopOrLaptop
+        ? (topRatedMoviesDisplay = topRatedMoviesImages)
+        : (topRatedMoviesDisplay = topRatedMoviesLandscapeImages);
 
     return (
         <>
@@ -52,7 +77,7 @@ function Movies() {
                         getType={setDisplayType}
                         trending="trending"
                         upcoming="upcoming"
-                        topRated="top rated"
+                        topRated="top-rated"
                         popular="popular"
                     />
                 </>
@@ -72,7 +97,7 @@ function Movies() {
                                                         key={index}
                                                         title={movie.title}
                                                         rating={movie.vote_average.toFixed(1)}
-                                                        imgUrl={upcomingMoviesImages[index]}
+                                                        imgUrl={upcomingMoviesDisplay[index]}
                                                         movieId={movie.id}
                                                     />
                                                 ))}
@@ -96,7 +121,7 @@ function Movies() {
                                                             key={index}
                                                             title={movie.title}
                                                             rating={movie.vote_average.toFixed(1)}
-                                                            imgUrl={topRatedMoviesImages[index]}
+                                                            imgUrl={topRatedMoviesDisplay[index]}
                                                             movieId={movie.id}
                                                         />
                                                     </div>
@@ -120,7 +145,7 @@ function Movies() {
                                                         key={index}
                                                         title={movie.title}
                                                         rating={movie.vote_average.toFixed(1)}
-                                                        imgUrl={popularMoviesImages[index]}
+                                                        imgUrl={popularMoviesDisplay[index]}
                                                         movieId={movie.id}
                                                     />
                                                 ))}
@@ -145,7 +170,7 @@ function Movies() {
                                                         key={index}
                                                         title={movie.title}
                                                         rating={movie.vote_average.toFixed(1)}
-                                                        imgUrl={trendingMoviesImages[index]}
+                                                        imgUrl={trendingMoviesDisplay[index]}
                                                         movieId={movie.id}
                                                     />
                                                 ))}
