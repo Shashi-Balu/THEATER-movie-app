@@ -56,11 +56,8 @@ export const MovieContextProvider = ({ children }) => {
         setTotalTopRatedPages(topRatedMoviesApi?.total_pages);
     }
 
-    const trendingMoviesImages = trendingMovies?.map((movie) =>
-        movie.poster_path !== null
-            ? // ? console.log(movie.poster_path)
-              `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            : ""
+    const trendingMoviesImages = trendingMovies?.map(
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
 
     const upcomingMoviesImages = upcomingMovies?.map(
@@ -73,6 +70,19 @@ export const MovieContextProvider = ({ children }) => {
         (movie) => `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     );
 
+    const trendingMoviesLandscapeImages = trendingMovies?.map(
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+    );
+
+    const upcomingMoviesLandscapeImages = upcomingMovies?.map(
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+    );
+    const popularMoviesLandscapeImages = popularMovies?.map(
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+    );
+    const topRatedMoviesLandscapeImages = topRatedMovies?.map(
+        (movie) => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+    );
     console.log(trendingMoviesImages);
     useEffect(() => {
         callMovieApi();
@@ -109,6 +119,10 @@ export const MovieContextProvider = ({ children }) => {
                 upcomingMoviesImages,
                 popularMoviesImages,
                 topRatedMoviesImages,
+                trendingMoviesLandscapeImages,
+                upcomingMoviesLandscapeImages,
+                popularMoviesLandscapeImages,
+                topRatedMoviesLandscapeImages,
             }}
         >
             {children}

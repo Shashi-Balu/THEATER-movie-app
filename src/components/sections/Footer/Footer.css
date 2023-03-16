@@ -4,8 +4,6 @@
     margin: 15px;
     text-transform: uppercase;
     font-size: 1.1rem;
-    display: flex;
-    justify-content: space-between;
 }
 .footer-hr {
     width: 99.9%;
@@ -17,7 +15,6 @@
 }
 
 .footer-img-content {
-    display: flex;
     color: #aeaeae;
     max-width: 100%;
 }
@@ -25,9 +22,8 @@
 .footer-center-content {
     color: #aeaeae;
 }
-.developer-name,
-.footer-right {
-    padding-right: 80px;
+.developer-name {
+    padding-right: 50px;
     color: var(--gold);
 }
 
@@ -41,6 +37,7 @@
     cursor: pointer;
     transition: all 0.5s;
     transform: scale(1.2);
+    color: var(--gold);
 }
 
 .footer-icon:hover {
@@ -52,5 +49,82 @@
 @media only screen and (max-width: 1200px) {
     .footer-hr {
         width: 99.5%;
+    }
+}
+
+@media only screen and (max-width: 1110px) {
+    .footer-logo {
+        width: 130px;
+    }
+    .footer-container {
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 1110px) {
+    .footer-logo {
+        width: 120px;
+    }
+    .footer-container {
+        font-size: 0.9rem;
+        /* justify-content: space-evenly; */
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .footer-container {
+        font-size: 0.9rem;
+        justify-content: space-between;
+    }
+
+    .footer-right,
+    .developer-name {
+        padding-right: 0;
+    }
+
+    .footer-icon {
+        transform: scale(1);
+    }
+}
+@media only screen and (max-width: 630px) {
+    .footer-logo {
+        width: 100px;
+    }
+
+    .footer-container {
+        justify-content: space-evenly;
+    }
+
+    .footer-center-content {
+        margin-right: 12rem;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 630px) {
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .footer-container {
+        display: grid;
+        place-items: center;
+    }
+    .footer-center-content {
+        margin: 0;
+    }
+
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

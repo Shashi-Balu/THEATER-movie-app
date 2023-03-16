@@ -20,9 +20,15 @@ function Footer() {
                     </p>
                 </div>
                 <div className="footer-right">
-                    <GitHubIcon className="footer-icon" />
-
-                    <LinkedInIcon className="footer-icon" />
+                    <a href="https://github.com/Shashi-Balu" target="_blank">
+                        <GitHubIcon className="footer-icon" target="_blank" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/shashi-
+balu/"
+                    >
+                        <LinkedInIcon className="footer-icon" />
+                    </a>
                 </div>
             </div>
         </>

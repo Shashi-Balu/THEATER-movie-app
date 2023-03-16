@@ -79,6 +79,10 @@ const TvshowContextProviders = ({ children }) => {
     );
     const tvshowsImages = tvshows?.map((tv) => `https://image.tmdb.org/t/p/w500${tv.poster_path}`);
 
+    const tvshowsLandscapeImages = tvshows?.map(
+        (tv) => `https://image.tmdb.org/t/p/w500${tv.backdrop_path}`
+    );
+
     useEffect(() => {
         callTvshowsApi();
     }, [trendingPage, upcomingPage, topRatedPage, popularPage]);
@@ -117,6 +121,7 @@ const TvshowContextProviders = ({ children }) => {
                     popularTvshowsImages,
                     topRatedTvshowsImages,
                     tvshowsImages,
+                    tvshowsLandscapeImages,
                 }}
             >
                 {children}
