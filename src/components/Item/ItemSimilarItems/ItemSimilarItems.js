@@ -2,18 +2,25 @@ import React from "react";
 import TvshowCard from "../../TvshowsComponent/TvshowCard/TvshowCard";
 import "../../../styles/ItemPage.css";
 import "./ItemSimilarItems.css";
-import { imgNotAvailablePortrait } from "../../../services/imgNotAvailable";
-
+import {
+    imgNotAvailablePortrait,
+    imgNotAvailableLandscape,
+} from "../../../services/imgNotAvailable";
 import { Link, useParams } from "react-router-dom";
-
 import AppPagination from "../../sections/AppPagination/AppPagination";
-
 import MovieCard from "../../MoviesComponent/MovieCard/MovieCard";
+import { useMediaQuery } from "react-responsive";
 
 const ItemSimilarItems = (props) => {
+    const isDesktopOrLaptop = useMediaQuery({
+        query: "(min-width: 800px)",
+    });
     const params = useParams();
     const moreLikeThis = document.querySelector(".item-similar-heading");
     console.log(props.poster_path);
+
+    // let imageToDisplay = ''
+    // isDesktopOrLaptop ? imageToDisplay =  : imageToDisplay =
 
     return (
         <>
@@ -29,9 +36,13 @@ const ItemSimilarItems = (props) => {
                                             className="color"
                                             title={item.name}
                                             imgUrl={
-                                                item.poster_path !== null
-                                                    ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-                                                    : imgNotAvailablePortrait
+                                                isDesktopOrLaptop
+                                                    ? item.poster_path !== null
+                                                        ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                                                        : imgNotAvailablePortrait
+                                                    : item.backdrop_path !== null
+                                                    ? `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
+                                                    : imgNotAvailableLandscape
                                             }
                                             rating={item?.vote_average.toFixed(1)}
                                             tvId={item.id}
@@ -53,9 +64,13 @@ const ItemSimilarItems = (props) => {
                                     <MovieCard
                                         title={item.title}
                                         imgUrl={
-                                            item.poster_path !== null
-                                                ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-                                                : imgNotAvailablePortrait
+                                            isDesktopOrLaptop
+                                                ? item.poster_path !== null
+                                                    ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                                                    : imgNotAvailablePortrait
+                                                : item.backdrop_path !== null
+                                                ? `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
+                                                : imgNotAvailableLandscape
                                         }
                                         rating={item?.vote_average.toFixed(1)}
                                         movieId={item.id}

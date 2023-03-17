@@ -19,94 +19,122 @@ function Navbar() {
     };
     return (
         <>
-            <div className="navbar-container">
-                {isDesktopOrLaptop ? (
-                    <>
-                        <div className="navbar">
-                            <div className="nav-logo">
-                                <img className="nav-logo-image" src={logo} alt="LOGO" />
-                            </div>
-                            <div className="nav-menu">
-                                <NavLink to="/" className="navbar-nav navbar-nav-link">
-                                    <nav className="navbar-nav">HOME</nav>
-                                </NavLink>
-                                <NavLink to="/movies" className="navbar-nav navbar-nav-link">
-                                    <nav className="navbar-nav">MOVIES</nav>
-                                </NavLink>
+            <div className="navbar">
+                <div className="nav-logo">
+                    <img className="nav-logo-image" src={logo} alt="LOGO" />
+                </div>
+                <div className="nav-menu">
+                    <NavLink to="/" className="navbar-nav navbar-nav-link">
+                        <nav className="navbar-nav">HOME</nav>
+                    </NavLink>
+                    <NavLink to="/movies" className="navbar-nav navbar-nav-link">
+                        <nav className="navbar-nav">MOVIES</nav>
+                    </NavLink>
 
-                                <NavLink to="/tv-shows" className="navbar-nav navbar-nav-link">
-                                    <nav className="navbar-nav">TV SHOWS</nav>
-                                </NavLink>
+                    <NavLink to="/tv-shows" className="navbar-nav navbar-nav-link">
+                        <nav className="navbar-nav">TV SHOWS</nav>
+                    </NavLink>
 
-                                <NavLink to="/genres" className="navbar-nav navbar-nav-link">
-                                    <nav className="navbar-nav">GENRES</nav>
-                                </NavLink>
-                            </div>
+                    <NavLink to="/genres" className="navbar-nav navbar-nav-link">
+                        <nav className="navbar-nav">GENRES</nav>
+                    </NavLink>
+                </div>
 
-                            <div className="navbar-mode">
-                                {/*🌕 */}
-                                <NightlightRoundTwoToneIcon className="nav-logo-mode" />
-                            </div>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <div className="navbar">
-                            <div className="nav-logo">
-                                <img className="nav-logo-image" src={logo} alt="LOGO" />
-                            </div>
-
-                            <input
-                                type="checkbox"
-                                id="hamburger"
-                                onChange={handleHamburger}
-                                checked={menu}
-                                className="navbar-hamburger-input"
-                            />
-
-                            <label for="hamburger">
-                                <div className="navbar-hamburger">
-                                    {menu ? <CloseRoundedIcon /> : <MenuRoundedIcon />}
-                                </div>
-                            </label>
-
-                            {menu && (
-                                <div className="hamburger-container">
-                                    <div className="nav-menu">
-                                        <NavLink to="/" className="navbar-nav navbar-nav-link">
-                                            <nav className="navbar-nav">HOME</nav>
-                                        </NavLink>
-                                        <NavLink
-                                            to="/movies"
-                                            className="navbar-nav navbar-nav-link"
-                                        >
-                                            <nav className="navbar-nav">MOVIES</nav>
-                                        </NavLink>
-
-                                        <NavLink
-                                            to="/tv-shows"
-                                            className="navbar-nav navbar-nav-link"
-                                        >
-                                            <nav className="navbar-nav">TV SHOWS</nav>
-                                        </NavLink>
-
-                                        <NavLink
-                                            to="/genres"
-                                            className="navbar-nav navbar-nav-link"
-                                        >
-                                            <nav className="navbar-nav">GENRES</nav>
-                                        </NavLink>
-                                    </div>
-                                    <div className="navbar-mode">
-                                        <NightlightRoundTwoToneIcon className="nav-logo-mode" />
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </>
-                )}
+                {/* <div className="navbar-mode">
+               
+                    <NightlightRoundTwoToneIcon className="nav-logo-mode" />
+                </div> */}
             </div>
         </>
+        // <>
+        //     <div className="navbar-container">
+        //         {isDesktopOrLaptop ? (
+        //             <>
+        //                 <div className="navbar">
+        //                     <div className="nav-logo">
+        //                         <img className="nav-logo-image" src={logo} alt="LOGO" />
+        //                     </div>
+        //                     <div className="nav-menu">
+        //                         <NavLink to="/" className="navbar-nav navbar-nav-link">
+        //                             <nav className="navbar-nav">HOME</nav>
+        //                         </NavLink>
+        //                         <NavLink to="/movies" className="navbar-nav navbar-nav-link">
+        //                             <nav className="navbar-nav">MOVIES</nav>
+        //                         </NavLink>
+
+        //                         <NavLink to="/tv-shows" className="navbar-nav navbar-nav-link">
+        //                             <nav className="navbar-nav">TV SHOWS</nav>
+        //                         </NavLink>
+
+        //                         <NavLink to="/genres" className="navbar-nav navbar-nav-link">
+        //                             <nav className="navbar-nav">GENRES</nav>
+        //                         </NavLink>
+        //                     </div>
+
+        //                     <div className="navbar-mode">
+        //                         {/*🌕 */}
+        //                         <NightlightRoundTwoToneIcon className="nav-logo-mode" />
+        //                     </div>
+        //                 </div>
+        //             </>
+        //         ) : (
+        //             <>
+        //                 <div className="navbar">
+        //                     <div className="nav-logo">
+        //                         <img className="nav-logo-image" src={logo} alt="LOGO" />
+        //                     </div>
+
+        //                     <input
+        //                         type="checkbox"
+        //                         id="hamburger"
+        //                         onChange={handleHamburger}
+        //                         checked={menu}
+        //                         className="navbar-hamburger-input"
+        //                     />
+
+        //                     <label for="hamburger">
+        //                         <div className="navbar-hamburger">
+        //                             {menu ? <CloseRoundedIcon /> : <MenuRoundedIcon />}
+        //                         </div>
+        //                     </label>
+
+        //                     {menu && (
+        //                         <div className="hamburger-container">
+        //                             <div className="nav-menu">
+        //                                 <NavLink to="/" className="navbar-nav navbar-nav-link">
+        //                                     <nav className="navbar-nav">HOME</nav>
+        //                                 </NavLink>
+        //                                 <NavLink
+        //                                     to="/movies"
+        //                                     className="navbar-nav navbar-nav-link"
+        //                                 >
+        //                                     <nav className="navbar-nav">MOVIES</nav>
+        //                                 </NavLink>
+
+        //                                 <NavLink
+        //                                     to="/tv-shows"
+        //                                     className="navbar-nav navbar-nav-link"
+        //                                 >
+        //                                     <nav className="navbar-nav">TV SHOWS</nav>
+        //                                 </NavLink>
+
+        //                                 <NavLink
+        //                                     to="/genres"
+        //                                     className="navbar-nav navbar-nav-link"
+        //                                 >
+        //                                     <nav className="navbar-nav">GENRES</nav>
+        //                                 </NavLink>
+        //                             </div>
+        //                             <div className="navbar-mode">
+        //                                 <NightlightRoundTwoToneIcon className="nav-logo-mode" />
+        //                             </div>
+        //                         </div>
+        //                     )}
+        //                 </div>
+        //             </>
+        //         )}
+        //     </div>
+        // </>
     );
 }
 

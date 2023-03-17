@@ -16,13 +16,7 @@ function Movies() {
         totalSearchQueryPages,
     } = useContext(SearchContext);
     const [displayType, setDisplayType] = useState("");
-    const searchMovieQueryImages =
-        searchMovieQueryData &&
-        searchMovieQueryData?.map((movie) =>
-            movie.poster_path !== null
-                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                : imgNotAvailablePortrait
-        );
+
     const {
         trendingPage,
         setTrendingPage,
@@ -68,6 +62,15 @@ function Movies() {
         ? (topRatedMoviesDisplay = topRatedMoviesImages)
         : (topRatedMoviesDisplay = topRatedMoviesLandscapeImages);
 
+    const searchMovieQueryImages =
+        searchMovieQueryData &&
+        searchMovieQueryData?.map((movie) =>
+            movie.poster_path !== null
+                ? isDesktopOrLaptop
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+                : imgNotAvailablePortrait
+        );
     return (
         <>
             <div>

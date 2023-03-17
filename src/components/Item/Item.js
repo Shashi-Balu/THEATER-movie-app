@@ -33,13 +33,18 @@ const Item = (props) => {
                         <h2 className="item-detail-title">{props.title}</h2>
 
                         <div className="item-detail-data">
-                            {props.rating !== 0 ? (
-                                <div className="item-detail-rating-data">
-                                    <StarBorderSharpIcon className="item-detail-star" />
-                                    <p className="item-detail-rating">{props.rating}/10</p>
-                                </div>
-                            ) : null}
-                            <p className="item-detail-release-date">{props.release_date}</p>
+                            <div className="item-rating-and-date">
+                                {props.rating !== 0 ? (
+                                    <div className="item-detail-rating-data">
+                                        <StarBorderSharpIcon className="item-detail-star" />
+                                        <p className="item-detail-rating">{props.rating}/10</p>
+                                    </div>
+                                ) : null}
+                                <div className="item-detail-data-separator">|</div>
+
+                                <p className="item-detail-release-date">{props.release_date}</p>
+                            </div>
+
                             <div className="item-detail-data-genres-container">
                                 {props.genres?.map((genre) => (
                                     <span className="item-detail-data-genres">
@@ -48,6 +53,12 @@ const Item = (props) => {
                                 ))}
                             </div>
                         </div>
+                        {/* <div className="item-detail-data">
+                           
+                          
+
+                            
+                        </div> */}
                         <div>
                             <p className="item-detail-description">
                                 {props.description && props.description.length >= 500

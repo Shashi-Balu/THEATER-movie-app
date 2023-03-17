@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import StarBorderSharpIcon from "@mui/icons-material/StarBorderSharp";
-
 import { url } from "../../../services/apis/movieUrl";
-
 import "./Carousel.css";
+import { useMediaQuery } from "react-responsive";
 
 function Carousel() {
     const [carouselData, setCarouselData] = useState([]);
@@ -27,7 +26,9 @@ function Carousel() {
         setGenreData(genreApiData);
         // console.log(genreData);
     }
-
+    const isDesktopOrLaptop = useMediaQuery({
+        query: "(min-width: 450px)",
+    });
     const imgUrl = carouselData.map(
         (movie) => `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`
     );
@@ -36,7 +37,13 @@ function Carousel() {
     const rating = carouselData.map((rating) => rating.vote_average.toFixed(1));
     const release_date = carouselData.map((release_date) => release_date.release_date);
     const genres = carouselData.map((genres) => genres.genre_ids);
-    const description = carouselData.map((description) => description.overview);
+    const description = carouselData.map((description) =>
+        isDesktopOrLaptop
+            ? description.overview
+            : description.overview && description.overview.length <= 300
+            ? `${description.overview.slice(0, 300)}`
+            : `${description.overview.slice(0, 300)}...`
+    );
 
     const genresToDisplay = genres[index]?.map((item) => {
         genreData?.map((item2) => {

@@ -5,12 +5,8 @@ import { GenreContext } from "../../services/GenreContextProviders";
 import "./Genres.css";
 
 function Genres() {
-    const { movieGenreData, tvGenreData, setGenreIdMovieApp } = useContext(GenreContext);
+    const { movieGenreData, tvGenreData } = useContext(GenreContext);
 
-    const handleClick = (genreid) => {
-        // console.log({ genreid });
-        setGenreIdMovieApp(genreid);
-    };
     return (
         <>
             <div className="genres-container">
@@ -18,18 +14,14 @@ function Genres() {
                     <h3 className="genres-heading">movies</h3>
                     <p className="genres-data">
                         {movieGenreData.map((genre) => (
-                            <Link
-                                className="genre-name"
-                                to={`/genres/movies/${genre.id}`}
-                                onClick={() => handleClick(genre.id)}
-                            >
+                            <Link className="genre-name" to={`/genres/movies/${genre.id}`}>
                                 <span>{genre.name}</span>
                             </Link>
                         ))}
                     </p>
                 </div>
                 <div className="genres-tvshows">
-                    <h3 className="genres-heading">tvshow</h3>
+                    <h3 className="genres-heading">tv shows</h3>
                     <p className="genres-data">
                         {tvGenreData.map((genre) => (
                             <Link className="genre-name" to={`/genres/tv-shows/${genre.id}`}>

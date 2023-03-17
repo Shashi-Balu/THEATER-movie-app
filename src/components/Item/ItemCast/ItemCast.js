@@ -1,7 +1,11 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import "./ItemCast.css";
 
 const ItemCast = (props) => {
+    const isDesktopOrLaptop = useMediaQuery({
+        query: "(min-width: 1100px)",
+    });
     return (
         <>
             <h2 className="item-cast-heading">Cast</h2>
@@ -23,16 +27,20 @@ const ItemCast = (props) => {
                                     )}
                                 </>
                                 <p className="item-cast-name">{profile.original_name}</p>
-                                <div className="item-cast-overflow">
-                                    <div className="item-cast-fiction">
-                                        <p className="item-cast-character">
-                                            Character: <span>{profile.character}</span>
-                                        </p>
-                                        <p className="item-cast-profession">
-                                            Profession: <span>{profile.known_for_department}</span>
-                                        </p>
+
+                                {isDesktopOrLaptop && (
+                                    <div className="item-cast-overflow">
+                                        <div className="item-cast-fiction">
+                                            <p className="item-cast-character">
+                                                Character: <span>{profile.character}</span>
+                                            </p>
+                                            <p className="item-cast-profession">
+                                                Profession:{" "}
+                                                <span>{profile.known_for_department}</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </>
                     ))

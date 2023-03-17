@@ -33,7 +33,64 @@
 
 .genre-name:hover {
     color: var(--black);
+    transition: all 0.5s;
     cursor: pointer;
     background-color: var(--gold);
     transform: translateY(-3px);
+}
+
+@media only screen and (max-width: 1200px) {
+    .genres-heading {
+        font-size: 2.4rem;
+    }
+
+    .genres-data {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .genres-heading {
+        font-size: 2.2rem;
+    }
+
+    .genres-data {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width: 1040px) {
+    .genres-heading {
+        font-size: 2rem;
+    }
+    .genres-data {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        font-size: 1.15rem;
+    }
+    .genre-name {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .genres-heading {
+        font-size: 1.8rem;
+    }
+    .genres-data {
+        font-size: 1.05rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .genres-heading {
+        font-size: 1.5rem;
+    }
+    .genres-data {
+        /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+        font-size: 0.9rem;
+    }
+    .genre-name {
+        padding: 12px;
+        margin: 10px;
+    }
 }
