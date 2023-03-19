@@ -5,7 +5,7 @@ import "../../styles/ItemPage.css";
 import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 import { SearchContext } from "../../services/SearchProviders";
-import { imgNotAvailablePortrait } from "../../services/imgNotAvailable";
+import { imgNotAvailablePortrait, imgNotAvailableLandscape } from "../../services/imgNotAvailable";
 import { useMediaQuery } from "react-responsive";
 function Movies() {
     const {
@@ -65,12 +65,16 @@ function Movies() {
     const searchMovieQueryImages =
         searchMovieQueryData &&
         searchMovieQueryData?.map((movie) =>
-            movie.poster_path !== null
-                ? isDesktopOrLaptop
-                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                    : `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-                : imgNotAvailablePortrait
+            isDesktopOrLaptop
+                ? movie.poster_path !== null
+                    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                    : imgNotAvailablePortrait
+                : movie.backdrop_path !== null
+                ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                : imgNotAvailableLandscape
         );
+
+    console.log({ upcomingMovies });
     return (
         <>
             <div>
@@ -100,7 +104,17 @@ function Movies() {
                                                         key={index}
                                                         title={movie.title}
                                                         rating={movie.vote_average.toFixed(1)}
-                                                        imgUrl={upcomingMoviesDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? movie.poster_path !== null
+                                                                    ? upcomingMoviesImages[index]
+                                                                    : imgNotAvailablePortrait
+                                                                : movie.backdrop_path !== null
+                                                                ? upcomingMoviesLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         movieId={movie.id}
                                                     />
                                                 ))}
@@ -124,7 +138,19 @@ function Movies() {
                                                             key={index}
                                                             title={movie.title}
                                                             rating={movie.vote_average.toFixed(1)}
-                                                            imgUrl={topRatedMoviesDisplay[index]}
+                                                            imgUrl={
+                                                                isDesktopOrLaptop
+                                                                    ? movie.poster_path !== null
+                                                                        ? topRatedMoviesImages[
+                                                                              index
+                                                                          ]
+                                                                        : imgNotAvailablePortrait
+                                                                    : movie.backdrop_path !== null
+                                                                    ? topRatedMoviesLandscapeImages[
+                                                                          index
+                                                                      ]
+                                                                    : imgNotAvailableLandscape
+                                                            }
                                                             movieId={movie.id}
                                                         />
                                                     </div>
@@ -148,7 +174,17 @@ function Movies() {
                                                         key={index}
                                                         title={movie.title}
                                                         rating={movie.vote_average.toFixed(1)}
-                                                        imgUrl={popularMoviesDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? movie.poster_path !== null
+                                                                    ? popularMoviesImages[index]
+                                                                    : imgNotAvailablePortrait
+                                                                : movie.backdrop_path !== null
+                                                                ? popularMoviesLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         movieId={movie.id}
                                                     />
                                                 ))}
@@ -173,7 +209,17 @@ function Movies() {
                                                         key={index}
                                                         title={movie.title}
                                                         rating={movie.vote_average.toFixed(1)}
-                                                        imgUrl={trendingMoviesDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? movie.poster_path !== null
+                                                                    ? trendingMoviesImages[index]
+                                                                    : imgNotAvailablePortrait
+                                                                : movie.backdrop_path !== null
+                                                                ? trendingMoviesLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         movieId={movie.id}
                                                     />
                                                 ))}

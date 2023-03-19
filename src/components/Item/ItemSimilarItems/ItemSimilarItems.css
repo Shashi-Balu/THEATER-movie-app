@@ -2,7 +2,7 @@
     margin-top: 60px;
     text-align: center;
     font-size: 2.3rem;
-    color: var(--gold);
+    color: var(--border);
     font-weight: 400;
 }
 
@@ -19,10 +19,24 @@
     .item-similar-heading {
         font-size: 2.1rem;
     }
+
+    .similar-not-available {
+        font-size: 1.3rem;
+    }
 }
 
 @media only screen and (max-width: 800px) {
     .item-similar-heading {
         font-size: 1.8rem;
+    }
+
+    .similar-not-available {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .similar-not-available {
+        font-size: 0.9rem;
+        margin-right: 1.5rem;
     }
 }

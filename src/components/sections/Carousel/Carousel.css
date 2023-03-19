@@ -4,6 +4,7 @@
     right: 0;
     transition: all 1s linear;
     font-size: 1.4rem;
+    margin-top: 57px;
 }
 
 .carousel-image-container {
@@ -26,7 +27,7 @@
     top: 120px;
     left: 80px;
     box-shadow: 0, 0, 0, 0;
-    color: #fff;
+    color: var(--font-color);
 }
 
 .carousel-title {
@@ -193,8 +194,11 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .carousel-container {
+        margin-top: 100px;
+    }
     .carousel-title {
-        margin-top: -15px;
+        margin-top: 20px;
         font-size: 1.3rem;
     }
     .carousel-image-container {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../../assets/THEATER.svg";
+import logo from "../../../assets/cinematrix-1.png";
 import NightlightRoundTwoToneIcon from "@mui/icons-material/NightlightRoundTwoTone";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import LanguageIcon from "@mui/icons-material/Language";
 
 function Navbar() {
     const isDesktopOrLaptop = useMediaQuery({
@@ -24,22 +25,50 @@ function Navbar() {
                     <img className="nav-logo-image" src={logo} alt="LOGO" />
                 </div>
                 <div className="nav-menu">
-                    <NavLink to="/" className="navbar-nav navbar-nav-link">
+                    <NavLink
+                        exact
+                        activeClassName="active"
+                        to="/"
+                        className="navbar-nav navbar-nav-link"
+                    >
                         <nav className="navbar-nav">HOME</nav>
                     </NavLink>
-                    <NavLink to="/movies" className="navbar-nav navbar-nav-link">
+                    <NavLink
+                        exact
+                        activeClassName="active"
+                        to="/movies"
+                        className="navbar-nav navbar-nav-link"
+                    >
                         <nav className="navbar-nav">MOVIES</nav>
                     </NavLink>
 
-                    <NavLink to="/tv-shows" className="navbar-nav navbar-nav-link">
+                    <NavLink
+                        exact
+                        activeClassName="active"
+                        to="/tv-shows"
+                        className="navbar-nav navbar-nav-link"
+                    >
                         <nav className="navbar-nav">TV SHOWS</nav>
                     </NavLink>
 
-                    <NavLink to="/genres" className="navbar-nav navbar-nav-link">
+                    <NavLink
+                        exact
+                        activeClassName="active"
+                        to="/genres"
+                        className="navbar-nav navbar-nav-link"
+                    >
                         <nav className="navbar-nav">GENRES</nav>
                     </NavLink>
                 </div>
-
+                {/* <div>
+                    <label for="language">
+                        <LanguageIcon className="language-icon" />
+                    </label>
+                    <select name="language" id="languages">
+                        <option value="fr"> French</option>
+                        <option value="en"> English</option>
+                    </select>
+                </div> */}
                 {/* <div className="navbar-mode">
                
                     <NightlightRoundTwoToneIcon className="nav-logo-mode" />
@@ -55,18 +84,18 @@ function Navbar() {
         //                         <img className="nav-logo-image" src={logo} alt="LOGO" />
         //                     </div>
         //                     <div className="nav-menu">
-        //                         <NavLink to="/" className="navbar-nav navbar-nav-link">
+        //                         <NavLink exact activeClassName="active" to="/" className="navbar-nav navbar-nav-link">
         //                             <nav className="navbar-nav">HOME</nav>
         //                         </NavLink>
-        //                         <NavLink to="/movies" className="navbar-nav navbar-nav-link">
+        //                         <NavLink exact activeClassName="active" to="/movies" className="navbar-nav navbar-nav-link">
         //                             <nav className="navbar-nav">MOVIES</nav>
         //                         </NavLink>
 
-        //                         <NavLink to="/tv-shows" className="navbar-nav navbar-nav-link">
+        //                         <NavLink exact activeClassName="active" to="/tv-shows" className="navbar-nav navbar-nav-link">
         //                             <nav className="navbar-nav">TV SHOWS</nav>
         //                         </NavLink>
 
-        //                         <NavLink to="/genres" className="navbar-nav navbar-nav-link">
+        //                         <NavLink exact activeClassName="active" to="/genres" className="navbar-nav navbar-nav-link">
         //                             <nav className="navbar-nav">GENRES</nav>
         //                         </NavLink>
         //                     </div>
@@ -101,24 +130,24 @@ function Navbar() {
         //                     {menu && (
         //                         <div className="hamburger-container">
         //                             <div className="nav-menu">
-        //                                 <NavLink to="/" className="navbar-nav navbar-nav-link">
+        //                                 <NavLink exact activeClassName="active" to="/" className="navbar-nav navbar-nav-link">
         //                                     <nav className="navbar-nav">HOME</nav>
         //                                 </NavLink>
-        //                                 <NavLink
+        //                                 <NavLink exact activeClassName="active"
         //                                     to="/movies"
         //                                     className="navbar-nav navbar-nav-link"
         //                                 >
         //                                     <nav className="navbar-nav">MOVIES</nav>
         //                                 </NavLink>
 
-        //                                 <NavLink
+        //                                 <NavLink exact activeClassName="active"
         //                                     to="/tv-shows"
         //                                     className="navbar-nav navbar-nav-link"
         //                                 >
         //                                     <nav className="navbar-nav">TV SHOWS</nav>
         //                                 </NavLink>
 
-        //                                 <NavLink
+        //                                 <NavLink exact activeClassName="active"
         //                                     to="/genres"
         //                                     className="navbar-nav navbar-nav-link"
         //                                 >

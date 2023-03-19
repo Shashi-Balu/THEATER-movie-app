@@ -1,6 +1,7 @@
 @import url("../../styles/colors.css");
 
 .genres-container {
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -11,7 +12,7 @@
     font-size: 2.6rem;
     font-weight: 500;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--border);
     text-align: center;
 }
 
@@ -23,19 +24,18 @@
 .genre-name {
     display: flex;
     justify-content: center;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--secondary-background);
     margin: 20px;
-    color: var(--white);
+    color: var(--font-color);
     text-decoration: none;
     transition: all 0.5s;
     padding: 15px;
 }
 
 .genre-name:hover {
-    color: var(--black);
     transition: all 0.5s;
     cursor: pointer;
-    background-color: var(--gold);
+    background-color: var(--secondary-background);
     transform: translateY(-3px);
 }
 
@@ -92,5 +92,10 @@
     .genre-name {
         padding: 12px;
         margin: 10px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .genres-container {
+        margin-top: 100px;
     }
 }

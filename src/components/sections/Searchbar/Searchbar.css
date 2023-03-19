@@ -2,26 +2,26 @@
 
 .searchbar {
     width: 100%;
-    background-color: var(--black);
+    background-color: var(--primary-background);
     border: none;
     padding: 8px;
-    color: var(--white);
+    color: var(--font-color);
     font-size: 1.5rem;
-    font-family: "Cormorant Garamond";
+    font-family: "Quicksand";
     font-weight: 100;
     outline: none;
 }
 
 .searchbar-container {
-    border: 0.5px solid var(--gold);
+    border: 0.5px solid var(--border);
     display: flex;
-    margin: 30px 10px 0 13px;
+    margin: 90px 10px 0 13px;
 }
 
 .search-icon {
     margin-top: 5px;
     transform: scale(1.4);
-    color: var(--gold);
+    color: var(--star);
     padding: 8px;
 }
 
@@ -46,22 +46,23 @@
     margin: 20px 0 0 6rem;
 }
 .search-results {
-    color: var(--gold);
+    color: var(--border);
     font-weight: 300;
     margin-left: 50px;
 }
 
 .type-radio:checked + .type-label {
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--border);
     transform: translateX(10px);
 }
 
 @media only screen and (max-width: 1280px) {
     .type-label {
+        font-size: 1.4rem;
         margin-right: 8rem;
     }
     .type-categories {
-        margin-left: 4.5rem;
+        margin-left: 4rem;
     }
 }
 
@@ -95,17 +96,7 @@
 
 @media only screen and (max-width: 930px) {
     .type-label {
-        margin-right: 3.5rem;
-    }
-
-    .search-icon {
-        padding: 3px;
-    }
-}
-
-@media only screen and (max-width: 930px) {
-    .type-label {
-        font-size: 1.1rem;
+        font-size: 1.01rem;
         margin-right: 2rem;
     }
     .type-categories {
@@ -120,6 +111,17 @@
     .search-icon {
         transform: scale(1);
         padding: 2px;
+    }
+    .type-label {
+        margin-right: 3.5rem;
+    }
+
+    .search-icon {
+        padding: 3px;
+    }
+
+    .searchbar-container {
+        margin-top: 80px;
     }
 }
 
@@ -148,7 +150,11 @@
     }
     .type-radio:checked + .type-label {
         border: none;
-        color: var(--gold);
+        color: var(--border);
+    }
+
+    .searchbar-container {
+        margin-top: 120px;
     }
 }
 
@@ -164,6 +170,6 @@
     }
     .type-radio:checked + .type-label {
         border: none;
-        color: var(--gold);
+        color: var(--border);
     }
 }

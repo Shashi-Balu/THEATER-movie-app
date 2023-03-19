@@ -1,12 +1,8 @@
 :root {
-    --dark-black: #000;
-    --black: #1b1a17;
-    --white: #fff;
-    --gold: #f0a500;
-    --blue: #c49713;
-    --brown: #c49713;
-    --yellow: #c49713;
+    --primary-background: #071723;
+    --font-color: #f3e4d5;
+    --border: #3aa4af;
+    --secondary-background: #113b5a;
+    --star: #a5be2e;
+    --tertiary-background: #1c2d39;
 }
-/*#ffd700
-background: linear-gradinet(to bottom, #ffec8b, #ffd700)
-*/

@@ -5,6 +5,7 @@ import MovieCard from "../components/MoviesComponent/MovieCard/MovieCard";
 import AppPagination from "../components/sections/AppPagination/AppPagination";
 import TvshowCard from "../components/TvshowsComponent/TvshowCard/TvshowCard";
 import { url } from "./apis/movieUrl";
+import { imgNotAvailableLandscape, imgNotAvailablePortrait } from "./imgNotAvailable";
 
 const GenreDetailProviders = () => {
     const isDesktopOrLaptop = useMediaQuery({
@@ -59,7 +60,7 @@ const GenreDetailProviders = () => {
         <>
             {Object.values(params)[0] === "movies" && (
                 <>
-                    <div className="items-item-container">
+                    <div className="items-item-container genres-item-container">
                         {genreMovies?.map((genre) => {
                             return (
                                 <>
@@ -67,8 +68,12 @@ const GenreDetailProviders = () => {
                                         title={genre.title}
                                         imgUrl={
                                             isDesktopOrLaptop
-                                                ? `https://image.tmdb.org/t/p/w500/${genre.poster_path}`
-                                                : `https://image.tmdb.org/t/p/w500/${genre.backdrop_path}`
+                                                ? genre.poster_path !== null
+                                                    ? `https://image.tmdb.org/t/p/w500/${genre.poster_path}`
+                                                    : imgNotAvailablePortrait
+                                                : genre.backdrop_path !== null
+                                                ? `https://image.tmdb.org/t/p/w500/${genre.backdrop_path}`
+                                                : imgNotAvailableLandscape
                                         }
                                         rating={genre?.vote_average.toFixed(1)}
                                         movieId={genre.id}
@@ -79,7 +84,6 @@ const GenreDetailProviders = () => {
                     </div>
 
                     <div className="item-pagination-container">
-                        {genrePage},{totalGenrePages}
                         <AppPagination
                             setPage={setGenrePage}
                             page={genrePage}
@@ -99,8 +103,12 @@ const GenreDetailProviders = () => {
                                         title={genre.name}
                                         imgUrl={
                                             isDesktopOrLaptop
-                                                ? `https://image.tmdb.org/t/p/w500/${genre.poster_path}`
-                                                : `https://image.tmdb.org/t/p/w500/${genre.backdrop_path}`
+                                                ? genre.poster_path !== null
+                                                    ? `https://image.tmdb.org/t/p/w500/${genre.poster_path}`
+                                                    : imgNotAvailablePortrait
+                                                : genre.backdrop_path !== null
+                                                ? `https://image.tmdb.org/t/p/w500/${genre.backdrop_path}`
+                                                : imgNotAvailableLandscape
                                         }
                                         rating={genre?.vote_average.toFixed(1)}
                                         tvId={genre.id}
@@ -111,7 +119,6 @@ const GenreDetailProviders = () => {
                     </div>
 
                     <div className="item-pagination-container">
-                        {genrePage},{totalGenrePages}
                         <AppPagination
                             setPage={setGenrePage}
                             page={genrePage}

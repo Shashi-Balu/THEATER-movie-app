@@ -13,7 +13,7 @@ const ItemThumbnail = (props) => {
                         />
                     ))
                 ) : (
-                    <h2>Thumbnails are not available</h2>
+                    <h2 className="thumbnail-not-available">Thumbnails are not available</h2>
                 )}
             </div>
         </>

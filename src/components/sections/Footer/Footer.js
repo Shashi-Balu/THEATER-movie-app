@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import logo from "../../../assets/THEATER.svg";
+import logo from "../../../assets/cinematrix-1.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 

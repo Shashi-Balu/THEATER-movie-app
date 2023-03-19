@@ -4,10 +4,10 @@
     display: none;
 }
 .active {
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--border);
 }
 .navbar-nav-link:hover {
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--border);
 }
 .navbar-container {
     position: relative;
@@ -18,10 +18,12 @@
     justify-content: space-between;
     padding: 15px 10px;
     justify-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
-    background-color: var(--black);
+    background-color: var(--tertiary-background);
+    width: 100%;
+    border-bottom: 1px dashed var(--border);
 }
 
 .nav-menu {
@@ -32,15 +34,16 @@
 .navbar-nav {
     font-family: "Cinzel", serif;
     margin: 0 35px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: lighter;
-    color: #fff;
+    color: var(--font-color);
     transition: all 0.5s;
     text-decoration: none;
 }
 
 .nav-logo-image {
-    width: 160px;
+    margin-top: -5px;
+    width: 220px;
 }
 
 .nav-logo-mode {
@@ -49,27 +52,39 @@
 
 .nav-logo-mode:hover {
     cursor: pointer;
-    color: var(--gold);
+    color: var(--border);
 }
 
+.language-icon {
+    margin-right: 2.5rem;
+    color: var(--border);
+}
+
+@media only screen and (max-width: 1155px) {
+    .navbar-nav {
+        font-size: 1.1rem;
+    }
+}
 @media only screen and (max-width: 1080px) {
-    .navbar-nav-link {
+    .navbar-nav {
         margin: 0 25px;
-        font-size: 15rem;
+        font-size: 1.2rem;
     }
 }
 
 @media only screen and (max-width: 1040px) {
     .navbar-nav {
-        font-size: 1rem;
+        margin: 0 15px;
+        font-size: 1.1rem;
     }
     .navbar {
         justify-content: space-evenly;
     }
 }
+
 @media only screen and (max-width: 800px) {
     .navbar-nav {
-        margin: 0 8px;
+        margin: 0 5px;
         font-size: 1rem;
     }
 
@@ -79,7 +94,7 @@
 
     .navbar-hamburger {
         margin-right: 10px;
-        color: var(--gold);
+        color: var(--border);
         transform: scale(1.3);
         cursor: pointer;
     }
@@ -87,35 +102,55 @@
     .hamburger-container {
         text-align: center;
         margin: 30px 0px 0 0;
-        border: 1px solid var(--gold);
+        border: 1px solid var(--border);
         position: absolute;
         right: 0;
         width: 99%;
         background-color: rgb(0, 0, 0, 0.9);
     }
 
+    .navbar-nav {
+        padding: 5px 0;
+    }
+
     .active .navbar-nav-link {
         border: none;
-        color: var(--gold);
+        color: var(--border);
         width: 100%;
     }
-    .navbar-nav-link:hover {
-        border: none;
-    }
+
     .nav-logo-image {
-        width: 100px;
+        width: 190px;
+        margin-top: 6px;
+    }
+
+    .language-icon {
+        margin-top: 0.5rem;
     }
 }
 
 @media only screen and (max-width: 500px) {
+    .navbar {
+        flex-direction: column;
+
+        align-items: center;
+    }
     .nav-logo-image {
-        width: 80px;
+        margin-left: -1.5px;
+        width: 160px;
+    }
+    .navbar-nav {
+        /* border: 1px solid red; */
+        font-size: 0.8rem;
+        /* margin: 5px 0 0 8px; */
     }
 
-    .navbar-nav {
-        font-size: 0.8rem;
-        margin-left: 5px;
-        margin-top: 2px;
+    .language-icon {
+        transform: scale(0.8);
+        position: absolute;
+        right: 0;
+        top: 1.3rem;
+        margin: 0 15px;
     }
 }
 

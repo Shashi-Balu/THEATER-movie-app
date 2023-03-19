@@ -1,7 +1,9 @@
 @import url("../../styles/colors.css");
 
 .item-container {
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--border);
+
+    margin-top: 57px;
 }
 
 .item-detail-data-container {
@@ -10,7 +12,8 @@
     top: 0;
     margin: 8rem 4rem;
     font-size: 1.5rem;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.89);
+    text-shadow: 4px 0px 20px rgb(17, 59, 90), 4px 0px 20px rgb(17, 59, 90),
+        4px 0px 20px rgb(17, 59, 90), 4px 0px 10px rgb(17, 59, 90);
 }
 
 .item-rating-and-date {
@@ -32,7 +35,8 @@
     display: flex;
     font-weight: 400;
     font-size: 1.4rem;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.89);
+    text-shadow: 4px 0px 20px rgb(17, 59, 90), 4px 0px 20px rgb(17, 59, 90),
+        4px 0px 20px rgb(17, 59, 90), 4px 0px 10px rgb(17, 59, 90);
 }
 
 .item-detail-rating-data {
@@ -46,7 +50,7 @@
 .item-detail-star {
     transform: scale(1.3);
     margin: 25px 10px 0 0;
-    color: rgb(228, 238, 44);
+    color: var(--star);
 }
 
 .item-detail-data-separator {
@@ -61,7 +65,8 @@
     margin-top: 10px;
     line-height: 1.7;
     max-width: 105%;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.89);
+    text-shadow: 4px 0px 20px rgb(17, 59, 90), 4px 0px 20px rgb(17, 59, 90),
+        4px 0px 20px rgb(17, 59, 90), 4px 0px 10px rgb(17, 59, 90);
 }
 
 .item-type-radio {
@@ -74,8 +79,8 @@
     font-size: 1.3rem;
     font-weight: 400;
     padding: 20px;
-    color: var(--gold);
-    border-bottom: 1px solid var(--gold);
+    color: var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .item-choose-label {
@@ -89,21 +94,22 @@
 }
 
 .item-type-radio:checked + .item-choose-label {
-    color: var(--white);
+    color: var(--font-color);
 }
 .item-detail-data-genres-container {
     margin: -4px 12px 0 30px;
 }
 .item-detail-data-genres {
-    background-color: var(--black);
-    border: 2px solid var(--gold);
+    background-color: var(--primary-background);
+    border: 2px solid var(--border);
     border-radius: 50px;
     padding: 8px 8px 8px 25px;
     margin: -3px 10px;
-    color: var(--white);
+    color: var(--font-color);
     font-size: 1.3rem;
     font-weight: 400;
     width: max-content;
+    text-shadow: none;
 }
 
 @media only screen and (max-width: 1125px) {
@@ -221,8 +227,11 @@
     }
 }
 @media only screen and (max-width: 500px) {
+    .item-container {
+        margin-top: 100px;
+    }
     .item-detail-title {
-        margin-top: 0;
+        margin-top: 80px;
         font-size: 1.5rem;
     }
 

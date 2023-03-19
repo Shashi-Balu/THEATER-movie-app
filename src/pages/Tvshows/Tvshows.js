@@ -5,7 +5,7 @@ import Searchbar from "../../components/sections/Searchbar/Searchbar";
 import "../../styles/ItemPage.css";
 import AppPagination from "../../components/sections/AppPagination/AppPagination";
 import { SearchContext } from "../../services/SearchProviders";
-import { imgNotAvailablePortrait } from "../../services/imgNotAvailable";
+import { imgNotAvailablePortrait, imgNotAvailableLandscape } from "../../services/imgNotAvailable";
 import { useMediaQuery } from "react-responsive";
 
 function Tvshows() {
@@ -96,7 +96,19 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv.name}
                                                         rating={tv.vote_average.toFixed(1)}
-                                                        imgUrl={airingTodayTvshowsDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? tv.poster_path !== null
+                                                                    ? airingTodayTvshowsImages[
+                                                                          index
+                                                                      ]
+                                                                    : imgNotAvailablePortrait
+                                                                : tv.backdrop_path !== null
+                                                                ? airingTodayTvshowsLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -119,7 +131,17 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv.name}
                                                         rating={tv.vote_average.toFixed(1)}
-                                                        imgUrl={topRatedTvshowsDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? tv.poster_path !== null
+                                                                    ? topRatedTvshowsImages[index]
+                                                                    : imgNotAvailablePortrait
+                                                                : tv.backdrop_path !== null
+                                                                ? topRatedTvshowsLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -142,7 +164,17 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv?.name}
                                                         rating={tv.vote_average?.toFixed(1)}
-                                                        imgUrl={popularTvshowsDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? tv.poster_path !== null
+                                                                    ? popularTvshowsImages[index]
+                                                                    : imgNotAvailablePortrait
+                                                                : tv.backdrop_path !== null
+                                                                ? popularTvshowsLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         tvId={tv.id}
                                                     />
                                                 ))}
@@ -167,7 +199,17 @@ function Tvshows() {
                                                         key={index}
                                                         title={tv.name}
                                                         rating={tv.vote_average.toFixed(1)}
-                                                        imgUrl={trendingTvshowsDisplay[index]}
+                                                        imgUrl={
+                                                            isDesktopOrLaptop
+                                                                ? tv.poster_path !== null
+                                                                    ? trendingTvshowsImages[index]
+                                                                    : imgNotAvailablePortrait
+                                                                : tv.backdrop_path !== null
+                                                                ? trendingTvshowsLandscapeImages[
+                                                                      index
+                                                                  ]
+                                                                : imgNotAvailableLandscape
+                                                        }
                                                         tvId={tv.id}
                                                     />
                                                 ))}

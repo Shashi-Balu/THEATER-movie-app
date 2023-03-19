@@ -6,7 +6,7 @@ import ItemEmbedVideo from "./ItemEmbedVideo/ItemEmbedVideo";
 import ItemThumbnail from "./ItemThumbnail/ItemThumbnail";
 import ItemCast from "./ItemCast/ItemCast";
 import ItemSimilarItems from "./ItemSimilarItems/ItemSimilarItems";
-import { imgNotAvailableLandscape } from "../../services/imgNotAvailable";
+import { imgNotAvailableLandscape, imgNotAvailablePortrait } from "../../services/imgNotAvailable";
 
 const Item = (props) => {
     const [itemType, setItemType] = useState("itemTypeDetail");
@@ -29,6 +29,7 @@ const Item = (props) => {
                                 : imgNotAvailableLandscape
                         }
                     />
+
                     <div className="item-detail-data-container">
                         <h2 className="item-detail-title">{props.title}</h2>
 
@@ -53,12 +54,6 @@ const Item = (props) => {
                                 ))}
                             </div>
                         </div>
-                        {/* <div className="item-detail-data">
-                           
-                          
-
-                            
-                        </div> */}
                         <div>
                             <p className="item-detail-description">
                                 {props.description && props.description.length >= 500

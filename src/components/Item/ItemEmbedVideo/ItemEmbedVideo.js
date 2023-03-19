@@ -18,7 +18,7 @@ const ItemEmbedVideo = (props) => {
                         ></iframe>
                     ))
                 ) : (
-                    <h2>Videos are not available</h2>
+                    <h2 className="video-not-available">Videos are not available</h2>
                 )}
             </div>
         </>

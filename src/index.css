@@ -12,15 +12,15 @@ body {
 body {
     /* font-family: "Cormorant Garamond", cursive; */
     font-family: Quicksand;
-    background-color: var(--black);
+    background-color: var(--primary-background);
 
     /* background: linear-gradinet(to bottom, #ffec8b, #ffd700); */
-    color: var(--white);
+    color: var(--font-color);
     font-weight: 100;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--gold);
+    background: var(--border);
     border-radius: 2px;
 }
 ::-webkit-scrollbar {

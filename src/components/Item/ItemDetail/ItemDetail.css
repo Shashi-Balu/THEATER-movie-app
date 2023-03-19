@@ -1,6 +1,6 @@
 .item-detail-content-container {
     display: flex;
-    background-color: var(--dark-black);
+    background-color: var(--secondary-background);
 }
 
 .item-detail-poster-img {
@@ -20,7 +20,7 @@
 }
 
 .item-detail-data-content {
-    color: var(--gold);
+    color: var(--star);
 }
 
 .item-detail-data-para {
